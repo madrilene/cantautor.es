@@ -15,6 +15,10 @@
     "start": "run-p dev:*",
     "build": "run-s clean build:*"
   },
+  "imports": {
+    "#data/*": "./src/_data/*.json",
+    "#datajs/*": "./src/_data/*.js"
+  },
   "keywords": [],
   "repository": {
     "type": "git",
