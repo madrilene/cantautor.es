@@ -23,6 +23,7 @@ dd {
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
 ul[role='list'],
+ul[role='listbox'],
 ol[role='list'] {
   list-style: none;
 }
@@ -31,6 +32,7 @@ ol[role='list'] {
 html {
   text-size-adjust: none;
   -webkit-text-size-adjust: none;
+  scroll-behavior: smooth;
 }
 
 /* Set core root defaults */
@@ -40,7 +42,7 @@ html:focus-within {
 
 /* Set core body defaults */
 body {
-  min-height: 100vh;
+  min-block-size: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
 }
@@ -50,11 +52,15 @@ a:not([class]) {
   text-decoration-skip-ink: auto;
 }
 
-/* Make images easier to work with */
-img,
-picture {
+picture,
+img {
   max-inline-size: 100%;
-  display: block;
+  block-size: auto;
+  vertical-align: middle;
+  font-style: italic;
+  background-repeat: no-repeat;
+  background-size: cover;
+  shape-margin: 0.75rem;
 }
 
 /* Inherit fonts for inputs and buttons */
@@ -63,16 +69,4 @@ button,
 textarea,
 select {
   font: inherit;
-}
-
-/* Adding cursor style to interactive elements */
-button,
-[type='button'],
-[type='reset'],
-[type='submit'],
-[type='image'],
-[type='checkbox'],
-[type='radio'],
-summary {
-  cursor: pointer;
 }

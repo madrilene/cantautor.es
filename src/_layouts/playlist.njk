@@ -1,0 +1,64 @@
+---
+layout: base
+---
+
+<article class="wrapper region">
+  <ul class="grid mt-l-xl" role="list" data-rows="masonry" data-layout="50-50">
+    {% set index = 0 %} {% for item in spotify.playlist %}
+
+    <li class="card flow overflow-hidden">
+      <figure>
+        <figcaption>Preview for "{{ item.track.name }}":</figcaption>
+        <audio controls src="{{ item.track.preview_url }}">
+          <a href="{{ item.track.preview_url }}"> Download audio </a>
+        </audio>
+      </figure>
+
+      <h2>artist info</h2>
+      <ul>
+        {% for artist in item.track.artists %}
+
+        <li>Name: {{ artist.name }}</li>
+        <li>
+          Link to artist:
+          <a href="{{ artist.external_urls.spotify }}">{{
+            artist.external_urls.spotify
+          }}</a>
+        </li>
+
+        <p>
+          <!-- access artist api! -->
+          {% for artist in spotify.artistInfo %} {% if loop.index0 == index %}
+          <!-- artist image -->
+
+          <img
+            src="{{ artist.images[0].url }}"
+            alt="{{ artist.name }}"
+            width="{{ artist.images[0].width }}"
+            height="{{ artist.images[0].height }}"
+          />
+          {% endif %}{% endfor %}
+        </p>
+        <!-- end artist api -->
+
+        {% endfor %}
+      </ul>
+
+      <h2>album info</h2>
+      <ul>
+        <li>Name: {{ item.track.album.name }}</li>
+        <li>tracks: {{ item.track.album.total_tracks }}</li>
+        <li>type: {{ item.track.album.album_type }}</li>
+        <li>release date: {{ item.track.album.release_date }}</li>
+      </ul>
+
+      <img
+        src="{{ item.track.album.images[0].url }}"
+        alt="{{ artist.name }}"
+        width="{{ item.track.album.images[0].width }}"
+        height="{{ item.track.album.images[0].height }}"
+      />
+    </li>
+    {% set index = index + 1 %} {% endfor %}
+  </ul>
+</article>
