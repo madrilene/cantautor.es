@@ -39,8 +39,8 @@ const {
 } = require('./config/shortcodes/index.js');
 
 // module import collections
-const {getAllPosts} = require('./config/collections/index.js');
-const {onlyMarkdown} = require('./config/collections/index.js');
+
+const {getAllPosts, onlyMarkdown} = require('./config/collections/index.js');
 
 // module import events
 const {svgToJpeg} = require('./config/events/index.js');
@@ -63,6 +63,7 @@ module.exports = eleventyConfig => {
   // --------------------- layout aliases -----------------------
   eleventyConfig.addLayoutAlias('base', 'base.njk');
   eleventyConfig.addLayoutAlias('playlist', 'playlist.njk');
+  eleventyConfig.addLayoutAlias('artist', 'artist.njk');
   eleventyConfig.addLayoutAlias('page', 'page.njk');
   eleventyConfig.addLayoutAlias('home', 'home.njk');
   eleventyConfig.addLayoutAlias('blog', 'blog.njk');

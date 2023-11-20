@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const EleventyFetch = require('@11ty/eleventy-fetch');
 const fetch = require('node-fetch');
+const slugify = require('slugify');
 
 const PLAYLIST = '22n4VI1DJuCp3Hh1Jzn9B6';
 const PLAYLIST_ENDPOINT = `https://api.spotify.com/v1/playlists/${PLAYLIST}`;

@@ -7,50 +7,63 @@ layout: base
     {% set index = 0 %} {% for item in spotify.playlist %}
 
     <li class="card flow overflow-hidden">
+      <h2>{{ item.track.name }}</h2>
+
       <figure>
-        <figcaption>Preview for "{{ item.track.name }}":</figcaption>
+        <figcaption>30 seconds for "{{ item.track.name }}":</figcaption>
         <audio controls src="{{ item.track.preview_url }}">
           <a href="{{ item.track.preview_url }}"> Download audio </a>
         </audio>
       </figure>
 
-      <h2>artist info</h2>
-      <ul>
-        {% for artist in item.track.artists %}
+      <h3>artist info</h3>
 
-        <li>Name: {{ artist.name }}</li>
-        <li>
-          Link to artist:
+      {% for artist in item.track.artists %}
+        <p>Name: {{ artist.name }}</p>
+        <p>
+          Link to artist on spotify:
           <a href="{{ artist.external_urls.spotify }}">{{
             artist.external_urls.spotify
           }}</a>
-        </li>
-
-        <p>
-          <!-- access artist api! -->
-          {% for artist in spotify.artistInfo %} {% if loop.index0 == index %}
-          <!-- artist image -->
-
-          <img
-            src="{{ artist.images[0].url }}"
-            alt="{{ artist.name }}"
-            width="{{ artist.images[0].width }}"
-            height="{{ artist.images[0].height }}"
-          />
-          {% endif %}{% endfor %}
         </p>
-        <!-- end artist api -->
 
-        {% endfor %}
-      </ul>
 
-      <h2>album info</h2>
-      <ul>
-        <li>Name: {{ item.track.album.name }}</li>
-        <li>tracks: {{ item.track.album.total_tracks }}</li>
-        <li>type: {{ item.track.album.album_type }}</li>
-        <li>release date: {{ item.track.album.release_date }}</li>
-      </ul>
+      <p>
+        Link to local detail page:
+        <a href="/artists/{{ artist.name | slugify }}"
+          >/artists/{{ artist.name | slugify }}</a
+        >
+      </p>
+
+      <p>
+        <!-- access artist api! -->
+        {% for artist in spotify.artistInfo %}
+
+				{% if loop.index0 == index %}
+
+				<p>Genres: {{ artist.genres }}</p>
+
+        <!-- artist image -->
+
+        <img
+          src="{{ artist.images[0].url }}"
+          alt="{{ artist.name }}"
+          width="{{ artist.images[0].width }}"
+          height="{{ artist.images[0].height }}"
+        />
+        {% endif %}{% endfor %}
+      </p>
+
+      {% endfor %}
+      <!-- end artist api -->
+
+      <h3>album info</h3>
+
+        <p>Name: {{ item.track.album.name }}</p>
+        <p>tracks: {{ item.track.album.total_tracks }}</p>
+        <p>type: {{ item.track.album.album_type }}</p>
+        <p>release date: {{ item.track.album.release_date }}</p>
+
 
       <img
         src="{{ item.track.album.images[0].url }}"
