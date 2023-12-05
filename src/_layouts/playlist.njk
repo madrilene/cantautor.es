@@ -45,12 +45,15 @@ layout: base
 
         <!-- artist image -->
 
+				<div class="halftone">
         <img
           src="{{ artist.images[0].url }}"
           alt="{{ artist.name }}"
           width="{{ artist.images[0].width }}"
           height="{{ artist.images[0].height }}"
         />
+				</div>
+
         {% endif %}{% endfor %}
       </p>
 
