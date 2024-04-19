@@ -1,31 +1,48 @@
 ---
 layout: base
+masonry: true
 ---
 
-<header class="section spot-color-secondary">
-  <div class="section__inner region">
-    <div class="wrapper flow">
-      <section class="prose text-center">
-        <h1 class="fade-in">{{ title }}</h1>
-      </section>
+<article class="wrapper">
+  <header class="full | section" style="--spot-color: var(--color-secondary)">
+    <div class="section__inner flow region" style="--region-space-top: var(--space-xl-2xl)">
+      <h1 class="text-center text-base-light">{{ title }}</h1>
     </div>
+
+    {% svg "divider/edgy" %}
+  </header>
+
+  <div class="region flow prose" style="--region-space-top: var(--space-xl-2xl)">{{ content | safe }}</div>
+
+  <div class="grid" data-layout="50-50" data-rows="masonry">
+    {% for item in pagination.items %}
+      {% set definedDate = item.date %}
+
+      <custom-card clickable>
+        <h2 slot="headline">
+          <a href="{{ item.url | url }}">{{ item.data.title }}</a>
+        </h2>
+        <span slot="date"> {% include "components/date.njk" %} </span>
+        {%
+          if
+          item.data.tags.length > 1
+        %}
+          <span slot="tag" class="button post-tag">{{ item.data.tags[1] }}</span>
+        {% endif %}
+        <p slot="content">{{ item.data.description }}</p>
+      </custom-card>
+    {% endfor %}
   </div>
 
-  {% include 'svg/divider-edgy.svg' %}
-</header>
+  <!-- TODO: pagination is reversed. -->
 
-<article class="wrapper region">
-  <ul class="grid mt-l-xl" role="list" data-rows="masonry" data-layout="50-50">
-    {% set postslist = collections.posts %} {% for post in postslist %}
-
-    <li class="card flow overflow-hidden">
-      <h2>
-        <a href="{{ post.url | url }}">{{ post.data.title }}</a>
-      </h2>
-      {% set definedDate = post.date %} {% include "partials/date.njk" %}
-      <p>{{ post.data.description }}</p>
-    </li>
-
-    {% endfor %}
-  </ul>
+  <!-- set collection to paginate -->
+  {% set collectionToPaginate = collections.posts %}
+  <!-- set target pagination settings in meta.js -->
+  {% set metaKey = "blog" %}
+  <!-- if the number of items in the collection is greater than the number of items shown on one page -->
+  {% if collectionToPaginate.length > pagination.size %}
+    <!-- include pagination -->
+    {% include 'components/pagination.njk' %}
+  {% endif %}
 </article>

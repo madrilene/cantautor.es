@@ -1,47 +1,87 @@
-module.exports = {
-  url: process.env.URL || 'http://localhost:8080',
-  siteName: 'cantautor.es - POC',
-  siteDescription:
-    'Eleventy starter based on the workflow suggested by buildexcellentwebsit.es.',
-  siteType: 'Person', // schema
-  locale: 'en_EN',
-  lang: 'en',
-  skipContent: 'Skip to content',
-  author: 'Lene Saile', // i.e. Lene Saile - author's name. Must be set.
-  authorEmail: '', // i.e. hola@lenesaile.com - email of the author
-  authorWebsite: '', // i.e. https.://www.lenesaile.com - the personal site of the author
-  themeColor: '#DD4462', //  Manifest: defines the default theme color for the application
-  themeBgColor: '#F3F3F3', // Manifest: defines a placeholder background color for the application page to display before its stylesheet is loaded
-  meta_data: {
-    opengraph_default: '/assets/images/opengraph-default.jpg', // fallback/default meta image
-    opengraph_default_alt:
-      'Visible content: Eleventy starter based on workflow for Cube CSS, Every Layout, Design Tokens and Tailwind for uitility, based on the concepts explained in buildexcellentwebsit.es ', // alt text for default meta image
-    twitterSite: '', // i.e. @site - twitter profile of the site
-    twitterCreator: '', // i.e. @author -  twitter profile of the site
-    mastodonProfile: '' // i.e. https://front-end.social/@lene - url to your mastodon instance/profile
+export const url = process.env.URL || 'http://localhost:8080';
+export const siteName = 'Eleventy Excellent';
+export const siteDescription =
+  'Eleventy starter built around the CSS workflow suggested by buildexcellentwebsit.es';
+export const siteType = 'Person'; // schema
+export const locale = 'en_EN';
+export const lang = 'en';
+export const skipContent = 'Skip to content';
+export const author = {
+  name: 'Lene Saile', // i.e. Lene Saile - page / blog author's name. Must be set.
+  avatar: '/favicon.png',
+  email: 'hola@lenesaile.com', // i.e. hola@lenesaile.com - email of the author
+  website: 'https://www.lenesaile.com' // i.e. https.://www.lenesaile.com - the personal site of the author
+};
+export const creator = {
+  name: 'Lene Saile', // i.e. Lene Saile - creator's (developer) name.
+  email: 'hola@lenesaile.com',
+  website: 'https://www.lenesaile.com',
+  social: 'https://front-end.social/@lene'
+};
+export const themeColor = '#DD4462'; //  Manifest: defines the default theme color for the application
+export const themeBgColor = '#FBFBFB'; // Manifest: defines a placeholder background color for the application page to display before its stylesheet is loaded
+export const opengraph_default = '/assets/images/template/opengraph-default.jpg'; // fallback/default meta image
+export const opengraph_default_alt =
+  'Visible content: Eleventy starter built around the CSS workflow for Cube CSS, Every Layout, Design Tokens and Tailwind for uitility, based on the concepts explained in buildexcellentwebsit.es'; // alt text for default meta image
+export const blog = {
+  // RSS feed
+  name: 'My Web Development Blog',
+  description: 'Tell the word what you are writing about in your blog. It will show up on feed readers.',
+  // feed links are looped over in the head. You may add more to the array.
+  feedLinks: [
+    {
+      title: 'Atom Feed',
+      url: '/feed.xml',
+      type: 'application/atom+xml'
+    }
+  ],
+  // Tags
+  tagSingle: 'Tag',
+  tagPlural: 'Tags',
+  tagMore: 'More tags:',
+  // pagination
+  paginationLabel: 'Blog',
+  paginationPage: 'Page',
+  paginationPrevious: 'Previous',
+  paginationNext: 'Next',
+  paginationNumbers: true
+};
+export const details = {
+  aria: 'section controls',
+  expand: 'expand all',
+  collapse: 'collapse all'
+};
+export const navigation = {
+  ariaTop: 'Main',
+  ariaBottom: 'Complementary',
+  ariaPlatforms: 'Platforms',
+  // activate alternative mobile menu with drawer
+  drawerNav: false,
+  navLabel: 'Menu'
+};
+export const themeSwitch = {
+  title: 'Theme',
+  light: 'light',
+  dark: 'dark'
+};
+export const initial = 'select';
+export const greenweb = {
+  // this goes into src/common/greenweb.njk
+  providers: {
+    // if you want to add more than one, edit the array directly.
+    domain: 'netlify.com',
+    service: 'cdn'
   },
-  blog: {
-    // this is for the rss feed
-    name: 'My great Web Development Blog',
-    description:
-      'Tell the word what you are writing about in your blog! It will show up on feed readers.'
-  },
-  pagination: {
-    itemsPerPage: 20
-  },
-  address: {
-    // edit all presets or leave empty. They are being used in the pages for privacy.md and imprint.md
-    firma: 'Organization name',
-    street: '123 Main St.',
-    city: 'Ciudad',
-    state: 'Estado',
-    zip: '12345',
-    mobileDisplay: '+34 1234567',
-    mobileCall: ' +341234567',
-    email: 'hola@yoursite.com',
-    cif: ''
-  },
-  menu: {
-    closedText: 'Menu'
+  credentials: {
+    // optional, eg: 	{ domain='my-org.com', doctype = 'webpage', url = 'https://my-org.com/our-climate-record'}
+    domain: '',
+    doctype: '',
+    url: ''
   }
 };
+export const viewRepo = {
+  // this is for the view/edit on github link. The value in the package.json will be pulled in.
+  allow: true,
+  infoText: 'View this page on GitHub'
+};
+export const easteregg = true;

@@ -1,0 +1,67 @@
+custom-gallery-item figure {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+custom-gallery-item figure > * {
+  grid-column: full;
+  grid-row-start: 1;
+  grid-column-start: 1;
+}
+
+custom-gallery-item img {
+  max-inline-size: var(--max-img-width, 100%);
+  border-radius: var(--border-radius);
+  block-size: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+custom-gallery-item figcaption {
+  z-index: 1;
+  padding: 0.1rem var(--space-xs);
+  background-color: var(--color-bg);
+  align-self: end;
+  justify-self: center;
+  font-size: var(--size-step-min-2);
+  inline-size: max-content;
+  color: var(--color-text);
+  margin-block-end: var(--space-xs);
+}
+
+/* --------------- modifiers --------------- */
+
+custom-gallery-item[uplift] img:hover {
+  transform: translateY(-5px);
+  box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+custom-gallery-item[reveal] figcaption {
+  align-self: end;
+  color: var(--color-base-light);
+  background-color: var(--color-base-dark);
+  opacity: 0;
+  pointer-events: none;
+  inline-size: fit-content;
+  margin: 0;
+  font-size: 1rem;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+/* .grid:has(custom-gallery-item[reveal]:hover) custom-gallery-item[reveal]:not(:hover) {
+  opacity: 0.6;
+} */
+
+custom-gallery-item[reveal]:hover figcaption {
+  opacity: 0.8;
+  padding-block-start: var(--space-s);
+}
+
+custom-gallery-item[aspect-2-3] img {
+  aspect-ratio: 2 / 3;
+}

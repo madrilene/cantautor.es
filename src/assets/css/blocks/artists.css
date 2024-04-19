@@ -1,0 +1,8 @@
+.artists {
+  --grid-min-item-size: 16rem;
+  --sidebar-target-width: max(20rem, 40%);
+}
+
+.aotd {
+  background-color: var(--color-primary);
+}

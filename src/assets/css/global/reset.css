@@ -1,4 +1,7 @@
+/* inspired by: */
 /* Modern reset: https://piccalil.li/blog/a-modern-css-reset/ */
+/* https://keithjgrant.com/posts/2024/01/my-css-resets/ */
+/* https://moderncss.dev/modern-css-for-dynamic-component-based-architecture/#css-reset-additions */
 
 /* Box sizing rules */
 *,
@@ -23,7 +26,6 @@ dd {
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
 ul[role='list'],
-ul[role='listbox'],
 ol[role='list'] {
   list-style: none;
 }
@@ -32,7 +34,6 @@ ol[role='list'] {
 html {
   text-size-adjust: none;
   -webkit-text-size-adjust: none;
-  scroll-behavior: smooth;
 }
 
 /* Set core root defaults */
@@ -40,9 +41,15 @@ html:focus-within {
   scroll-behavior: smooth;
 }
 
+/* Make gutter area stable and present on both edges of the scrollbar */
+html {
+  scrollbar-gutter: stable;
+}
+
 /* Set core body defaults */
 body {
-  min-block-size: 100vh;
+  min-height: 100vh;
+  min-height: 100dvh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
 }
@@ -52,8 +59,11 @@ a:not([class]) {
   text-decoration-skip-ink: auto;
 }
 
+/* Make images easier to work with */
+img,
 picture,
-img {
+svg,
+canvas {
   max-inline-size: 100%;
   block-size: auto;
   vertical-align: middle;
@@ -63,10 +73,52 @@ img {
   shape-margin: 0.75rem;
 }
 
+/* remove default button styles */
+button {
+  all: unset;
+}
+
 /* Inherit fonts for inputs and buttons */
-input,
 button,
+input,
 textarea,
 select {
   font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Adding cursor style to interactive elements */
+button,
+label,
+select,
+summary,
+[role='button'],
+[role='option'] {
+  cursor: pointer;
+}
+
+/* No typographic widows */
+* {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* Scroll margin allowance above anchor links */
+:target {
+  scroll-margin-block-start: 2ex;
+}
+
+/* Scroll margin allowance below focused elements
+  to ensure they are clearly in view */
+:focus {
+  scroll-margin-block-end: 8vh;
 }

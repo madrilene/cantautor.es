@@ -1,0 +1,4 @@
+artist.albumName artist.albumImage artist.preview artist.spotifyUrl {{ artist.albumName }}
+{% image artist.albumImage | replace('/assets','./src/assets'), artist.name, null, "eager" %}
+<audio controls src="{{ artist.preview }}">Your browser does not support the audio tag.</audio>
+<a href="{{ artist.spotifyUrl }}">View on Spotify</a>

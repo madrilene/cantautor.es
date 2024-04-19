@@ -9,6 +9,7 @@
 @import 'global/global-styles.css';
 
 @import-glob 'blocks/*.css';
+@import-glob 'components/*.css';
 @import-glob 'compositions/*.css';
 @import-glob 'utilities/*.css';
 

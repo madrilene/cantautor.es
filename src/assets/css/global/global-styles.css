@@ -4,15 +4,18 @@
   Low-specificity, global styles that apply to the whole
   project: https://cube.fyi/css.html
 */
+
 body {
-  color: var(--color-dark);
-  background-color: var(--color-light);
+  color: var(--color-text);
+  background-color: var(--color-bg);
   font-size: var(--size-step-0);
   font-family: var(--font-base);
   line-height: 1.4;
   letter-spacing: var(--tracking);
   display: flex;
   flex-direction: column;
+  font-weight: var(--font-medium);
+  accent-color: var(--color-primary);
 }
 
 main {
@@ -23,13 +26,14 @@ main {
 h1,
 h2,
 h3 {
-  line-height: 1;
+  line-height: 1.2;
   letter-spacing: var(--tracking-s);
+  font-weight: var(--font-bold);
   font-family: var(--font-display);
 }
 
 h1 {
-  font-size: var(--size-step-5);
+  font-size: var(--size-step-6);
 }
 
 h2 {
@@ -37,24 +41,18 @@ h2 {
 }
 
 h3 {
-  font-size: var(--size-step-3);
+  font-size: var(--size-step-2);
 }
 
 /* Set line lengths */
 p,
 li,
 blockquote:not([class]) {
-  max-inline-size: 50ch;
-}
-
-h1,
-h2,
-h3 {
-  max-inline-size: 20ch;
+  max-inline-size: 65ch;
 }
 
 blockquote {
-  border-inline-start: 0.8rem solid var(--color-primary);
+  border-inline-start: 0.5rem solid var(--color-primary);
   padding: var(--space-m-l);
   font-size: var(--size-step-2);
 }
@@ -75,6 +73,19 @@ svg {
   flex: none;
 }
 
+strong {
+  font-weight: var(--font-extra-bold);
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  width: 10%;
+  margin-block: var(--space-m-l);
+  margin-inline-start: 0;
+  background-color: var(--color-bg-accent-2);
+}
+
 [role='list'] {
   padding: 0;
 }
@@ -83,19 +94,16 @@ svg {
 
 a {
   color: currentcolor;
+  text-decoration-thickness: 0.08em;
 }
 
 a:hover {
   text-decoration: none;
 }
 
-:focus {
+:focus-visible {
   outline: 3px solid;
   outline-offset: 0.3ch;
-}
-
-:target {
-  scroll-margin-top: 2ex;
 }
 
 main:focus {
@@ -104,10 +112,25 @@ main:focus {
 
 /* Base selection styles that invert whatever colours are rendered */
 ::selection {
-  background: var(--color-primary);
-  color: var(--color-light);
+  background-color: var(--color-text);
+  color: var(--color-bg);
 }
 
 .preload-transitions * {
   transition: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  ::after,
+  ::before {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

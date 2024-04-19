@@ -1,0 +1,25 @@
+---
+layout: base
+masonry: true
+---
+
+<article class="wrapper region">
+  <div class="artists | sidebar" data-direction="rtl">
+    <section class="grid" data-rows="masonry">
+      {% set modifiers = ['img-square', 'img-cinema', 'img-4-5'] %}
+
+      {% for artist in spotify.artists %}
+        {% set randomModifier = modifiers | random %}
+        <custom-card clickable no-meta no-padding {{ randomModifier }}>
+          <!-- artist image -->
+          {% image artist.profileImage | replace('/assets','./src/assets'), artist.name, null, "eager" %}
+          <h2 slot="headline">
+            <a href="#">{{ artist.name }}</a>
+          </h2>
+        </custom-card>
+      {% endfor %}
+    </section>
+
+    <section class="aotd"><h2>AOTD</h2></section>
+  </div>
+</article>
