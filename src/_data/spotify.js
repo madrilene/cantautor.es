@@ -97,7 +97,7 @@ async function fetchPlaylist() {
       });
     }
   }
-
+  console.log(artists);
   return {artists};
 }
 

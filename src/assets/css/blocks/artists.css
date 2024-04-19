@@ -1,8 +1,12 @@
 .artists {
-  --grid-min-item-size: 16rem;
+  --grid-min-item-size: max(8rem, 30%);
   --sidebar-target-width: max(20rem, 40%);
 }
 
-.aotd {
+.artists img {
+  filter: grayscale(100%);
+}
+
+.artists .aotd {
   background-color: var(--color-primary);
 }

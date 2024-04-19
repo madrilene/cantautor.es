@@ -20,6 +20,9 @@ import plugins from './src/_config/plugins.js';
 import shortcodes from './src/_config/shortcodes.js';
 
 export default async function (eleventyConfig) {
+  // 	--------------------- Custom Watch Targets -----------------------
+  eleventyConfig.addWatchTarget('./src/assets');
+
   // --------------------- layout aliases
   eleventyConfig.addLayoutAlias('base', 'base.njk');
   eleventyConfig.addLayoutAlias('home', 'home.njk');

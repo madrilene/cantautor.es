@@ -10,7 +10,7 @@ masonry: true
 
       {% for artist in spotify.artists %}
         {% set randomModifier = modifiers | random %}
-        <custom-card clickable no-meta no-padding {{ randomModifier }}>
+        <custom-card id="artist-{{ loop.index0 }}" clickable no-meta no-padding {{ randomModifier }}>
           <!-- artist image -->
           {% image artist.profileImage | replace('/assets','./src/assets'), artist.name, null, "eager" %}
           <h2 slot="headline">
@@ -20,6 +20,31 @@ masonry: true
       {% endfor %}
     </section>
 
-    <section class="aotd"><h2>AOTD</h2></section>
+    <section class="aotd"></section>
   </div>
 </article>
+
+<script>
+  const allArtists = document.querySelectorAll('[id^="artist-"]');
+
+  allArtists.forEach((artist, index) => {
+    artist.addEventListener('click', () => {
+      const clickedElementId = artist.id;
+      const clickedArtistIndex = parseInt(clickedElementId.split('-')[1], 10); // Extract the index from the ID
+      const clickedArtist = spotify.artists[clickedArtistIndex]; // Get the clicked artist from the spotify.artists array
+
+      // Display the clicked artist's name in the "aotd" section
+      const clickedArtistNameElement = document.getElementById('clicked-artist-name');
+      clickedArtistNameElement.textContent = clickedArtist.name;
+
+      // Log the clicked artist's details to the console
+      console.log('Name:', clickedArtist.name);
+      console.log('Profile Image:', clickedArtist.profileImage);
+      console.log('Album Image:', clickedArtist.albumImage);
+      console.log('Album Name:', clickedArtist.albumName);
+      console.log('Preview:', clickedArtist.preview);
+      console.log('Spotify URL:', clickedArtist.spotifyUrl);
+      console.log('\n'); // Add a line break for clarity
+    });
+  });
+</script>
