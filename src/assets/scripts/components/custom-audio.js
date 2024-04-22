@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
   const stage = document.querySelector('.stage');
-  const artistlist = document.querySelector('.artistlist');
 
   function attachAudioEvents(customAudio) {
     const playButton = customAudio.querySelector('.play-button');
@@ -11,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const progressFilled = customAudio.querySelector('.progress-filled');
     const playIcon = playButton.querySelector('.play-icon');
     const pauseIcon = playButton.querySelector('.pause-icon');
-    let fadingOut = false;
 
     function fadeAudioIn() {
       audioElement.volume = 0;
@@ -34,13 +32,13 @@ document.addEventListener('DOMContentLoaded', function () {
         playIcon.style.display = 'none';
         pauseIcon.style.display = '';
         playButton.setAttribute('aria-pressed', 'true');
-        ariaName.innerHTML = 'Audio is playing';
+        ariaName.textContent = 'Audio is playing';
       } else {
         audioElement.pause();
         playIcon.style.display = '';
         pauseIcon.style.display = 'none';
         playButton.setAttribute('aria-pressed', 'false');
-        ariaName.innerHTML = 'Audio is paused';
+        ariaName.textContent = 'Audio is paused';
       }
     });
 
@@ -61,31 +59,21 @@ document.addEventListener('DOMContentLoaded', function () {
     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
   }
 
-  function updateFeaturedArtist(artist) {
-    const oldCustomAudio = stage.querySelector('custom-audio');
-    if (oldCustomAudio) {
-      const oldAudio = oldCustomAudio.querySelector('audio');
-      if (oldAudio) {
-        oldAudio.pause();
-        oldAudio.currentTime = 0;
-      }
-    }
-    stage.innerHTML = '';
-    stage.appendChild(artist);
-    const newCustomAudio = stage.querySelector('custom-audio');
-    attachAudioEvents(newCustomAudio);
-  }
-
-  // Setup initial audio controls
+  // Attach audio events to the initial featured artist in the stage
   const initialCustomAudio = stage.querySelector('custom-audio');
   if (initialCustomAudio) {
     attachAudioEvents(initialCustomAudio);
   }
 
-  // Handle artist clicks
-  artistlist.querySelectorAll('custom-artist').forEach(artist => {
-    artist.addEventListener('click', () => {
-      updateFeaturedArtist(artist.cloneNode(true));
-    });
+  // Attach audio events to new artists added to the stage from the artist list
+  const artistlist = document.querySelector('.artistlist');
+  artistlist.addEventListener('click', event => {
+    const targetArtist = event.target.closest('custom-artist');
+    if (targetArtist) {
+      const clonedArtist = targetArtist.cloneNode(true);
+      stage.innerHTML = ''; // Clear previous content
+      stage.appendChild(clonedArtist); // Add new artist
+      attachAudioEvents(clonedArtist.querySelector('custom-audio'));
+    }
   });
 });
