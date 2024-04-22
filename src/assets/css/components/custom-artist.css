@@ -1,0 +1,112 @@
+/* Base Styles */
+
+custom-artist {
+  display: grid;
+  grid-template-rows: [image] max-content [meta] max-content;
+  background-color: var(--color-bg-accent);
+  border: 2px solid transparent;
+  color: var(--color-text);
+  border-radius: 0;
+  max-inline-size: unset;
+}
+
+.stage custom-artist .btn {
+  display: none;
+}
+
+custom-artist ::selection {
+  color: var(--color-dark);
+  background-color: var(--color-secondary);
+}
+
+custom-artist img {
+  filter: grayscale(100%);
+}
+
+custom-artist h2 {
+  font-size: var(--size-step-1);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+}
+
+custom-artist h2 a {
+  text-decoration: none;
+}
+
+custom-artist .meta {
+  grid-row: meta;
+  line-height: 1.3;
+}
+
+custom-artist .btn {
+  padding: var(--space-xs);
+  color: var(--color-bg);
+  background-color: var(--color-text);
+  border: 0;
+  font-size: var(--size-step-base);
+}
+
+/* Small Variant */
+@container (max-width: 200px) {
+  custom-artist {
+    --font-size: 0.5rem;
+  }
+}
+
+/* Medium Variant */
+/* @container ((min-width: 201px) and (max-width: 399px)) {
+  custom-artist {
+    --font-size: 1rem;
+    display: grid;
+    align-items: start;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+} */
+
+/* Large Variant */
+@container (min-width: 400px) {
+  custom-artist {
+    background-color: var(--color-primary);
+    --font-size: 1.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-s);
+    transition: transform 0.5s ease;
+    transform-style: preserve-3d;
+    transform: rotate(-2deg);
+  }
+}
+
+/* clickable */
+
+.artistlist custom-artist:hover,
+.artistlist custom-artist:focus-within {
+  border: 2px solid var(--card-focus-border, var(--color-primary));
+}
+
+.artistlist custom-artist:focus-within a:focus {
+  outline: none;
+}
+.artistlist custom-artist {
+  position: relative;
+}
+.artistlist custom-artist a:after {
+  bottom: 0;
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.artistlist :is(custom-audio, .spotify-link) {
+  display: none;
+}
+
+/* modifiers */
+
+custom-artist[active-artist] {
+  border: 2px solid var(--card-focus-border, var(--color-primary));
+}

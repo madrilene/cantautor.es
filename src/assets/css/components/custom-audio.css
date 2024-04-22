@@ -1,0 +1,62 @@
+custom-audio {
+  display: block;
+  background: transparent;
+  border-top: 1px solid var(--color-primary-glare);
+  inline-size: 100%;
+}
+
+custom-audio .audio-player {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 10px;
+}
+
+custom-audio .play-button {
+  grid-row: 1 / span 2;
+  font-size: var(--font-size-xl);
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+custom-audio .track-info {
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+custom-audio .progress-bar {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  width: 100%;
+  grid-column: 2 / -1;
+}
+
+custom-audio .current-time,
+custom-audio .total-time {
+  font-size: 12px;
+}
+
+custom-audio .progress {
+  width: 100%;
+  height: 5px;
+  background-color: var(--color-primary-glare);
+  margin: 0 5px;
+  position: relative;
+}
+
+custom-audio .progress-filled {
+  height: 100%;
+  background-color: var(--color-text);
+  width: 0%;
+  position: absolute;
+}
+
+custom-audio .preview-label {
+  grid-column: 2 / -1;
+  text-align: center;
+  font-style: italic;
+  font-size: 12px;
+  margin-top: 5px;
+}

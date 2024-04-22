@@ -1,5 +1,5 @@
 export const url = process.env.URL || 'http://localhost:8080';
-export const siteName = 'Eleventy Excellent';
+export const siteName = 'cantautor.es';
 export const siteDescription =
   'Eleventy starter built around the CSS workflow suggested by buildexcellentwebsit.es';
 export const siteType = 'Person'; // schema

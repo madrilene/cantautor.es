@@ -1,0 +1,7 @@
+<custom-artist webc:root>
+  <slot name="image"></slot>
+  <h2 class="title"><slot name="headline"></slot></h2>
+  <button class="btn">Add</button>
+  <slot name="spotify-link"></slot>
+  <slot name="preview"></slot>
+</custom-artist>

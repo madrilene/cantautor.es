@@ -61,15 +61,13 @@ async function fetchPlaylist() {
       const customProfilePath = `${artistDir}/profile-custom.jpg`;
       const defaultProfilePath = `${artistDir}/profile.jpg`;
 
-      // Check for a custom profile image first
       let profileImagePath = fs.existsSync(customProfilePath) ? customProfilePath : defaultProfilePath;
 
       const tasks = [];
-      // Only download if no custom profile image exists and there are images available
       if (!fs.existsSync(profileImagePath) && artistDetails.images && artistDetails.images.length > 0) {
         const imageUrl = artistDetails.images[0].url;
         tasks.push(downloadFile(imageUrl, defaultProfilePath));
-        profileImagePath = defaultProfilePath; // Update path if we're downloading the new image
+        profileImagePath = defaultProfilePath;
       }
 
       if (track.track.album && track.track.album.images && track.track.album.images.length > 0) {
@@ -89,7 +87,8 @@ async function fetchPlaylist() {
 
       artists.push({
         name: artist.name,
-        profileImage: profileImagePath.replace('./src', ''), // Adjust path for use in web context
+        trackName: track.track.name, // Added track name here
+        profileImage: profileImagePath.replace('./src', ''),
         albumImage: `/assets/artists/${slug}/album.jpg`,
         albumName: track.track.album ? track.track.album.name : 'Unknown Album',
         preview: `/assets/artists/${slug}/preview.mp3`,

@@ -7,7 +7,7 @@
   color-scheme: light dark;
 
   --gutter: var(--space-m-l);
-  --border-radius: 0.3rem;
+  --border-radius: 0.1rem;
   --transition-duration: 250ms;
   --transition-timing: ease;
   --wrapper-width: 120rem;
@@ -58,6 +58,7 @@
     --color-text-accent: #a8a8a8;
     --color-bg-accent: #383838;
     --color-bg-accent-2: #404040;
+    --color-primary-glare: #ec6b32;
   }
 }
 
@@ -82,6 +83,7 @@
     --color-text-accent: color-mix(in oklab, var(--color-base-dark) 80%, var(--color-bg));
     --color-bg-accent: color-mix(in oklab, var(--color-bg) 90%, var(--color-text));
     --color-bg-accent-2: color-mix(in oklab, var(--color-bg) 70%, var(--color-text));
+    --color-primary-glare: color-mix(in oklab, var(--color-primary) 70%, var(--color-bg));
   }
 
   @media (prefers-color-scheme: dark) {
@@ -93,6 +95,7 @@
       --color-primary: color-mix(in oklab, var(--color-primary-highlight), transparent 20%);
       --color-secondary: color-mix(in oklab, var(--color-secondary-highlight), transparent 20%);
       --color-tertiary: color-mix(in oklab, var(--color-tertiary-highlight), transparent 20%);
+      --color-primary-glare: color-mix(in oklab, var(--color-primary), transparent 20%);
     }
   }
 
