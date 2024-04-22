@@ -5,18 +5,15 @@ masonry: true
 
 <div class="wrapper region">
   <div class="artistas sidebar" style="--sidebar-target-width:40rem;">
-    <!-- FEATURED STAGE -->
+    <!-- FEATURED ARTIST -->
 
     <section class="stage">
       <h2 class="visually-hidden">Featured</h2>
-
       {% set featuredArtist = spotify.artists | random %}
-      <custom-artist>
-        <!-- artist image -->
+      <custom-artist artist-of-the-day drfg data-artist="{{ artistId }}">
+        <!-- artist imageeee -->
         {% image featuredArtist.profileImage | replace('/assets','./src/assets'), featuredArtist.name, null, "eager" %}
-        <h2 slot="headline">
-          <a href="#">{{ featuredArtist.name }}</a>
-        </h2>
+        <h2 slot="headline"><a href="#">{{ featuredArtist.name }}</a></h2>
         <a class="spotify-link" slot="spotify-link" href="{{ featuredArtist.spotifyUrl }}"
           >Follow on Spotify</a
         >

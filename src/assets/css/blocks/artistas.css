@@ -4,7 +4,7 @@
 
 .artistas .stage,
 .artistas .content {
-  padding: var(--space-s);
+  padding: var(--space-l);
   overflow-y: auto;
 }
 

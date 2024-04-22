@@ -4,10 +4,13 @@ custom-artist {
   display: grid;
   grid-template-rows: [image] max-content [meta] max-content;
   background-color: var(--color-bg-accent);
-  border: 2px solid transparent;
   color: var(--color-text);
-  border-radius: 0;
   max-inline-size: unset;
+  background-color: var(--color-primary);
+}
+
+.stage custom-artist {
+  grid-template-columns: 1fr 2fr;
 }
 
 .stage custom-artist .btn {
@@ -65,17 +68,20 @@ custom-artist .btn {
 } */
 
 /* Large Variant */
-@container (min-width: 400px) {
-  custom-artist {
-    background-color: var(--color-primary);
-    --font-size: 1.75rem;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
+@container (min-width: 300px) {
+  .stage custom-artist {
+    grid-template-columns: 1fr;
     gap: var(--space-s);
     transition: transform 0.5s ease;
-    transform-style: preserve-3d;
-    transform: rotate(-2deg);
+    transform: rotate(-3deg);
+  }
+}
+
+@container (min-width: 800px) {
+  custom-artist {
+    transition: transform 0.5s ease;
+    /* transform-style: preserve-3d; */
+    transform: rotate(-3deg);
   }
 }
 
@@ -107,6 +113,10 @@ custom-artist .btn {
 
 /* modifiers */
 
-custom-artist[active-artist] {
+.artistlist custom-artist[active-artist] {
   border: 2px solid var(--card-focus-border, var(--color-primary));
+}
+
+custom-artist[artist-of-the-day] {
+  background-color: deeppink;
 }

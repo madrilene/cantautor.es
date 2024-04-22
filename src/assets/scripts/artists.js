@@ -2,6 +2,14 @@ document.addEventListener('DOMContentLoaded', function () {
   const stage = document.querySelector('.stage');
   const artistlist = document.querySelector('.artistlist');
   let featuredArtistSlug = null; // To store the slug of the featured artist
+  let artistOfTheDaySlug = null; // Store the slug of the artist of the day
+
+  // Determine and mark the artist of the day
+  const artistOfTheDay = stage.querySelector('custom-artist[artist-of-the-day]');
+  if (artistOfTheDay) {
+    artistOfTheDaySlug = artistOfTheDay.getAttribute('data-artist');
+    featuredArtistSlug = artistOfTheDaySlug; // Assume the initial artist is the featured artist
+  }
 
   function stopPlayingAudio(artist) {
     const audio = artist.querySelector('audio');
@@ -26,22 +34,36 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function moveToStage(artist) {
     if (featuredArtistSlug) {
-      stopPlayingAudio(artist);
+      stopPlayingAudio(stage.querySelector('custom-artist'));
     }
     featuredArtistSlug = artist.getAttribute('data-artist');
-    stage.innerHTML = '';
-    stage.appendChild(artist.cloneNode(true));
-    updateActiveArtistInList();
-  }
+    const clonedArtist = artist.cloneNode(true);
 
-  if (!featuredArtistSlug && artistlist.querySelector('custom-artist')) {
-    moveToStage(artistlist.querySelector('custom-artist'));
+    // Check if the moved artist is the artist of the day
+    if (artistOfTheDaySlug === featuredArtistSlug) {
+      clonedArtist.setAttribute('artist-of-the-day', '');
+    }
+
+    // Only update the stage if a different artist is selected
+    if (featuredArtistSlug !== artistOfTheDaySlug || !artistOfTheDay) {
+      stage.innerHTML = '';
+      stage.appendChild(clonedArtist);
+    }
+    updateActiveArtistInList();
   }
 
   artistlist.addEventListener('click', event => {
     const targetArtist = event.target.closest('custom-artist');
-    if (targetArtist) {
+    if (targetArtist && targetArtist.getAttribute('data-artist') !== featuredArtistSlug) {
       moveToStage(targetArtist);
     }
   });
+
+  // Set the featured artist if not already set by Nunjucks
+  if (!artistOfTheDay) {
+    const initialArtist = artistlist.querySelector('custom-artist');
+    if (initialArtist) {
+      moveToStage(initialArtist);
+    }
+  }
 });
