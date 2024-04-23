@@ -1,12 +1,9 @@
-<a href="#main" class="skip-link">{{ meta.skipContent }}</a>
+<header class="grid">
+  <a href="/" class="logo | cluster" {% if page.url == "/" %}aria-current="page"{% endif %}>
+    <span>{{ meta.siteName }}</span>
+  </a>
 
-<header class="wrapper">
-  <div class="repel ontop">
-    <a href="/" class="logo | cluster" {% if page.url == "/" %}aria-current="page"{% endif %}>
-      {% svg "misc/star" %}
+  <p>Music from spain</p>
 
-      <span>{{ meta.siteName }}</span>
-    </a>
-    {% include "partials/main-nav.njk" %}
-  </div>
+  {% include 'components/theme-switch.njk' %}
 </header>

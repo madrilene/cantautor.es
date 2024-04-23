@@ -3,57 +3,62 @@ layout: base
 masonry: true
 ---
 
-<!-- layout: base -->
-<div class="wrapper region">
-  <div class="artistas sidebar" style="--sidebar-target-width:40rem;">
-    <custom-artist-player>
-      <!-- FEATURED ARTIST -->
-      <section class="stage">
-        <h2 class="visually-hidden">Featured</h2>
-        <div data-swap>
-          {% set featuredArtist = spotify.artists | random %}
-          <custom-artist artist-of-the-day data-artist="{{ featuredArtist.name | slugify }}" class="flow">
+<main id="main" class="flow wrapper region">
+  <custom-artist-player>
+    <div class="header | cluster">
+      <h1>{{ meta.siteName }}</h1>
+      <p>Music from spain</p>
+      {% include 'components/theme-switch.njk' %}
+    </div>
+
+    <!-- FEATURED ARTIST -->
+    <section class="stage">
+      <h2 class="visually-hidden">Featured</h2>
+      <div data-swap>
+        {% set featuredArtist = spotify.artists | random %}
+        <custom-artist artist-of-the-day data-artist="{{ featuredArtist.name | slugify }}" class="flow">
+          <!-- artist image -->
+          {% image featuredArtist.profileImage | replace('/assets','./src/assets'), featuredArtist.name, null, "eager" %}
+          <h2 slot="headline">{{ featuredArtist.name }}</h2>
+          <a class="spotify-link" slot="spotify-link" href="{{ featuredArtist.spotifyUrl }}"
+            >Follow on Spotify</a
+          >
+          <custom-audio slot="preview">
+            <span slot="track-title">{{ featuredArtist.trackName }}</span>
+            <span slot="album-name">{{ featuredArtist.albumName }}</span>
+            <audio class="visually-hidden" slot="audio" controls src="{{ featuredArtist.preview }}">
+              <a href="{{ featuredArtist.preview }}">Download audio</a>
+            </audio>
+          </custom-audio>
+        </custom-artist>
+      </div>
+    </section>
+    <!-- MAIN CONTENT AREA -->
+    <section class="list">
+      <h2 class="visually-hidden">Artists</h2>
+      <div class="support-notice">
+        ⚠️ Your browser does not support Container Queries - Switch to a
+        <a href="https://caniuse.com/css-container-queries">modern browser</a> to see this demo.
+      </div>
+      <div class="artistlist grid" data-rows="masonry">
+        {% for artist in spotify.artists %}
+          <custom-artist data-artist="{{ artist.name | slugify }}" class="flow">
             <!-- artist image -->
-            {% image featuredArtist.profileImage | replace('/assets','./src/assets'), featuredArtist.name, null, "eager" %}
-            <h2 slot="headline"><a href="#">{{ featuredArtist.name }}</a></h2>
-            <a class="spotify-link" slot="spotify-link" href="{{ featuredArtist.spotifyUrl }}"
-              >Follow on Spotify</a
-            >
+            {% image artist.profileImage | replace('/assets','./src/assets'), artist.name, null, "eager" %}
+            <h2 slot="headline">{{ artist.name }}</h2>
+            <a class="spotify-link" slot="spotify-link" href="{{ artist.spotifyUrl }}">Follow on Spotify</a>
             <custom-audio slot="preview">
-              <span slot="track-title">{{ featuredArtist.trackName }}</span>
-              <span slot="album-name">{{ featuredArtist.albumName }}</span>
-              <audio class="visually-hidden" slot="audio" controls src="{{ featuredArtist.preview }}">
-                <a href="{{ featuredArtist.preview }}">Download audio</a>
+              <span slot="track-title">{{ artist.trackName }}</span>
+              <span slot="album-name">{{ artist.albumName }}</span>
+              <audio class="visually-hidden" slot="audio" controls src="{{ artist.preview }}">
+                <a href="{{ artist.preview }}">Download audio</a>
               </audio>
             </custom-audio>
           </custom-artist>
-        </div>
-      </section>
-      <!-- MAIN CONTENT AREA -->
-      <section class="content">
-        <h2 class="visually-hidden">Artists</h2>
-        <div class="support-notice">
-          ⚠️ Your browser does not support Container Queries - Switch to a
-          <a href="https://caniuse.com/css-container-queries">modern browser</a> to see this demo.
-        </div>
-        <div class="artistlist">
-          {% for artist in spotify.artists %}
-            <custom-artist data-artist="{{ artist.name | slugify }}">
-              <!-- artist image -->
-              {% image artist.profileImage | replace('/assets','./src/assets'), artist.name, null, "eager" %}
-              <h2 slot="headline"><a href="#">{{ artist.name }}</a></h2>
-              <a class="spotify-link" slot="spotify-link" href="{{ artist.spotifyUrl }}">Follow on Spotify</a>
-              <custom-audio slot="preview">
-                <span slot="track-title">{{ artist.trackName }}</span>
-                <span slot="album-name">{{ artist.albumName }}</span>
-                <audio class="visually-hidden" slot="audio" controls src="{{ artist.preview }}">
-                  <a href="{{ artist.preview }}">Download audio</a>
-                </audio>
-              </custom-audio>
-            </custom-artist>
-          {% endfor %}
-        </div>
-      </section>
-    </custom-artist-player>
-  </div>
-</div>
+        {% endfor %}
+      </div>
+    </section>
+  </custom-artist-player>
+</main>
+
+{% include "partials/footer.njk" %}

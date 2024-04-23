@@ -93,10 +93,6 @@
   </head>
 
   <body class="{{ layout }}">
-    {% include "partials/header.njk" %}
-
-    <main id="main" class="flow">{{ content | safe }}</main>
-
-    {% include "partials/footer.njk" %}
+    {{ content | safe }}
   </body>
 </html>

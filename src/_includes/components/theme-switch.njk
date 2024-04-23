@@ -1,16 +1,10 @@
-<div
-  role="region"
-  class="theme-switch | cluster mt-xs"
-  style="--cluster-horizontal-alignment: center; --gutter: 0.5rem"
-  aria-labelledby="theme-switcher-label"
-  data-theme-switcher
-  hidden
->
-  <h2 id="theme-switcher-label">{{ meta.themeSwitch.title }}</h2>
-  <button class="button" id="light-theme-toggle" data-theme="light">
-    <span>{{ meta.themeSwitch.light }}</span>
-  </button>
-  <button class="button" id="dark-theme-toggle" data-theme="dark">
-    <span>{{ meta.themeSwitch.dark }}</span>
+<div role="region" class="theme-switch" aria-labelledby="theme-switcher-label" data-theme-switcher hidden>
+  <h2 id="theme-switcher-label" class="visually-hidden">{{ meta.themeSwitch.title }}</h2>
+  <button class="button" id="theme-toggle" data-theme="light">
+    <span class="visually-hidden" id="theme-label">{{ meta.themeSwitch.light }}</span>
+    <span class="svg-container">
+      {% svg "misc/sun", null, "theme-icon light-icon", "display:block" %}
+      {% svg "misc/moon", null, "theme-icon dark-icon", "display:none" %}
+    </span>
   </button>
 </div>

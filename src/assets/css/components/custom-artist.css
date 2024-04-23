@@ -3,16 +3,20 @@
 custom-artist {
   --flow-space: var(--space-s);
   display: grid;
-  grid-template-rows: [image] max-content [info] max-content;
-  background-color: var(--color-bg-accent);
-  color: var(--color-base-light);
+  grid-template-rows: [image] min-content [info] auto;
+  color: var(--color-text);
   max-inline-size: unset;
-  background-color: var(--color-primary);
 }
 
 .stage custom-artist {
   grid-template-columns: 1fr;
   gap: var(--space-s);
+  background-color: var(--color-primary);
+  color: var(--color-base-light);
+}
+
+custom-artist :is(.aotd) {
+  display: none;
 }
 
 .stage custom-artist :is(.btn, .arrow) {
@@ -25,20 +29,46 @@ custom-artist ::selection {
 }
 
 custom-artist img {
-  filter: grayscale(100%);
+  filter: grayscale(100%) sepia(10%);
+}
+
+.stage custom-artist img {
+  inline-size: 100%;
+  object-fit: cover;
+  aspect-ratio: 4 / 5;
+}
+
+custom-artist picture {
+  position: relative;
+}
+
+.stage custom-artist picture::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.7;
+  mix-blend-mode: overlay;
+  background-image: linear-gradient(to bottom, transparent, var(--color-primary));
 }
 
 custom-artist .info {
+  position: relative;
   grid-row: info;
   display: grid;
   padding-block-end: var(--space-l);
 }
 
 custom-artist h2 {
-  font-size: var(--size-step-2);
+  --flow-space: 1rem;
+  grid-row: 1;
+  font-size: var(--size-step-1);
   text-transform: uppercase;
   letter-spacing: var(--tracking-wide);
   padding-inline: var(--space-s);
+}
+
+.stage custom-artist h2 {
+  font-size: var(--size-step-2);
 }
 
 custom-artist h2 a {
@@ -58,11 +88,18 @@ custom-artist .spotify-link {
 }
 
 custom-artist .arrow {
-  padding: var(--space-xs);
+  display: grid;
+  place-items: center;
   color: var(--color-bg);
   background-color: var(--color-text);
   border: 0;
-  font-size: var(--size-step-base);
+  font-size: var(--size-step-3);
+  position: absolute;
+  inset-inline-end: 0.5ch;
+  inset-block-start: -2.6ch;
+  inline-size: 3rem;
+  block-size: 3rem;
+  border: 1px solid var(--color-bg);
 }
 
 /* Small Variant */
@@ -72,27 +109,10 @@ custom-artist .arrow {
   }
 }
 
-/* Medium Variant */
-/* @container ((min-width: 201px) and (max-width: 399px)) {
-  custom-artist {
-    --font-size: 1rem;
-    display: grid;
-    align-items: start;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
-} */
-
-/* Large Variant */
-@container (min-width: 300px) {
-  /* transition: transform 0.5s ease;
-    transform: rotate(-3deg); */
-}
-
-@container (min-width: 800px) {
-  custom-artist {
-    /* transition: transform 0.5s ease;
-    transform: rotate(-3deg); */
+@media screen(sm) {
+  .stage custom-artist {
+    transition: transform 0.5s ease;
+    transform: rotate(3deg);
 
     /* transform-style: preserve-3d; */
   }
@@ -100,7 +120,11 @@ custom-artist .arrow {
 
 /* clickable */
 
-.artistlist custom-artist:hover,
+.artistlist custom-artist {
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
 .artistlist custom-artist:focus-within {
   border: 2px solid var(--card-focus-border, var(--color-primary));
 }
@@ -108,9 +132,15 @@ custom-artist .arrow {
 .artistlist custom-artist:focus-within a:focus {
   outline: none;
 }
-.artistlist custom-artist {
-  position: relative;
+
+.artistlist custom-artist .arrow {
+  transition: transform 0.2s ease;
 }
+
+.artistlist custom-artist:hover .arrow {
+  transform: translateX(1ch);
+}
+
 .artistlist custom-artist a:after {
   bottom: 0;
   content: '';
@@ -130,6 +160,16 @@ custom-artist .arrow {
   border: 2px solid var(--card-focus-border, var(--color-primary));
 }
 
-custom-artist[artist-of-the-day] {
-  background-color: deeppink;
+custom-artist[artist-of-the-day] .aotd {
+  position: absolute;
+  inset-block-start: -30%;
+  inset-inline-end: 3%;
+  block-size: 4ex;
+  display: block;
+  font-size: var(--size-step-4);
+  color: var(--color-primary);
+  background-color: var(--color-base-light);
+  padding: var(--space-xs);
+  border-radius: 50%;
+  transform: rotate(6deg);
 }
