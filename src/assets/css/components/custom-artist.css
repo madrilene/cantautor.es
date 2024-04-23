@@ -1,19 +1,21 @@
 /* Base Styles */
 
 custom-artist {
+  --flow-space: var(--space-s);
   display: grid;
-  grid-template-rows: [image] max-content [meta] max-content;
+  grid-template-rows: [image] max-content [info] max-content;
   background-color: var(--color-bg-accent);
-  color: var(--color-text);
+  color: var(--color-base-light);
   max-inline-size: unset;
   background-color: var(--color-primary);
 }
 
 .stage custom-artist {
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr;
+  gap: var(--space-s);
 }
 
-.stage custom-artist .btn {
+.stage custom-artist :is(.btn, .arrow) {
   display: none;
 }
 
@@ -26,22 +28,36 @@ custom-artist img {
   filter: grayscale(100%);
 }
 
+custom-artist .info {
+  grid-row: info;
+  display: grid;
+  padding-block-end: var(--space-l);
+}
+
 custom-artist h2 {
-  font-size: var(--size-step-1);
+  font-size: var(--size-step-2);
   text-transform: uppercase;
   letter-spacing: var(--tracking-wide);
+  padding-inline: var(--space-s);
 }
 
 custom-artist h2 a {
   text-decoration: none;
 }
 
-custom-artist .meta {
-  grid-row: meta;
-  line-height: 1.3;
+custom-artist .spotify-link {
+  --flow-space: 2rem;
+  place-self: center;
+  border: 1px solid currentColor;
+  border-radius: 2rem;
+  padding: var(--space-xs) var(--space-l-xl);
+  font-weight: var(--font-bold);
+  text-transform: uppercase;
+  font-size: var(--size-step-min-1);
+  text-decoration: none;
 }
 
-custom-artist .btn {
+custom-artist .arrow {
   padding: var(--space-xs);
   color: var(--color-bg);
   background-color: var(--color-text);
@@ -69,19 +85,16 @@ custom-artist .btn {
 
 /* Large Variant */
 @container (min-width: 300px) {
-  .stage custom-artist {
-    grid-template-columns: 1fr;
-    gap: var(--space-s);
-    transition: transform 0.5s ease;
-    transform: rotate(-3deg);
-  }
+  /* transition: transform 0.5s ease;
+    transform: rotate(-3deg); */
 }
 
 @container (min-width: 800px) {
   custom-artist {
-    transition: transform 0.5s ease;
+    /* transition: transform 0.5s ease;
+    transform: rotate(-3deg); */
+
     /* transform-style: preserve-3d; */
-    transform: rotate(-3deg);
   }
 }
 

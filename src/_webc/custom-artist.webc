@@ -1,9 +1,22 @@
 <custom-artist webc:root>
   <slot name="image"></slot>
-  <div class="info">
-    <h2 class="title"><slot name="headline"></slot></h2>
-    <button class="btn">Add</button>
-    <slot name="spotify-link"></slot>
+  <div class="info flow">
+    <slot name="headline"></slot>
+    <button class="arrow">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="1em"
+        height="1em"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path d="M18 8L22 12L18 16" />
+        <path d="M2 12H22" />
+      </svg>
+    </button>
     <slot name="preview"></slot>
+    <slot name="spotify-link"></slot>
   </div>
 </custom-artist>
