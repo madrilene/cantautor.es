@@ -26,7 +26,7 @@ custom-artist-player {
 
 /* Desktop Layout */
 
-@media screen(sm) {
+@media screen(md) {
   custom-artist-player {
     grid-template-columns: [list] auto [stage] 35%;
   }

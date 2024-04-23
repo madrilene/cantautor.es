@@ -1,9 +1,9 @@
 class CustomArtistPlayer extends HTMLElement {
   constructor() {
-    super(); // Always call super first in constructor
+    super();
     this.attachEventHandlers();
-    this.artistOfTheDay = null; // To store the artist of the day data-artist value
-    this.featuredArtistSlug = null; // Track the current featured artist
+    this.artistOfTheDay = null;
+    this.featuredArtistSlug = null;
   }
 
   connectedCallback() {
@@ -11,7 +11,7 @@ class CustomArtistPlayer extends HTMLElement {
     const initialArtist = this.querySelector('[data-swap] > custom-artist[artist-of-the-day]');
     if (initialArtist) {
       this.artistOfTheDay = initialArtist.getAttribute('data-artist');
-      this.featuredArtistSlug = this.artistOfTheDay; // Assume the initial artist is also currently staged
+      this.featuredArtistSlug = this.artistOfTheDay;
     }
   }
 
@@ -32,6 +32,7 @@ class CustomArtistPlayer extends HTMLElement {
       const currentlyStaged = document.querySelector('.artistlist [artist-staged]');
       if (currentlyStaged) {
         currentlyStaged.removeAttribute('artist-staged');
+        currentlyStaged.removeAttribute('style');
       }
 
       const clonedArtist = artist.cloneNode(true);
@@ -40,10 +41,14 @@ class CustomArtistPlayer extends HTMLElement {
         clonedArtist.setAttribute('artist-of-the-day', '');
       }
 
+      // Reset the featured artist slug and update the list
       this.featuredArtistSlug = artist.getAttribute('data-artist');
       artist.setAttribute('artist-staged', '');
+      artist.removeAttribute('style'); // Ensure no styles are carried over
 
+      // Clear the stage and insert the cloned artist without any residual styles
       stage.innerHTML = '';
+      clonedArtist.style.removeProperty('margin-top');
       stage.appendChild(clonedArtist);
     }
   }

@@ -5,6 +5,7 @@ import {striptags} from './filters/striptags.js';
 import {toAbsoluteUrl} from './filters/to-absolute-url.js';
 import {slugifyString} from './filters/slugify.js';
 import {escapeHtml} from './filters/escape-html.js';
+import {shuffle} from './filters/shuffle.js';
 
 export default {
   toISOString,
@@ -15,5 +16,6 @@ export default {
   striptags,
   toAbsoluteUrl,
   slugifyString,
-  escapeHtml
+  escapeHtml,
+  shuffle
 };

@@ -9,7 +9,8 @@ custom-artist {
 }
 
 .stage custom-artist {
-  grid-template-columns: 1fr;
+  grid-template-columns: [image] 1fr [info] 2fr;
+  grid-template-rows: [image info] auto;
   gap: var(--space-s);
   background-color: var(--color-primary);
   color: var(--color-base-light);
@@ -21,11 +22,6 @@ custom-artist :is(.aotd) {
 
 .stage custom-artist :is(.btn, .arrow) {
   display: none;
-}
-
-custom-artist ::selection {
-  color: var(--color-dark);
-  background-color: var(--color-secondary);
 }
 
 custom-artist img {
@@ -53,7 +49,6 @@ custom-artist picture {
 
 custom-artist .info {
   position: relative;
-  grid-row: info;
   display: grid;
   padding-block-end: var(--space-l);
 }
@@ -64,11 +59,11 @@ custom-artist h2 {
   font-size: var(--size-step-1);
   text-transform: uppercase;
   letter-spacing: var(--tracking-wide);
-  padding-inline: var(--space-s);
 }
 
 .stage custom-artist h2 {
   font-size: var(--size-step-2);
+  padding-inline: var(--space-s);
 }
 
 custom-artist h2 a {
@@ -102,22 +97,6 @@ custom-artist .arrow {
   border: 1px solid var(--color-bg);
 }
 
-/* Small Variant */
-@container (max-width: 200px) {
-  custom-artist {
-    --font-size: 0.5rem;
-  }
-}
-
-@media screen(sm) {
-  .stage custom-artist {
-    transition: transform 0.5s ease;
-    transform: rotate(3deg);
-
-    /* transform-style: preserve-3d; */
-  }
-}
-
 /* clickable */
 
 .artistlist custom-artist {
@@ -138,7 +117,11 @@ custom-artist .arrow {
 }
 
 .artistlist custom-artist:hover .arrow {
-  transform: translateX(1ch);
+  transform: translateX(0) translateY(-1ch);
+}
+
+.artistlist custom-artist:hover h2 {
+  color: var(--color-primary);
 }
 
 .artistlist custom-artist a:after {
@@ -172,4 +155,22 @@ custom-artist[artist-of-the-day] .aotd {
   padding: var(--space-xs);
   border-radius: 50%;
   transform: rotate(6deg);
+  border: 1px solid var(--color-primary-glare);
+}
+
+@media screen(md) {
+  .stage custom-artist {
+    grid-template-columns: 1fr;
+    transition: transform 0.5s ease;
+    transform: rotate(3deg);
+    /* transform-style: preserve-3d; */
+  }
+
+  .artistlist custom-artist .arrow svg {
+    transform: rotate(90deg);
+  }
+
+  .artistlist custom-artist:hover .arrow {
+    transform: translateY(0) translateX(1ch);
+  }
 }

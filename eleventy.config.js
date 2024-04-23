@@ -25,13 +25,8 @@ export default async function (eleventyConfig) {
 
   // --------------------- layout aliases
   eleventyConfig.addLayoutAlias('base', 'base.njk');
-  eleventyConfig.addLayoutAlias('home', 'home.njk');
   eleventyConfig.addLayoutAlias('page', 'page.njk');
-  eleventyConfig.addLayoutAlias('blog', 'blog.njk');
-  eleventyConfig.addLayoutAlias('post', 'post.njk');
-  eleventyConfig.addLayoutAlias('tags', 'tags.njk');
-  eleventyConfig.addLayoutAlias('playlist', 'playlist.njk');
-  eleventyConfig.addLayoutAlias('playlist2', 'playlist2.njk');
+  eleventyConfig.addLayoutAlias('artists', 'artists.njk');
 
   //	---------------------  Collections
   eleventyConfig.addCollection('allPosts', getAllPosts);
@@ -66,6 +61,7 @@ export default async function (eleventyConfig) {
   eleventyConfig.addFilter('toAbsoluteUrl', filters.toAbsoluteUrl);
   eleventyConfig.addFilter('slugify', filters.slugifyString);
   eleventyConfig.addFilter('escapeHtml', filters.escapeHtml);
+  eleventyConfig.addFilter('shuffle', filters.shuffle);
 
   // --------------------- Shortcodes
   eleventyConfig.addShortcode('svg', shortcodes.svgShortcode);

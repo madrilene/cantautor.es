@@ -41,7 +41,7 @@ masonry: true
         <a href="https://caniuse.com/css-container-queries">modern browser</a> to see this demo.
       </div>
       <div class="artistlist grid" data-rows="masonry">
-        {% for artist in spotify.artists %}
+        {% for artist in spotify.artists | shuffle %}
           <custom-artist data-artist="{{ artist.name | slugify }}" class="flow">
             <!-- artist image -->
             {% image artist.profileImage | replace('/assets','./src/assets'), artist.name, null, "eager" %}
