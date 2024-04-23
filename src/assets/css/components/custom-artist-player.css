@@ -79,5 +79,5 @@ custom-artist-player .stage {
 }
 
 custom-artist-player .artistlist {
-  --grid-min-item-size: clamp(11rem, 15vw, 100%);
+  --grid-min-item-size: clamp(10rem, 15vw, 25%);
 }

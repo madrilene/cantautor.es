@@ -32,23 +32,24 @@ class CustomArtistPlayer extends HTMLElement {
       const currentlyStaged = document.querySelector('.artistlist [artist-staged]');
       if (currentlyStaged) {
         currentlyStaged.removeAttribute('artist-staged');
-        currentlyStaged.removeAttribute('style');
       }
 
       const clonedArtist = artist.cloneNode(true);
-      // Preserve the artist-of-the-day attribute if the artist is the artist of the day
+      // Remove any inline styles
+      clonedArtist.removeAttribute('style');
+      clonedArtist.style.removeProperty('margin-top');
+
+      // Preserve the artist-of-the-day attribute
       if (artist.getAttribute('data-artist') === this.artistOfTheDay) {
         clonedArtist.setAttribute('artist-of-the-day', '');
       }
 
-      // Reset the featured artist slug and update the list
+      // Reset the featured artist slug and update
       this.featuredArtistSlug = artist.getAttribute('data-artist');
       artist.setAttribute('artist-staged', '');
-      artist.removeAttribute('style'); // Ensure no styles are carried over
 
-      // Clear the stage and insert the cloned artist without any residual styles
+      // Clear the stage and insert the cloned artist without inline styles
       stage.innerHTML = '';
-      clonedArtist.style.removeProperty('margin-top');
       stage.appendChild(clonedArtist);
     }
   }
