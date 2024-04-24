@@ -74,7 +74,7 @@ svg {
 }
 
 strong {
-  font-weight: var(--font-extra-bold);
+  font-weight: var(--font-bold);
 }
 
 hr {
