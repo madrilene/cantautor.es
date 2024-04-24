@@ -4,7 +4,7 @@ masonry: true
 ---
 
 <main id="main" class="flow wrapper region">
-  <custom-artist-player>
+  <custom-artist-swap>
     <div class="header | cluster">
       <h1>{{ meta.siteName }}</h1>
       <p>Music from spain</p>
@@ -15,14 +15,16 @@ masonry: true
     <section class="stage">
       <h2 class="visually-hidden">Featured</h2>
       <div data-swap>
-        {% set featuredArtist = spotify.artists | random %}
+        {% set featuredArtist = artists | random %}
+
         <custom-artist artist-of-the-day data-artist="{{ featuredArtist.name | slugify }}" class="flow">
           <!-- artist image -->
-          {% image featuredArtist.profileImage | replace('/assets','./src/assets'), featuredArtist.name, null, "eager" %}
+          {% image featuredArtist.profileImage | replace('/assets','./src/assets'), featuredArtist.name, null, "eager", null, "(min-width: 1220px) 640px, 30vw" %}
           <h2 slot="headline">{{ featuredArtist.name }}</h2>
           <a class="spotify-link" slot="spotify-link" href="{{ featuredArtist.spotifyUrl }}"
             >Follow on Spotify</a
           >
+
           <custom-audio slot="preview">
             <span slot="track-title">{{ featuredArtist.trackName }}</span>
             <span slot="album-name">{{ featuredArtist.albumName }}</span>
@@ -36,17 +38,17 @@ masonry: true
     <!-- MAIN CONTENT AREA -->
     <section class="list">
       <h2 class="visually-hidden">Artists</h2>
-      <div class="support-notice">
-        ⚠️ Your browser does not support Container Queries - Switch to a
-        <a href="https://caniuse.com/css-container-queries">modern browser</a> to see this demo.
-      </div>
+
       <div class="artistlist grid" data-rows="masonry">
-        {% for artist in spotify.artists | shuffle %}
-          <custom-artist data-artist="{{ artist.name | slugify }}" class="flow">
+        {% set modifiers = ['img-square', 'img-5-4', 'img-4-5', 'img-keep'] %}
+        {% for artist in artists | shuffle %}
+          {% set randomModifier = modifiers | random %}
+          <custom-artist data-artist="{{ artist.name | slugify }}" {{ randomModifier }} class="flow">
             <!-- artist image -->
-            {% image artist.profileImage | replace('/assets','./src/assets'), artist.name, null, "eager" %}
+            {% image artist.profileImage | replace('/assets','./src/assets'), artist.name, null, "eager", null, "(min-width: 1220px) 640px, 30vw" %}
             <h2 slot="headline">{{ artist.name }}</h2>
             <a class="spotify-link" slot="spotify-link" href="{{ artist.spotifyUrl }}">Follow on Spotify</a>
+
             <custom-audio slot="preview">
               <span slot="track-title">{{ artist.trackName }}</span>
               <span slot="album-name">{{ artist.albumName }}</span>
@@ -58,7 +60,7 @@ masonry: true
         {% endfor %}
       </div>
     </section>
-  </custom-artist-player>
+  </custom-artist-swap>
 </main>
 
 {% include "partials/footer.njk" %}

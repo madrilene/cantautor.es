@@ -1,0 +1,128 @@
+[
+  {
+    "name": "Alberto Ballesteros",
+    "trackName": "Artista Sin Obra",
+    "profileImage": "/assets/artists/alberto-ballesteros/profile.jpg",
+    "albumImage": "/assets/artists/alberto-ballesteros/album.jpg",
+    "albumName": "La Fiesta En Paz",
+    "preview": "/assets/artists/alberto-ballesteros/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/76cl8WncFJMLHHsekATDDC"
+  },
+  {
+    "name": "César Pop",
+    "trackName": "Paredes Desnudas",
+    "profileImage": "/assets/artists-custom/cesar-pop/profile.jpg",
+    "albumImage": "/assets/artists/cesar-pop/album.jpg",
+    "albumName": "Te Llames Como Te Llames",
+    "preview": "/assets/artists/cesar-pop/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/6TAzFezgf7QX4mWCEqGLEb"
+  },
+  {
+    "name": "Alicia Ramos",
+    "trackName": "Eso Es Lo Que Esperan Que Hagamos",
+    "profileImage": "/assets/artists-custom/alicia-ramos/profile.jpg",
+    "albumImage": "/assets/artists/alicia-ramos/album.jpg",
+    "albumName": "Lumpenprekariät",
+    "preview": "/assets/artists/alicia-ramos/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/1ylJ0EQU8T56vjTk2hNpje"
+  },
+  {
+    "name": "Patricia Lázaro",
+    "trackName": "Colgada",
+    "profileImage": "/assets/artists/patricia-lazaro/profile.jpg",
+    "albumImage": "/assets/artists/patricia-lazaro/album.jpg",
+    "albumName": "Gloria Pelea",
+    "preview": "/assets/artists/patricia-lazaro/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/32K2STM1zvVnNlG3tM1AS8"
+  },
+  {
+    "name": "Rozalén",
+    "trackName": "La Puerta Violeta",
+    "profileImage": "/assets/artists/rozalen/profile.jpg",
+    "albumImage": "/assets/artists/rozalen/album.jpg",
+    "albumName": "Cuando el Río Suena...",
+    "preview": "/assets/artists/rozalen/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/5soMpG6E6oApEiCZgrWeVz"
+  },
+  {
+    "name": "Manu Clavijo",
+    "trackName": "Un corazón de carne y hueso",
+    "profileImage": "/assets/artists/manu-clavijo/profile.jpg",
+    "albumImage": "/assets/artists/manu-clavijo/album.jpg",
+    "albumName": "Un corazón de carne y hueso",
+    "preview": "/assets/artists/manu-clavijo/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/5LTt7p19p4ydeQZtrGihWE"
+  },
+  {
+    "name": "Nico Roig",
+    "trackName": "Què Hi Fas Aquí Tan Sola",
+    "profileImage": "/assets/artists/nico-roig/profile.jpg",
+    "albumImage": "/assets/artists/nico-roig/album.jpg",
+    "albumName": "Yo Siempre Sueño Que Sí",
+    "preview": "/assets/artists/nico-roig/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/792TNSvdXNdzOuGRcRP2EN"
+  },
+  {
+    "name": "Esther Zecco",
+    "trackName": "Original",
+    "profileImage": "/assets/artists/esther-zecco/profile.jpg",
+    "albumImage": "/assets/artists/esther-zecco/album.jpg",
+    "albumName": "Lo que ya sabías",
+    "preview": "/assets/artists/esther-zecco/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/4mKUjPk3unhd9UwjuaAOZA"
+  },
+  {
+    "name": "Kike M",
+    "trackName": "Trance (Remezcla de Gabriel Vidanauta)",
+    "profileImage": "/assets/artists/kike-m/profile.jpg",
+    "albumImage": "/assets/artists/kike-m/album.jpg",
+    "albumName": "Antipersonal (Ampliado & Remasterizado)",
+    "preview": "/assets/artists/kike-m/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/03V1FJKRO1ZPrdA8zLxFu9"
+  },
+  {
+    "name": "El Kanka",
+    "trackName": "Trance (Remezcla de Gabriel Vidanauta)",
+    "profileImage": "/assets/artists/el-kanka/profile.jpg",
+    "albumImage": "/assets/artists/el-kanka/album.jpg",
+    "albumName": "Antipersonal (Ampliado & Remasterizado)",
+    "preview": "/assets/artists/el-kanka/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/4Byu6VBhuMYzcoIUrIyLuL"
+  },
+  {
+    "name": "Roura",
+    "trackName": "Es tu vida",
+    "profileImage": "/assets/artists/roura/profile.jpg",
+    "albumImage": "/assets/artists/roura/album.jpg",
+    "albumName": "Es tu vida",
+    "preview": "/assets/artists/roura/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/2II3DvO7vXKu8ADrdJv1rv"
+  },
+  {
+    "name": "Gatoperro",
+    "trackName": "Hecho a medida",
+    "profileImage": "/assets/artists-custom/gatoperro/profile.jpg",
+    "albumImage": "/assets/artists/gatoperro/album.jpg",
+    "albumName": "Ríen los dioses",
+    "preview": "/assets/artists/gatoperro/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/5mSo1c0ixJtIJxCQBmWAWl"
+  },
+  {
+    "name": "Aitor Flamingos",
+    "trackName": "Pantera Negra",
+    "profileImage": "/assets/artists/aitor-flamingos/profile.jpg",
+    "albumImage": "/assets/artists/aitor-flamingos/album.jpg",
+    "albumName": "Paseíto",
+    "preview": "/assets/artists/aitor-flamingos/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/0lFpCyhF8NM76gXEYJPDPQ"
+  },
+  {
+    "name": "DelRoto",
+    "trackName": "Frío de Géminis",
+    "profileImage": "/assets/artists/delroto/profile.jpg",
+    "albumImage": "/assets/artists/delroto/album.jpg",
+    "albumName": "Canciones Contra el Futuro",
+    "preview": "/assets/artists/delroto/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/2hm1tbtYT5Lop41CqihwQY"
+  }
+]
