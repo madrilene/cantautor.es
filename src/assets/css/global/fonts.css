@@ -5,7 +5,7 @@
   font-weight: 500;
   src:
     local(''),
-    url('/assets/fonts/circular/circular-std-medium.woff2') format('woff2');
+    url('/assets/fonts/circular/circular-std-book.woff2') format('woff2');
 }
 
 @font-face {
@@ -15,5 +15,5 @@
   font-weight: 700;
   src:
     local(''),
-    url('/assets/fonts/figtree/circular-std-bold.woff2') format('woff2');
+    url('/assets/fonts/circular/circular-std-bold.woff2') format('woff2');
 }
