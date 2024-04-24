@@ -16,26 +16,30 @@ custom-artist {
   color: var(--color-base-light);
 }
 
-custom-artist :is(.aotd) {
-  display: none;
-}
+/* Hide elements  */
 
 .stage custom-artist :is(.btn, .arrow) {
   display: none;
 }
 
+.artistlist :is(custom-audio, .spotify-link) {
+  display: none;
+}
+
+/* Part: Image  */
+
+custom-artist picture {
+  position: relative;
+}
+
 custom-artist img {
+  inline-size: 100%;
+  object-fit: cover;
   filter: grayscale(100%) sepia(10%);
 }
 
 .stage custom-artist img {
-  inline-size: 100%;
-  object-fit: cover;
   aspect-ratio: 4 / 5;
-}
-
-custom-artist picture {
-  position: relative;
 }
 
 .stage custom-artist picture::after {
@@ -46,6 +50,8 @@ custom-artist picture {
   mix-blend-mode: overlay;
   background-image: linear-gradient(to bottom, transparent, var(--color-primary));
 }
+
+/* Part: Info  */
 
 custom-artist .info {
   position: relative;
@@ -61,13 +67,17 @@ custom-artist h2 {
   letter-spacing: var(--tracking-wide);
 }
 
+custom-artist h2 a {
+  text-decoration: none;
+}
+
 .stage custom-artist h2 {
   font-size: var(--size-step-2);
   padding-inline: var(--space-s);
 }
 
-custom-artist h2 a {
-  text-decoration: none;
+.artistlist custom-artist h2 {
+  max-inline-size: 80%;
 }
 
 custom-artist .spotify-link {
@@ -81,6 +91,8 @@ custom-artist .spotify-link {
   font-size: var(--size-step-min-1);
   text-decoration: none;
 }
+
+/* arrow */
 
 custom-artist .arrow {
   display: grid;
@@ -116,10 +128,12 @@ custom-artist .arrow {
   transition: transform 0.2s ease;
 }
 
+.artistlist custom-artist[artist-staged] .arrow,
 .artistlist custom-artist:hover .arrow {
   transform: translateX(0) translateY(-1ch);
 }
 
+.artistlist custom-artist[artist-staged] h2,
 .artistlist custom-artist:hover h2 {
   color: var(--color-primary);
 }
@@ -133,14 +147,16 @@ custom-artist .arrow {
   top: 0;
 }
 
-.artistlist :is(custom-audio, .spotify-link) {
-  display: none;
-}
-
 /* modifiers */
 
 .artistlist custom-artist[active-artist] {
   border: 2px solid var(--card-focus-border, var(--color-primary));
+}
+
+/*  Hide badge if not aotd and on stage */
+
+custom-artist :is(.aotd) {
+  display: none;
 }
 
 custom-artist[artist-of-the-day] .aotd {
@@ -158,6 +174,24 @@ custom-artist[artist-of-the-day] .aotd {
   border: 1px solid var(--color-primary-glare);
 }
 
+.artistlist custom-artist[img-square] img {
+  aspect-ratio: 1;
+}
+
+.artistlist custom-artist[img-5-4] img {
+  aspect-ratio: 5 / 4;
+}
+
+.artistlist custom-artist[img-4-5] img {
+  aspect-ratio: 4 / 5;
+}
+
+.artistlist custom-artist[img-keep] img {
+  aspect-ratio: auto;
+}
+
+/* media breakpoint md */
+
 @media screen(md) {
   .stage custom-artist {
     grid-template-columns: 1fr;
@@ -170,6 +204,7 @@ custom-artist[artist-of-the-day] .aotd {
     transform: rotate(90deg);
   }
 
+  .artistlist custom-artist[artist-staged] .arrow,
   .artistlist custom-artist:hover .arrow {
     transform: translateY(0) translateX(1ch);
   }
