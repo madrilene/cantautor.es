@@ -3,22 +3,8 @@
 custom-artist-swap {
   display: grid;
   grid-template-columns: [list stage] 1fr;
-  gap: var(--space-xl);
+  align-items: start; /* Ensure that items align at the start */
   min-height: 100vh;
-}
-
-/* Desktop Layout */
-
-@media screen(md) {
-  custom-artist-swap {
-    grid-template-columns: [list] auto [stage] 31%;
-  }
-
-  custom-artist-swap .stage,
-  custom-artist-swap .list {
-    /* padding: var(--space-l); */
-    grid-row: 1;
-  }
 }
 
 custom-artist-swap .list {
@@ -26,13 +12,15 @@ custom-artist-swap .list {
 }
 
 custom-artist-swap .header {
-  --gutter: 0.1rem;
+  --gutter: 0;
+  position: sticky;
+  bottom: 0;
   flex-wrap: nowrap;
   grid-column: stage;
   grid-row: 1;
   place-self: start;
-  z-index: 1;
-  transform: rotate(-2deg) translateY(-1.5rem);
+  z-index: 2;
+  transform: rotate(-2.5deg) translateX(-1rem) translateY(0.2rem);
 }
 
 custom-artist-swap .header > * {
@@ -44,6 +32,7 @@ custom-artist-swap .header > * {
   padding-inline: var(--space-s);
   font-weight: var(--font-bold);
   text-transform: uppercase;
+  border: 1px solid var(--color-bg);
 }
 
 custom-artist-swap .header h1 {
@@ -55,12 +44,56 @@ custom-artist-swap .header p {
 }
 
 custom-artist-swap .stage {
+  background-color: var(--color-bg);
   grid-column: stage;
   position: relative;
   container-type: inline-size;
   display: block;
+  padding-block-end: var(--space-xs-l);
 }
 
 custom-artist-swap .artistlist {
-  --grid-min-item-size: clamp(10rem, 15vw, 25%);
+  --grid-min-item-size: clamp(10rem, 25cqi, 25%);
+}
+
+custom-artist-swap .stage {
+  position: sticky;
+  top: 0; /* Adjust this value based on your header height if needed */
+}
+
+custom-artist-swap .list {
+  overflow-y: auto;
+  max-height: 100vh;
+  scrollbar-width: none;
+}
+
+custom-artist-swap .list::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
+
+/* Adjustments for the header and other elements if needed */
+custom-artist-swap .header > * {
+  padding-inline: var(--space-s);
+}
+
+/* Desktop Layout */
+
+@media screen(md) {
+  custom-artist-swap {
+    grid-template-columns: [list] auto [stage] 31%;
+    gap: var(--space-xl);
+  }
+
+  custom-artist-swap .stage,
+  custom-artist-swap .list {
+    grid-row: 1;
+    padding-block-end: 0;
+  }
+  custom-artist-swap .list {
+    padding-block-start: var(--space-xs-l);
+  }
+
+  custom-artist-swap .header {
+    place-self: start;
+  }
 }

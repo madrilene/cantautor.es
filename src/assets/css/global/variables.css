@@ -6,7 +6,7 @@
 :root {
   color-scheme: light dark;
 
-  --gutter: var(--space-m-l);
+  --gutter: var(--space-xs-l);
   --border-radius: 0.1rem;
   --transition-duration: 250ms;
   --transition-timing: ease;

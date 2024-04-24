@@ -104,8 +104,8 @@ custom-artist .arrow {
   position: absolute;
   inset-inline-end: 0.5ch;
   inset-block-start: -2.6ch;
-  inline-size: 3rem;
-  block-size: 3rem;
+  inline-size: 2ch;
+  block-size: 2ch;
   border: 1px solid var(--color-bg);
 }
 
@@ -196,8 +196,8 @@ custom-artist[artist-of-the-day] .aotd {
   .stage custom-artist {
     grid-template-columns: 1fr;
     transition: transform 0.5s ease;
-    transform: rotate(3deg);
-    /* transform-style: preserve-3d; */
+    transform: rotate(3deg) translateY(1.5rem);
+
   }
 
   .artistlist custom-artist .arrow svg {
@@ -207,5 +207,23 @@ custom-artist[artist-of-the-day] .aotd {
   .artistlist custom-artist[artist-staged] .arrow,
   .artistlist custom-artist:hover .arrow {
     transform: translateY(0) translateX(1ch);
+  }
+}
+
+@keyframes grow-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes shrink-x {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
   }
 }

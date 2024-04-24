@@ -1,7 +1,7 @@
 /* © Ryan Mulligan - https://ryanmulligan.dev/blog/layout-breakouts/ */
 
 .wrapper {
-  --gap: clamp(1rem, 1vw, 3rem);
+  --gap: clamp(0.1rem, 1vw, 3rem);
   --full: minmax(var(--gap), 1fr);
   --content: min(var(--wrapper-width, 85rem), 100% - var(--gap) * 2);
   --popout: minmax(0, 2rem);
