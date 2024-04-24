@@ -11,7 +11,7 @@ custom-artist-swap {
 
 @media screen(md) {
   custom-artist-swap {
-    grid-template-columns: [list] auto [stage] 35%;
+    grid-template-columns: [list] auto [stage] 31%;
   }
 
   custom-artist-swap .stage,

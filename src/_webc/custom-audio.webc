@@ -1,25 +1,28 @@
-<custom-audio webc:root>
-  <button class="play-button">
-    <span class="visually-hidden aria-name">Audio is paused</span>
-    <!-- Play icon -->
-    <svg class="play-icon" viewBox="0 0 24 24" width="24" height="24">
-      <path fill="currentColor" d="M8 5v14l11-7z"></path>
-    </svg>
-    <!-- Pause icon -->
-    <svg class="pause-icon" style="display: none" viewBox="0 0 24 24" width="24" height="24">
-      <path fill="currentColor" d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path>
-    </svg>
-  </button>
-  <div class="track-info">
-    <p class="track-title"><slot name="track-title"></slot></p>
-    <p class="album-name"><slot name="album-name"></slot></p>
-  </div>
-  <div class="progress-bar">
-    <span class="current-time">0:00</span>
-    <input type="range" value="0" min="0" max="100" step="1" />
-    <span class="total-time">0:00</span>
-  </div>
+<is-land on:interaction>
+  <custom-audio webc:root webc:keep>
+    <button class="play-button">
+      <span class="visually-hidden aria-name">Audio is paused</span>
+      <!-- Play icon -->
+      <svg class="play-icon" viewBox="0 0 24 24" width="24" height="24">
+        <path fill="currentColor" d="M8 5v14l11-7z"></path>
+      </svg>
+      <!-- Pause icon -->
+      <svg class="pause-icon" style="display: none" viewBox="0 0 24 24" width="24" height="24">
+        <path fill="currentColor" d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path>
+      </svg>
+    </button>
+    <div class="track-info">
+      <p class="track-title"><slot name="track-title"></slot></p>
+      <p class="album-name"><slot name="album-name"></slot></p>
+    </div>
+    <div class="progress-bar">
+      <span class="current-time">0:00</span>
+      <input type="range" value="0" min="0" max="100" step="1" />
+      <span class="total-time">0:00</span>
+    </div>
 
-  <span class="preview-label">Preview</span>
-  <slot name="audio"></slot>
-</custom-audio>
+    <span class="preview-label">Preview</span>
+
+    <slot name="audio"></slot>
+  </custom-audio>
+</is-land>
