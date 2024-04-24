@@ -30,18 +30,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
       audioElement.addEventListener('timeupdate', () => {
         const progressPercent = (audioElement.currentTime / audioElement.duration) * 100;
-        progressSlider.value = progressPercent; // Directly setting the value of the slider
+        progressSlider.value = progressPercent;
         currentTimeDisplay.textContent = this.formatTime(audioElement.currentTime);
       });
 
       audioElement.addEventListener('loadedmetadata', () => {
         totalTimeDisplay.textContent = this.formatTime(audioElement.duration);
-        progressSlider.max = audioElement.duration; // Ensure the slider's maximum value is the duration of the audio
+        progressSlider.max = audioElement.duration; // Set the maximum value based on the audio duration
+        progressSlider.value = 0; // Reset the slider to the start position
       });
 
       progressSlider.addEventListener('input', () => {
         const seekTime = (progressSlider.value / 100) * audioElement.duration;
-        audioElement.currentTime = seekTime; // Setting the current time of the audio to the value of the slider
+        audioElement.currentTime = seekTime;
       });
     }
 
