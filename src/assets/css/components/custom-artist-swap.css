@@ -1,0 +1,66 @@
+/* component */
+
+custom-artist-swap {
+  display: grid;
+  grid-template-columns: [list stage] 1fr;
+  gap: var(--space-xl);
+  min-height: 100vh;
+}
+
+/* Desktop Layout */
+
+@media screen(md) {
+  custom-artist-swap {
+    grid-template-columns: [list] auto [stage] 35%;
+  }
+
+  custom-artist-swap .stage,
+  custom-artist-swap .list {
+    /* padding: var(--space-l); */
+    grid-row: 1;
+  }
+}
+
+custom-artist-swap .list {
+  grid-column: list;
+}
+
+custom-artist-swap .header {
+  --gutter: 0.1rem;
+  flex-wrap: nowrap;
+  grid-column: stage;
+  grid-row: 1;
+  place-self: start;
+  z-index: 1;
+  transform: rotate(-2deg) translateY(-1.5rem);
+}
+
+custom-artist-swap .header > * {
+  display: grid;
+  place-items: center;
+  background-color: var(--color-text);
+  color: var(--color-bg);
+  block-size: 3.5rem;
+  padding-inline: var(--space-s);
+  font-weight: var(--font-bold);
+  text-transform: uppercase;
+}
+
+custom-artist-swap .header h1 {
+  font-size: var(--size-step-3);
+}
+
+custom-artist-swap .header p {
+  line-height: var(--leading-flat);
+}
+
+custom-artist-swap .stage {
+  grid-column: stage;
+  position: relative;
+  container-type: inline-size;
+  display: block;
+}
+
+custom-artist-swap .artistlist {
+  --grid-min-item-size: clamp(10rem, 15vw, 25%);
+}
