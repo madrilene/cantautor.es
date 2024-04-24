@@ -5,7 +5,7 @@
     <button class="arrow">
       <custom-svg aria-hidden="true" src="./src/assets/svg/misc/arrow.svg"></custom-svg>
     </button>
-    <custom-svg aria-hidden="true" src="./src/assets/svg/misc/badge.svg"></custom-svg>
+    <custom-svg aria-hidden="true" class="aotd" src="./src/assets/svg/misc/badge.svg"></custom-svg>
     <slot name="preview"></slot>
     <slot name="spotify-link"></slot>
   </div>

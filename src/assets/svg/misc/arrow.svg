@@ -7,6 +7,6 @@
   stroke="currentColor"
   stroke-width="2"
 >
-  <path d="M18 8L22 12L18 16" />
-  <path d="M2 12H22" />
+  <path d="m5 12 7-7 7 7" />
+  <path d="M12 19V5" />
 </svg>
