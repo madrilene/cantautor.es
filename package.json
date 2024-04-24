@@ -12,7 +12,10 @@
     "dev:11ty": "eleventy --serve --watch",
     "build:11ty": "eleventy",
     "start": "run-p dev:*",
-    "build": "run-s clean build:*"
+    "build": "run-s clean build:*",
+    "spotify:generate": "node ./src/_config/spotify/fetch-spotify-data.js",
+    "spotify:final": "node ./src/_config/spotify/create-final-artists-array.js",
+    "spotify": "run-s spotify:*"
   },
   "keywords": [],
   "repository": {
