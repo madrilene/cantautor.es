@@ -39,7 +39,7 @@ custom-artist img {
 }
 
 .stage custom-artist img {
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 3 / 4;
 }
 
 .stage custom-artist picture::after {
@@ -56,7 +56,10 @@ custom-artist img {
 custom-artist .info {
   position: relative;
   display: grid;
-  padding-block-end: var(--space-l);
+}
+
+.stage custom-artist .info {
+  padding-block-end: var(--space-m-l);
 }
 
 custom-artist h2 {
@@ -64,7 +67,6 @@ custom-artist h2 {
   grid-row: 1;
   font-size: var(--size-step-1);
   text-transform: uppercase;
-  letter-spacing: var(--tracking-wide);
 }
 
 custom-artist h2 a {
@@ -81,7 +83,7 @@ custom-artist h2 a {
 }
 
 custom-artist .spotify-link {
-  --flow-space: 2rem;
+  --flow-space: var(--space-xs-l);
   place-self: center;
   border: 1px solid currentColor;
   border-radius: 2rem;
@@ -161,11 +163,11 @@ custom-artist :is(.aotd) {
 
 custom-artist[artist-of-the-day] .aotd {
   position: absolute;
-  inset-block-start: -30%;
-  inset-inline-end: 3%;
-  block-size: 4ex;
+  inset-block-end: -3%;
+  inset-inline-end: 1%;
+  block-size: 3ex;
   display: block;
-  font-size: var(--size-step-4);
+  font-size: var(--size-step-icon);
   color: var(--color-primary);
   background-color: var(--color-base-light);
   padding: var(--space-xs);
@@ -190,6 +192,18 @@ custom-artist[artist-of-the-day] .aotd {
   aspect-ratio: auto;
 }
 
+/* media breakpoint sm */
+
+@media screen(sm) {
+  .stage custom-artist {
+    grid-template-columns: [image] 1fr [info] 4fr;
+  }
+
+  .stage custom-artist img {
+    aspect-ratio: 4 / 5;
+  }
+}
+
 /* media breakpoint md */
 
 @media screen(md) {
@@ -197,7 +211,6 @@ custom-artist[artist-of-the-day] .aotd {
     grid-template-columns: 1fr;
     transition: transform 0.5s ease;
     transform: rotate(3deg) translateY(1.5rem);
-
   }
 
   .artistlist custom-artist .arrow svg {
@@ -207,6 +220,11 @@ custom-artist[artist-of-the-day] .aotd {
   .artistlist custom-artist[artist-staged] .arrow,
   .artistlist custom-artist:hover .arrow {
     transform: translateY(0) translateX(1ch);
+  }
+
+  custom-artist[artist-of-the-day] .aotd {
+    inset-block-start: -30%;
+    inset-inline-end: 3%;
   }
 }
 

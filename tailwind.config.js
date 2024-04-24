@@ -32,7 +32,7 @@ export default {
       ltsm: {max: `${viewportTokens.sm}px`},
       sm: `${viewportTokens.sm}px`,
       md: `${viewportTokens.md}px`,
-      navigation: `${viewportTokens.navigation}px`
+      lg: `${viewportTokens.lg}px`
     },
     colors,
     spacing,
@@ -133,9 +133,7 @@ export default {
 
         Object.keys(group).forEach(key => {
           addUtilities({
-            [`.${prefix}-${key}`]: postcssJs.objectify(
-              postcss.parse(`${property}: ${group[key]}`)
-            )
+            [`.${prefix}-${key}`]: postcssJs.objectify(postcss.parse(`${property}: ${group[key]}`))
           });
         });
       });

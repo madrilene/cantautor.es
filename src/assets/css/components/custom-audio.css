@@ -1,8 +1,7 @@
 custom-audio {
   display: block;
   background: transparent;
-  border-block-start: 1px solid var(--color-primary-glare);
-  padding-block-start: var(--space-s);
+
   inline-size: 100%;
   display: grid;
   grid-template-columns: auto repeat(11, 1fr);
@@ -12,12 +11,12 @@ custom-audio {
 }
 
 custom-audio > * {
-  padding-inline: var(--space-s);
+  padding-inline: var(--space-xs-s);
 }
 
 custom-audio .play-button {
   grid-row: 1 / span 2;
-  font-size: var(--size-step-4);
+  font-size: var(--size-step-icon);
   cursor: pointer;
   background: none;
   inline-size: fit-content;
@@ -27,7 +26,6 @@ custom-audio .play-button svg {
   block-size: 3ex;
   border: 3px solid currentColor;
   border-radius: 50%;
-  padding: 0.1rem;
 }
 
 custom-audio .track-info {
@@ -36,6 +34,7 @@ custom-audio .track-info {
   font-size: 16px;
   white-space: nowrap;
   font-size: var(--size-step-1);
+  line-height: var(--leading-fine);
 }
 
 custom-audio .track-title {
@@ -46,7 +45,6 @@ custom-audio .progress-bar {
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  inline-size: 100%;
   gap: var(--space-s);
   grid-column: 1 / -1;
 }
@@ -57,10 +55,7 @@ custom-audio .total-time {
 }
 
 custom-audio .preview-label {
-  grid-column: 1 / -1;
-  text-align: center;
-  font-style: italic;
-  font-size: var(--size-step-min-1);
+  display: none;
 }
 
 custom-audio input[type='range'] {
@@ -104,4 +99,19 @@ input[type='range']:focus::-moz-range-thumb {
   border: 1px solid #053a5f;
   outline: 3px solid #053a5f;
   outline-offset: 0.125rem;
+}
+
+@media screen(md) {
+  custom-audio {
+    border-block-start: 1px solid var(--color-primary-glare);
+    padding-block-start: var(--space-s);
+  }
+
+  custom-audio .preview-label {
+    display: block;
+    grid-column: 1 / -1;
+    text-align: center;
+    font-style: italic;
+    font-size: var(--size-step-min-1);
+  }
 }

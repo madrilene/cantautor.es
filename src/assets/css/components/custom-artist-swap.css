@@ -2,7 +2,7 @@
 
 custom-artist-swap {
   display: grid;
-  grid-template-columns: [list stage] 1fr;
+  grid-template-columns: [header list stage] 1fr;
   align-items: start; /* Ensure that items align at the start */
   min-height: 100vh;
 }
@@ -16,7 +16,7 @@ custom-artist-swap .header {
   position: sticky;
   bottom: 0;
   flex-wrap: nowrap;
-  grid-column: stage;
+  grid-column: header;
   grid-row: 1;
   place-self: start;
   z-index: 2;
@@ -65,6 +65,7 @@ custom-artist-swap .list {
   overflow-y: auto;
   max-height: 100vh;
   scrollbar-width: none;
+  padding-inline: var(--space-xs-l);
 }
 
 custom-artist-swap .list::-webkit-scrollbar {
@@ -80,8 +81,8 @@ custom-artist-swap .header > * {
 
 @media screen(md) {
   custom-artist-swap {
-    grid-template-columns: [list] auto [stage] 31%;
-    gap: var(--space-xl);
+    grid-template-columns: [header list] auto [stage] 31%;
+    gap: var(--space-xs);
   }
 
   custom-artist-swap .stage,
@@ -89,11 +90,19 @@ custom-artist-swap .header > * {
     grid-row: 1;
     padding-block-end: 0;
   }
+
   custom-artist-swap .list {
-    padding-block-start: var(--space-xs-l);
+    padding-block: var(--space-xs-l);
   }
 
   custom-artist-swap .header {
     place-self: start;
+  }
+}
+
+@media screen(lg) {
+  custom-artist-swap {
+    grid-template-columns: [list] auto [header stage] 31%;
+    gap: var(--space-xs);
   }
 }
