@@ -1,4 +1,4 @@
-class CustomArtistPlayer extends HTMLElement {
+class CustomArtistSwap extends HTMLElement {
   constructor() {
     super();
     this.attachEventHandlers();
@@ -28,30 +28,46 @@ class CustomArtistPlayer extends HTMLElement {
   swapFeaturedArtist(artist) {
     const stage = this.querySelector('[data-swap]');
     if (stage) {
-      // Clear current staged attribute in the list
-      const currentlyStaged = document.querySelector('.artistlist [artist-staged]');
-      if (currentlyStaged) {
-        currentlyStaged.removeAttribute('artist-staged');
+      const displayNewArtist = () => {
+        this.directSwap(stage, artist);
+      };
+
+      if (!document.startViewTransition) {
+        displayNewArtist();
+        return;
       }
 
-      const clonedArtist = artist.cloneNode(true);
-      // Remove any inline styles
-      clonedArtist.removeAttribute('style');
-
-      // Preserve the artist-of-the-day attribute
-      if (artist.getAttribute('data-artist') === this.artistOfTheDay) {
-        clonedArtist.setAttribute('artist-of-the-day', '');
-      }
-
-      // Reset the featured artist slug and update
-      this.featuredArtistSlug = artist.getAttribute('data-artist');
-      artist.setAttribute('artist-staged', '');
-
-      // Clear the stage and insert the cloned artist without inline styles
-      stage.innerHTML = '';
-      stage.appendChild(clonedArtist);
+      const transition = document.startViewTransition(() => displayNewArtist());
+      transition.finished
+        .then(() => {
+          console.log('Transition completed');
+        })
+        .catch(error => {
+          console.error('Transition failed', error);
+          displayNewArtist(); // Fallback to direct swap if transition fails
+        });
     }
+  }
+
+  directSwap(stage, artist) {
+    const currentlyStaged = document.querySelector('.artistlist [artist-staged]');
+    if (currentlyStaged) {
+      currentlyStaged.removeAttribute('artist-staged');
+    }
+
+    const clonedArtist = artist.cloneNode(true);
+    clonedArtist.removeAttribute('style');
+
+    if (artist.getAttribute('data-artist') === this.artistOfTheDay) {
+      clonedArtist.setAttribute('artist-of-the-day', '');
+    }
+
+    this.featuredArtistSlug = artist.getAttribute('data-artist');
+    artist.setAttribute('artist-staged', '');
+
+    stage.innerHTML = '';
+    stage.appendChild(clonedArtist);
   }
 }
 
-customElements.define('custom-artist-swap', CustomArtistPlayer);
+customElements.define('custom-artist-swap', CustomArtistSwap);
