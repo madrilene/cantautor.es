@@ -1,3 +1,0 @@
-<custom-gallery-item webc:root>
-  <slot name="image"></slot>
-</custom-gallery-item>
