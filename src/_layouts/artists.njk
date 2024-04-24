@@ -3,7 +3,7 @@ layout: base
 masonry: true
 ---
 
-<main id="main" class="flow wrapper region">
+<main id="main" class="wrapper">
   <custom-artist-swap>
     <div class="header | cluster">
       <h1>{{ meta.siteName }}</h1>
@@ -12,7 +12,7 @@ masonry: true
     </div>
 
     <!-- FEATURED ARTIST -->
-    <section class="stage">
+    <section class="stage ontop">
       <h2 class="visually-hidden">Featured</h2>
       <div data-swap>
         {% set featuredArtist = artists | random %}
@@ -39,7 +39,7 @@ masonry: true
     <section class="list">
       <h2 class="visually-hidden">Artists</h2>
 
-      <div class="artistlist grid" data-rows="masonry">
+      <div class="artistlist | grid" data-rows="masonry">
         {% set modifiers = ['img-square', 'img-5-4', 'img-4-5', 'img-keep'] %}
         {% for artist in artists | shuffle %}
           {% set randomModifier = modifiers | random %}
