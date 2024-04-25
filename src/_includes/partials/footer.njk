@@ -1,17 +1,15 @@
-<footer class="site-footer ">
-  <div class="wrapper">
-    <div class="footer__meta | cluster">
-      <nav class="footer__meta | cluster text-step-0" aria-label="{{ meta.navigation.ariaBottom }}">
-        &copy; {% year %}
-        <a href="/" {% if page.url == "/" %}aria-current="page"{% endif %}
-          >{{ meta.siteName }} <small>{{ pkg.version }}</small>
-        </a>
-      </nav>
+<div class="wrapper region">
+  <div class="footer__meta | cluster">
+    <nav class="footer__meta | cluster text-step-0" aria-label="{{ meta.navigation.ariaBottom }}">
+      &copy; {% year %}
+      <a href="/" {% if page.url == "/" %}aria-current="page"{% endif %}
+        >{{ meta.siteName }} <small>{{ pkg.version }}</small>
+      </a>
+    </nav>
 
-      <p>
-        This website was made with love by <a href="https://badwebsites.rip/">Lene&Dani</a> and it aims to
-        support spanish musicians ♥♪.
-      </p>
-    </div>
+    <p>
+      This website was made with love by <a href="https://badwebsites.rip/">Lene&Dani</a> and it aims to
+      support spanish musicians ♥♪.
+    </p>
   </div>
-</footer>
+</div>

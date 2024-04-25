@@ -9,5 +9,5 @@
     <slot name="preview"></slot>
     <slot name="spotify-link"></slot>
   </div>
-  <a href="#artistlist" class="skip-link" bottom>Jump back to artists</a>
+  <a href="#artistlist" class="skip-link">Jump back to artists</a>
 </custom-artist>

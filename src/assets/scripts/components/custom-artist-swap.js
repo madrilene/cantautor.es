@@ -13,24 +13,6 @@ class CustomArtistSwap extends HTMLElement {
       this.artistOfTheDay = initialArtist.getAttribute('data-artist');
       this.featuredArtistSlug = this.artistOfTheDay;
     }
-    this.appendSkipLinks();
-  }
-
-  appendSkipLinks() {
-    const artists = this.querySelectorAll('.artistlist custom-artist');
-    artists.forEach(artist => {
-      const link = document.createElement('a');
-      link.href = '#stage';
-      link.className = 'skip-link';
-      link.textContent = `Jump to featured artist ${this.formatArtistName(artist.getAttribute('data-artist'))}`;
-      link.addEventListener('click', () => {
-        const stageButton = this.querySelector('.stage .play-button');
-        if (stageButton) {
-          stageButton.focus();
-        }
-      });
-      artist.appendChild(link);
-    });
   }
 
   formatArtistName(name) {
@@ -88,6 +70,11 @@ class CustomArtistSwap extends HTMLElement {
     if (currentlyStaged) {
       currentlyStaged.removeAttribute('artist-staged');
       currentlyStaged.querySelector('.arrow').setAttribute('aria-pressed', 'false');
+      // Remove existing skip link if there
+      const existingSkipLink = currentlyStaged.querySelector('.skip-link');
+      if (existingSkipLink) {
+        existingSkipLink.remove();
+      }
     }
 
     const clonedArtist = artist.cloneNode(true);
@@ -100,6 +87,13 @@ class CustomArtistSwap extends HTMLElement {
     this.featuredArtistSlug = artist.getAttribute('data-artist');
     artist.setAttribute('artist-staged', 'true');
     artist.querySelector('.arrow').setAttribute('aria-pressed', 'true');
+
+    // Append skip link to newly staged artist
+    const skipLink = document.createElement('a');
+    skipLink.href = '#stage';
+    skipLink.className = 'skip-link';
+    skipLink.textContent = `Jump to featured artist ${this.formatArtistName(artist.getAttribute('data-artist'))}`;
+    artist.appendChild(skipLink);
 
     stage.innerHTML = '';
     stage.appendChild(clonedArtist);

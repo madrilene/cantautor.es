@@ -114,6 +114,7 @@ custom-artist .arrow {
 /* clickable */
 
 .artistlist custom-artist {
+  position: relative;
   border: 2px solid transparent;
   cursor: pointer;
 }

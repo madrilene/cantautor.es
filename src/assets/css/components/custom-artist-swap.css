@@ -44,7 +44,7 @@ custom-artist-swap .stage {
   background-color: var(--color-bg);
   grid-column: stage;
   grid-row: 1;
-  position: relative;
+  /* position: relative; */
   container-type: inline-size;
   display: block;
   padding-block-end: var(--space-xs-l);

@@ -5,7 +5,7 @@
   overflow: hidden;
   position: absolute;
   inline-size: 1px;
-  top: 1rem;
+  bottom: -1rem;
   left: 1rem;
   z-index: 999;
 }
@@ -34,7 +34,7 @@
   white-space: nowrap;
 }
 
-.skip-link[bottom] {
-  top: auto;
-  bottom: -1rem;
+.skip-link[top] {
+  bottom: auto;
+  top: 1rem;
 }
