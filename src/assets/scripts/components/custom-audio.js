@@ -14,6 +14,13 @@ document.addEventListener('DOMContentLoaded', function () {
       const playIcon = this.querySelector('.play-icon');
       const pauseIcon = this.querySelector('.pause-icon');
 
+      audioElement.addEventListener('loadedmetadata', () => {
+        totalTimeDisplay.textContent = this.formatTime(audioElement.duration);
+        progressSlider.max = 100; // Set maximum as 100 for percentage calculation
+        progressSlider.value = 0; // Initialize slider
+        // console.log('Metadata loaded, duration set:', audioElement.duration);
+      });
+
       playButton.addEventListener('click', () => {
         if (audioElement.paused) {
           audioElement.play();
@@ -32,17 +39,13 @@ document.addEventListener('DOMContentLoaded', function () {
         const progressPercent = (audioElement.currentTime / audioElement.duration) * 100;
         progressSlider.value = progressPercent;
         currentTimeDisplay.textContent = this.formatTime(audioElement.currentTime);
-      });
-
-      audioElement.addEventListener('loadedmetadata', () => {
-        totalTimeDisplay.textContent = this.formatTime(audioElement.duration);
-        progressSlider.max = audioElement.duration; // Set the maximum value based on the audio duration
-        progressSlider.value = 0; // Reset the slider to the start position
+        // console.log('Current time:', audioElement.currentTime, 'Progress:', progressPercent, '%');
       });
 
       progressSlider.addEventListener('input', () => {
         const seekTime = (progressSlider.value / 100) * audioElement.duration;
         audioElement.currentTime = seekTime;
+        // console.log('Slider adjusted, seeking to:', seekTime);
       });
     }
 
