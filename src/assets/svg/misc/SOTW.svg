@@ -1,0 +1,23 @@
+<svg id="SOTW" xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        stroke: #000;
+        stroke-width: 2px;
+      }
+
+      .cls-3 {
+        font-size: 16px;
+        font-family: CircularStd-Bold, Circular Std;
+        font-weight: 700;
+      }
+    </style>
+  </defs>
+  <circle id="Ellipse_89" data-name="Ellipse 89" class="cls-1" cx="40" cy="40" r="40"/>
+  <path id="Polygon_171" data-name="Polygon 171" class="cls-2" d="M31.083,0l4.557,3.893,5.57-2.2,3.051,5.167L50.241,6.6l1.214,5.881,5.74,1.7-.755,5.957,4.88,3.477L58.677,29l3.49,4.879-4.243,4.236,1.722,5.751-5.383,2.624-.232,6-5.941.728-2.162,5.6-5.854-1.247-3.857,4.592L31.083,59.08,25.95,62.167l-3.857-4.592-5.854,1.247-2.162-5.6-5.941-.728-.232-6L2.52,43.869l1.722-5.751L0,33.881,3.49,29,.848,23.614l4.88-3.477-.755-5.957,5.74-1.7L11.926,6.6l5.979.263L20.956,1.7l5.57,2.2Z" transform="matrix(0.966, 0.259, -0.259, 0.966, 18.021, 1.94)"/>
+  <text id="SOTW-2" data-name="SOTW" class="cls-3" transform="matrix(0.966, 0.259, -0.259, 0.966, 14.781, 39.465)"><tspan x="0" y="0">SOTW</tspan></text>
+</svg>
