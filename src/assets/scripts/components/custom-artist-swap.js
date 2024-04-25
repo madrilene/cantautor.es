@@ -4,22 +4,57 @@ class CustomArtistSwap extends HTMLElement {
     this.attachEventHandlers();
     this.artistOfTheDay = null;
     this.featuredArtistSlug = null;
+    this.initiateLiveRegion();
   }
 
   connectedCallback() {
-    // Initialize artist of the day on first load
     const initialArtist = this.querySelector('[data-swap] > custom-artist[artist-of-the-day]');
     if (initialArtist) {
       this.artistOfTheDay = initialArtist.getAttribute('data-artist');
       this.featuredArtistSlug = this.artistOfTheDay;
     }
+    this.appendSkipLinks();
+  }
+
+  appendSkipLinks() {
+    const artists = this.querySelectorAll('.artistlist custom-artist');
+    artists.forEach(artist => {
+      const link = document.createElement('a');
+      link.href = '#stage';
+      link.className = 'skip-link';
+      link.textContent = `Jump to featured artist ${this.formatArtistName(artist.getAttribute('data-artist'))}`;
+      link.addEventListener('click', () => {
+        const stageButton = this.querySelector('.stage .play-button');
+        if (stageButton) {
+          stageButton.focus();
+        }
+      });
+      artist.appendChild(link);
+    });
+  }
+
+  formatArtistName(name) {
+    return name
+      .replace(/-/g, ' ')
+      .split(' ')
+      .map(word => word.charAt(0).toUpperCase() + word.substring(1))
+      .join(' ');
+  }
+
+  initiateLiveRegion() {
+    this.liveRegion = document.createElement('div');
+    this.liveRegion.setAttribute('aria-live', 'assertive');
+    this.liveRegion.setAttribute('aria-atomic', 'true');
+    this.liveRegion.setAttribute('class', 'visually-hidden');
+    document.body.appendChild(this.liveRegion);
   }
 
   attachEventHandlers() {
     const artistList = document.querySelector('.artistlist');
     artistList.addEventListener('click', event => {
       const targetArtist = event.target.closest('custom-artist');
-      if (targetArtist) {
+      if (targetArtist && targetArtist !== event.currentTarget) {
+        event.preventDefault();
         this.swapFeaturedArtist(targetArtist);
       }
     });
@@ -30,6 +65,7 @@ class CustomArtistSwap extends HTMLElement {
     if (stage) {
       const displayNewArtist = () => {
         this.directSwap(stage, artist);
+        this.liveRegion.textContent = `${this.formatArtistName(artist.getAttribute('data-artist'))} is now featured on stage.`;
       };
 
       if (!document.startViewTransition) {
@@ -39,9 +75,7 @@ class CustomArtistSwap extends HTMLElement {
 
       const transition = document.startViewTransition(() => displayNewArtist());
       transition.finished
-        .then(() => {
-          console.log('Transition completed');
-        })
+        .then(() => console.log('Transition completed'))
         .catch(error => {
           console.error('Transition failed', error);
           displayNewArtist(); // Fallback to direct swap if transition fails
@@ -53,6 +87,7 @@ class CustomArtistSwap extends HTMLElement {
     const currentlyStaged = document.querySelector('.artistlist [artist-staged]');
     if (currentlyStaged) {
       currentlyStaged.removeAttribute('artist-staged');
+      currentlyStaged.querySelector('.arrow').setAttribute('aria-pressed', 'false');
     }
 
     const clonedArtist = artist.cloneNode(true);
@@ -63,7 +98,8 @@ class CustomArtistSwap extends HTMLElement {
     }
 
     this.featuredArtistSlug = artist.getAttribute('data-artist');
-    artist.setAttribute('artist-staged', '');
+    artist.setAttribute('artist-staged', 'true');
+    artist.querySelector('.arrow').setAttribute('aria-pressed', 'true');
 
     stage.innerHTML = '';
     stage.appendChild(clonedArtist);
