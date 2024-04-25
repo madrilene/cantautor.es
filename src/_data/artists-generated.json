@@ -72,24 +72,6 @@
     "spotifyUrl": "https://open.spotify.com/artist/4mKUjPk3unhd9UwjuaAOZA"
   },
   {
-    "name": "Kike M",
-    "trackName": "Trance (Remezcla de Gabriel Vidanauta)",
-    "profileImage": "/assets/artists/kike-m/profile.jpg",
-    "albumImage": "/assets/artists/kike-m/album.jpg",
-    "albumName": "Antipersonal (Ampliado & Remasterizado)",
-    "preview": "/assets/artists/kike-m/preview.mp3",
-    "spotifyUrl": "https://open.spotify.com/artist/03V1FJKRO1ZPrdA8zLxFu9"
-  },
-  {
-    "name": "El Kanka",
-    "trackName": "Trance (Remezcla de Gabriel Vidanauta)",
-    "profileImage": "/assets/artists/el-kanka/profile.jpg",
-    "albumImage": "/assets/artists/el-kanka/album.jpg",
-    "albumName": "Antipersonal (Ampliado & Remasterizado)",
-    "preview": "/assets/artists/el-kanka/preview.mp3",
-    "spotifyUrl": "https://open.spotify.com/artist/4Byu6VBhuMYzcoIUrIyLuL"
-  },
-  {
     "name": "Roura",
     "trackName": "Es tu vida",
     "profileImage": "/assets/artists/roura/profile.jpg",
@@ -124,5 +106,68 @@
     "albumName": "Canciones Contra el Futuro",
     "preview": "/assets/artists/delroto/preview.mp3",
     "spotifyUrl": "https://open.spotify.com/artist/2hm1tbtYT5Lop41CqihwQY"
+  },
+  {
+    "name": "Kike M",
+    "trackName": "Trance",
+    "profileImage": "/assets/artists/kike-m/profile.jpg",
+    "albumImage": "/assets/artists/kike-m/album.jpg",
+    "albumName": "Antipersonal",
+    "preview": "/assets/artists/kike-m/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/03V1FJKRO1ZPrdA8zLxFu9"
+  },
+  {
+    "name": "Elenitakatá",
+    "trackName": "Verte Más",
+    "profileImage": "/assets/artists/elenitakata/profile.jpg",
+    "albumImage": "/assets/artists/elenitakata/album.jpg",
+    "albumName": "Jardines",
+    "preview": "/assets/artists/elenitakata/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/2FnAlrcjGmXRRvIY57rTwy"
+  },
+  {
+    "name": "Ángel Calvo",
+    "trackName": "Esperando al 71",
+    "profileImage": "/assets/artists/angel-calvo/profile.jpg",
+    "albumImage": "/assets/artists/angel-calvo/album.jpg",
+    "albumName": "Esperando",
+    "preview": "/assets/artists/angel-calvo/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/2vbaKLj26Zd13c8EhfjsrI"
+  },
+  {
+    "name": "Joaco Amor",
+    "trackName": "Lo que daría",
+    "profileImage": "/assets/artists/joaco-amor/profile.jpg",
+    "albumImage": "/assets/artists/joaco-amor/album.jpg",
+    "albumName": "Lo que daría",
+    "preview": "/assets/artists/joaco-amor/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/79w92FKVUoPVPxj6W4u9Ln"
+  },
+  {
+    "name": "Nadia Alvarez",
+    "trackName": "Lo que daría",
+    "profileImage": "/assets/artists/nadia-alvarez/profile.jpg",
+    "albumImage": "/assets/artists/nadia-alvarez/album.jpg",
+    "albumName": "Lo que daría",
+    "preview": "/assets/artists/nadia-alvarez/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/0MG7du0o7X8TMdyWm0wAku"
+  },
+  {
+    "name": "Daniel Hare",
+    "trackName": "Crisálidas",
+    "profileImage": "/assets/artists/daniel-hare/profile.jpg",
+    "albumImage": "/assets/artists/daniel-hare/album.jpg",
+    "albumName": "Crisálidas",
+    "preview": "/assets/artists/daniel-hare/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/6vxeV4c3L6JWRv5XxuvNfJ"
+  },
+  {
+    "name": "Alberto Alcala",
+    "trackName": "Chelo",
+    "profileImage": "/assets/artists/alberto-alcala/profile.jpg",
+    "albumImage": "/assets/artists/alberto-alcala/album.jpg",
+    "albumName": "Otra edad",
+    "preview": "/assets/artists/alberto-alcala/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/2OHECUIvuwNCtuMoXIJftg"
   }
 ]
