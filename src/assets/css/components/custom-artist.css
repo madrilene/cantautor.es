@@ -22,7 +22,7 @@ custom-artist {
   display: none;
 }
 
-.artistlist :is(custom-audio, .spotify-link) {
+.artistlist :is(custom-audio, .spotify-link, .skip-link[href='#artistlist']) {
   display: none;
 }
 
@@ -210,7 +210,7 @@ custom-artist[artist-of-the-day] .aotd {
   .stage custom-artist {
     grid-template-columns: 1fr;
     transition: transform 0.5s ease;
-    transform: rotate(3deg) translateY(1.5rem);
+    transform: rotate(3deg) translateY(1.8rem);
   }
 
   .artistlist custom-artist .arrow svg {
