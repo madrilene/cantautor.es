@@ -2,11 +2,12 @@
   <slot name="image"></slot>
   <div class="info flow">
     <slot name="headline"></slot>
-    <button class="arrow">
+    <button class="arrow" aria-label="Move to stage" aria-pressed="false">
       <custom-svg aria-hidden="true" src="./src/assets/svg/misc/arrow.svg"></custom-svg>
     </button>
     <custom-svg aria-hidden="true" class="aotd" src="./src/assets/svg/misc/badge.svg"></custom-svg>
     <slot name="preview"></slot>
     <slot name="spotify-link"></slot>
   </div>
+  <a href="#artistlist" class="skip-link" bottom>Jump back to artists</a>
 </custom-artist>

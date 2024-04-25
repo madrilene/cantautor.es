@@ -11,15 +11,42 @@ masonry: true
       {% include 'components/theme-switch.njk' %}
     </div>
 
+    <!-- MAIN CONTENT AREA -->
+    <section class="list">
+      <a href="#stage" class="skip-link">Jump to featured artist</a>
+      <h2 class="visually-hidden">Artists</h2>
+
+      <div id="artistlist" class="artistlist | grid" data-rows="masonry">
+        {% set modifiers = ['img-square', 'img-5-4', 'img-4-5', 'img-keep'] %}
+        {% for artist in artists | shuffle %}
+          {% set randomModifier = modifiers | random %}
+          <custom-artist data-artist="{{ artist.name | slugify }}" {{ randomModifier }} class="flow">
+            <!-- artist image - empty alt text? -->
+            {% image artist.profileImage | replace('/assets','./src/assets'), "", null, "eager", null, "(min-width: 1220px) 640px, 30vw" %}
+            <h2 slot="headline">{{ artist.name }}</h2>
+            <a class="spotify-link" slot="spotify-link" href="{{ artist.spotifyUrl }}">Follow on Spotify</a>
+
+            <custom-audio slot="preview">
+              <span slot="track-title">{{ artist.trackName }}</span>
+              <span slot="album-name">{{ artist.albumName }}</span>
+              <audio class="visually-hidden" slot="audio" controls src="{{ artist.preview }}">
+                <a href="{{ artist.preview }}">Download audio</a>
+              </audio>
+            </custom-audio>
+          </custom-artist>
+        {% endfor %}
+      </div>
+    </section>
+
     <!-- FEATURED ARTIST -->
-    <section class="stage ontop">
+    <section id="stage" class="stage ontop">
       <h2 class="visually-hidden">Featured</h2>
       <div data-swap>
         {% set featuredArtist = artists | random %}
 
         <custom-artist artist-of-the-day data-artist="{{ featuredArtist.name | slugify }}" class="flow">
           <!-- artist image -->
-          {% image featuredArtist.profileImage | replace('/assets','./src/assets'), featuredArtist.name, null, "eager", null, "(min-width: 1220px) 640px, 30vw" %}
+          {% image featuredArtist.profileImage | replace('/assets','./src/assets'), "", null, "eager", null, "(min-width: 1220px) 640px, 30vw" %}
           <h2 slot="headline">{{ featuredArtist.name }}</h2>
           <a class="spotify-link" slot="spotify-link" href="{{ featuredArtist.spotifyUrl }}"
             >Follow on Spotify</a
@@ -33,31 +60,6 @@ masonry: true
             </audio>
           </custom-audio>
         </custom-artist>
-      </div>
-    </section>
-    <!-- MAIN CONTENT AREA -->
-    <section class="list">
-      <h2 class="visually-hidden">Artists</h2>
-
-      <div class="artistlist | grid" data-rows="masonry">
-        {% set modifiers = ['img-square', 'img-5-4', 'img-4-5', 'img-keep'] %}
-        {% for artist in artists | shuffle %}
-          {% set randomModifier = modifiers | random %}
-          <custom-artist data-artist="{{ artist.name | slugify }}" {{ randomModifier }} class="flow">
-            <!-- artist image -->
-            {% image artist.profileImage | replace('/assets','./src/assets'), artist.name, null, "eager", null, "(min-width: 1220px) 640px, 30vw" %}
-            <h2 slot="headline">{{ artist.name }}</h2>
-            <a class="spotify-link" slot="spotify-link" href="{{ artist.spotifyUrl }}">Follow on Spotify</a>
-
-            <custom-audio slot="preview">
-              <span slot="track-title">{{ artist.trackName }}</span>
-              <span slot="album-name">{{ artist.albumName }}</span>
-              <audio class="visually-hidden" slot="audio" controls src="{{ artist.preview }}">
-                <a href="{{ artist.preview }}">Download audio</a>
-              </audio>
-            </custom-audio>
-          </custom-artist>
-        {% endfor %}
       </div>
     </section>
   </custom-artist-swap>
