@@ -4,7 +4,7 @@ custom-artist-swap {
   display: grid;
   grid-template-columns: [header list stage] 1fr;
   align-items: start; /* Ensure that items align at the start */
-  min-height: 100vh;
+  /* min-height: 100vh; */
 }
 
 custom-artist-swap .stage {
@@ -22,9 +22,9 @@ custom-artist-swap .stage {
 custom-artist-swap .list {
   grid-column: list;
   grid-row: 2;
-  overflow-y: auto;
-  max-height: 100vh;
-  scrollbar-width: none;
+  /* overflow-y: auto; */
+  /* max-height: 100vh; */
+  /* scrollbar-width: none; */
   padding-inline: var(--space-xs-l);
 }
 
@@ -32,9 +32,9 @@ custom-artist-swap .artistlist {
   --grid-min-item-size: clamp(10rem, 25cqi, 25%);
 }
 
-custom-artist-swap .list::-webkit-scrollbar {
-  display: none; /* For Chrome, Safari, and Opera */
-}
+/* custom-artist-swap .list::-webkit-scrollbar {
+  display: none; /
+} */
 
 /* Desktop Layout */
 

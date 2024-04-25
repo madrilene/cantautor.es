@@ -1,10 +1,12 @@
 .header {
+  --wrap: nowrap;
   --gutter: 0;
-  position: absolute;
+  position: fixed;
   inset-block-end: 0;
   flex-wrap: nowrap;
   z-index: 2;
   transform: rotate(-2deg) translateX(-0.5rem) translateY(0.6rem);
+  overflow-x: hidden;
 }
 
 .header > * {

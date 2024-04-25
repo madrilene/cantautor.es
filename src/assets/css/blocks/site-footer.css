@@ -1,12 +1,17 @@
 .site-footer {
-  margin-block-start: var(--space-l-xl);
-  padding: var(--space-s-m);
+  --region-space-bottom: var(--space-3xl);
+  --region-space-start: var(--space-xl);
+  padding-inline: var(--space-l);
+  /* margin-block-start: var(--space-l-xl); */
+  /* padding: var(--space-s-m); */
   color: var(--color-text);
+  font-size: var(--size-step-1);
+  transform: rotate(-2deg) translateX(-0.5rem) translateY(0.6rem);
 }
 
 .site-footer .footer__meta {
   --gutter: var(--space-xs);
-  --cluster-horizontal-alignment: center;
+  --cluster-horizontal-alignment: flex-start;
 }
 
 /* increase tab size */
