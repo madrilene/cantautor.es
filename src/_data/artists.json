@@ -205,14 +205,5 @@
     "albumName": "Mariposas",
     "preview": "/assets/artists/lidia-aguilar/preview.mp3",
     "spotifyUrl": "https://open.spotify.com/artist/4zWfGH4eqhacFoocR1BAm6"
-  },
-  {
-    "name": "Marta Méndez",
-    "trackName": "Sirenas de Josep",
-    "profileImage": "/assets/artists/marta-mendez/profile.jpg",
-    "albumImage": "/assets/artists/marta-mendez/album.jpg",
-    "albumName": "Sirenas de Josep",
-    "preview": "/assets/artists/marta-mendez/preview.mp3",
-    "spotifyUrl": "https://open.spotify.com/artist/5KUVUS83uXpo2423MSMBhG"
   }
 ]
