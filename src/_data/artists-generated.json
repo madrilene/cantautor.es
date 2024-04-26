@@ -169,5 +169,50 @@
     "albumName": "Otra edad",
     "preview": "/assets/artists/alberto-alcala/preview.mp3",
     "spotifyUrl": "https://open.spotify.com/artist/2OHECUIvuwNCtuMoXIJftg"
+  },
+  {
+    "name": "Jairo Martín",
+    "trackName": "Todos los payasos somos tristes",
+    "profileImage": "/assets/artists/jairo-martin/profile.jpg",
+    "albumImage": "/assets/artists/jairo-martin/album.jpg",
+    "albumName": "Todos los payasos somos tristes",
+    "preview": "/assets/artists/jairo-martin/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/226xuds2QoL4Ohcc0qF8CU"
+  },
+  {
+    "name": "Bonacorso",
+    "trackName": "Hasta Que Te Tengas Que Ir",
+    "profileImage": "/assets/artists/bonacorso/profile.jpg",
+    "albumImage": "/assets/artists/bonacorso/album.jpg",
+    "albumName": "After Ego",
+    "preview": "/assets/artists/bonacorso/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/0GCY4CucB7Bu9terftHzid"
+  },
+  {
+    "name": "Gonzalo Hormigo",
+    "trackName": "Plegaria de un hombre normal",
+    "profileImage": "/assets/artists/gonzalo-hormigo/profile.jpg",
+    "albumImage": "/assets/artists/gonzalo-hormigo/album.jpg",
+    "albumName": "Plegaria de un hombre normal",
+    "preview": "/assets/artists/gonzalo-hormigo/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/0psNmccCcIDljCkmUiKjFt"
+  },
+  {
+    "name": "Lidia Aguilar",
+    "trackName": "Mariposas",
+    "profileImage": "/assets/artists/lidia-aguilar/profile.jpg",
+    "albumImage": "/assets/artists/lidia-aguilar/album.jpg",
+    "albumName": "Mariposas",
+    "preview": "/assets/artists/lidia-aguilar/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/4zWfGH4eqhacFoocR1BAm6"
+  },
+  {
+    "name": "Marta Méndez",
+    "trackName": "Sirenas de Josep",
+    "profileImage": "/assets/artists/marta-mendez/profile.jpg",
+    "albumImage": "/assets/artists/marta-mendez/album.jpg",
+    "albumName": "Sirenas de Josep",
+    "preview": "/assets/artists/marta-mendez/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/5KUVUS83uXpo2423MSMBhG"
   }
 ]
