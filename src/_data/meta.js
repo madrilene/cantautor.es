@@ -1,7 +1,6 @@
 export const url = process.env.URL || 'http://localhost:8080';
 export const siteName = 'cantautor.es';
-export const siteDescription =
-  'Eleventy starter built around the CSS workflow suggested by buildexcellentwebsit.es';
+export const siteDescription = 'Supporting spanish musicians';
 export const siteType = 'Person'; // schema
 export const locale = 'en_EN';
 export const lang = 'en';
@@ -21,8 +20,7 @@ export const creator = {
 export const themeColor = '#e84700'; //  Manifest: defines the default theme color for the application
 export const themeBgColor = '#e84700'; // Manifest: defines a placeholder background color for the application page to display before its stylesheet is loaded
 export const opengraph_default = '/assets/images/template/opengraph-default.jpg'; // fallback/default meta image
-export const opengraph_default_alt =
-  'Visible content: Eleventy starter built around the CSS workflow for Cube CSS, Every Layout, Design Tokens and Tailwind for uitility, based on the concepts explained in buildexcellentwebsit.es'; // alt text for default meta image
+export const opengraph_default_alt = 'cantautores logo'; // alt text for default meta image
 export const blog = {
   // RSS feed
   name: 'My Web Development Blog',
