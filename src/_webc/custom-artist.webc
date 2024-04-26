@@ -3,7 +3,7 @@
   <div class="info flow">
     <slot name="headline"></slot>
     <button class="arrow" aria-label="Move to stage" aria-pressed="false">
-      <custom-svg aria-hidden="true" src="./src/assets/svg/misc/arrow.svg"></custom-svg>
+      <custom-svg aria-hidden="true" src="./src/assets/svg/misc/arrow_upward.svg"></custom-svg>
     </button>
     <div class="aotd" aria-hidden="true"><custom-svg src="./src/assets/svg/misc/SOTD.svg"></custom-svg></div>
 

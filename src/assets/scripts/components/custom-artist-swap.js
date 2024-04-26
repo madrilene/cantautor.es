@@ -25,8 +25,7 @@ class CustomArtistSwap extends HTMLElement {
 
   initiateLiveRegion() {
     this.liveRegion = document.createElement('div');
-    this.liveRegion.setAttribute('aria-live', 'assertive');
-    this.liveRegion.setAttribute('aria-atomic', 'true');
+    this.liveRegion.setAttribute('aria-live', 'polite');
     this.liveRegion.setAttribute('class', 'visually-hidden');
     document.body.appendChild(this.liveRegion);
   }
@@ -70,11 +69,12 @@ class CustomArtistSwap extends HTMLElement {
     if (currentlyStaged) {
       currentlyStaged.removeAttribute('artist-staged');
       currentlyStaged.querySelector('.arrow').setAttribute('aria-pressed', 'false');
-      // Remove existing skip link if there
-      const existingSkipLink = currentlyStaged.querySelector('.skip-link');
-      if (existingSkipLink) {
-        existingSkipLink.remove();
-      }
+    }
+
+    // Remove existing skip link if there
+    const existingSkipLink = stage.querySelector('.skip-link');
+    if (existingSkipLink) {
+      existingSkipLink.remove();
     }
 
     const clonedArtist = artist.cloneNode(true);
@@ -88,15 +88,14 @@ class CustomArtistSwap extends HTMLElement {
     artist.setAttribute('artist-staged', 'true');
     artist.querySelector('.arrow').setAttribute('aria-pressed', 'true');
 
-    // Append skip link to newly staged artist
-    const skipLink = document.createElement('a');
-    skipLink.href = '#stage';
-    skipLink.className = 'skip-link';
-    skipLink.textContent = `Jump to featured artist ${this.formatArtistName(artist.getAttribute('data-artist'))}`;
-    artist.appendChild(skipLink);
-
     stage.innerHTML = '';
     stage.appendChild(clonedArtist);
+
+    // Focus the play button directly
+    const playButton = clonedArtist.querySelector('.play-button');
+    if (playButton) {
+      playButton.focus();
+    }
   }
 }
 

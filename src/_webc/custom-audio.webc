@@ -1,6 +1,6 @@
 <is-land on:interaction>
   <custom-audio webc:root webc:keep>
-    <button class="play-button">
+    <button id="player" class="play-button">
       <span class="visually-hidden aria-name">Audio is paused</span>
       <!-- Play icon -->
       <svg class="play-icon" viewBox="0 0 24 24" width="24" height="24">

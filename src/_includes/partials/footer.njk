@@ -1,3 +1,5 @@
+{% svg "misc/cantautores", null, "site-logo" %}
+
 <footer class="site-footer region">
   <div class="wrapper">
     <div class="footer__meta prose flow">
@@ -11,7 +13,7 @@
         It aims to support spanish musicians ♥♪.
       </p>
 
-      <nav class="footer__meta | cluster text-step-0" aria-label="{{ meta.navigation.ariaBottom }}">
+      <nav class="cluster text-step-0" aria-label="{{ meta.navigation.ariaBottom }}">
         &copy; {% year %}
         <a href="/" {% if page.url == "/" %}aria-current="page"{% endif %}
           >{{ meta.siteName }} <small>{{ pkg.version }}</small>
