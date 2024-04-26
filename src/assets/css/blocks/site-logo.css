@@ -1,8 +1,16 @@
-.logo {
-  --gutter: var(--space-xs);
-  padding: var(--space-s) 0;
-  font-size: var(--size-step-0);
-  font-weight: var(--font-bold);
-  text-transform: uppercase;
-  text-decoration: none;
+svg.site-logo {
+  inline-size: 100%;
+  block-size: 13ch;
+  transform: translateY(3ch);
+}
+
+@media screen(md) {
+  svg.site-logo {
+    position: fixed;
+    inset-block-end: 0;
+    z-index: -1;
+    inline-size: 65%;
+    block-size: 20ch;
+    transform: translateY(4.5ch);
+  }
 }

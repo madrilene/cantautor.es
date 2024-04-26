@@ -27,6 +27,7 @@
   --color-text-accent: #505050;
   --color-bg-accent: #fdfdfd;
   --color-bg-accent-2: #f7f7f7;
+  --color-primary-glare: #ed6e35;
 }
 
 /* Dark theme specific variables based on system preference */
@@ -50,10 +51,12 @@
   --color-bg: var(--color-base-dark);
   --color-base: var(--color-base-light);
   --color-primary: var(--color-primary-highlight);
+  --color-primary-glare: color-mix(in oklab, var(--color-primary) 70%, var(--color-bg));
   /* Fallbacks if modern color syntax not supported */
   --color-text-accent: #a8a8a8;
   --color-bg-accent: #383838;
   --color-bg-accent-2: #404040;
+  --color-primary-glare: #ec6b32;
 }
 
 /* Enhancements for browsers that support color-mix */
@@ -73,8 +76,6 @@
       --color-bg-accent-2: color-mix(in oklab, var(--color-bg) 80%, var(--color-text));
       /* add opacity with color-mix */
       --color-primary: color-mix(in oklab, var(--color-primary-highlight), transparent 20%);
-      --color-secondary: color-mix(in oklab, var(--color-secondary-highlight), transparent 20%);
-      --color-tertiary: color-mix(in oklab, var(--color-tertiary-highlight), transparent 20%);
       --color-primary-glare: color-mix(in oklab, var(--color-primary), transparent 20%);
     }
   }
@@ -85,18 +86,6 @@
     --color-bg-accent-2: color-mix(in oklab, var(--color-bg) 80%, var(--color-text));
     /* add opacity with color-mix */
     --color-primary: color-mix(in oklab, var(--color-primary-highlight), transparent 20%);
-  }
-}
-
-/* Enhancements for browsers that support relative color values */
-@supports (color: hsl(from red h s l)) {
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --color-primary: hsl(from var(--color-primary-highlight) h calc(s / 1.2) l);
-    }
-  }
-
-  :root[data-theme='dark'] {
-    --color-primary: hsl(from var(--color-primary-highlight) h calc(s / 1.2) l);
+    --color-primary-glare: color-mix(in oklab, var(--color-primary), transparent 20%);
   }
 }

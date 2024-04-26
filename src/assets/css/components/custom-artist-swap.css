@@ -30,6 +30,7 @@ custom-artist-swap .list {
 
 custom-artist-swap .artistlist {
   --grid-min-item-size: clamp(10rem, 25cqi, 25%);
+  row-gap: var(--space-s);
 }
 
 /* custom-artist-swap .list::-webkit-scrollbar {

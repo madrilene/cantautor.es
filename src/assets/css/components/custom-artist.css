@@ -123,12 +123,14 @@ custom-artist .arrow {
   border: 2px solid var(--card-focus-border, var(--color-primary));
 }
 
-.artistlist custom-artist:focus-within a:focus {
+.artistlist custom-artist:focus-within button:focus {
   outline: none;
 }
 
-.artistlist custom-artist .arrow {
-  transition: transform 0.2s ease;
+@media (prefers-reduced-motion: no-preference) {
+  .artistlist custom-artist .arrow {
+    transition: transform 0.2s ease;
+  }
 }
 
 .artistlist custom-artist[artist-staged] .arrow,
@@ -182,6 +184,7 @@ custom-artist[artist-of-the-day] .aotd > svg {
   block-size: 4ex;
   grid-row-start: 1;
   grid-column-start: 1;
+  animation: spin 40s linear infinite;
 }
 
 custom-artist[artist-of-the-day] .aotd::after {
@@ -230,8 +233,15 @@ custom-artist[artist-of-the-day] .aotd::after {
     transform: rotate(3deg) translateY(1.8rem);
   }
 
+  @media (prefers-reduced-motion: no-preference) {
+    .stage custom-artist {
+      transition: transform 0.5s ease;
+    }
+  }
+
   .artistlist custom-artist .arrow svg {
     transform: rotate(90deg);
+    block-size: 1.5ex;
   }
 
   .artistlist custom-artist[artist-staged] .arrow,

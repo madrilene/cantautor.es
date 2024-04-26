@@ -18,8 +18,9 @@
   background-color: var(--color-text);
   color: var(--color-bg);
   padding: var(--space-xs) var(--space-s-m);
-  border-radius: var(--border-radius);
   line-height: 1;
+  text-decoration: none;
+  font-size: var(--size-step-0);
 }
 
 .skip-link:not(:focus) {

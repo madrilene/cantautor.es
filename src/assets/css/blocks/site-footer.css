@@ -1,41 +1,32 @@
 .site-footer {
-  --region-space-bottom: var(--space-3xl);
+  --region-space-bottom: var(--space-xl-3xl);
   --region-space-start: var(--space-xl);
   padding-inline: var(--space-l);
   /* margin-block-start: var(--space-l-xl); */
   /* padding: var(--space-s-m); */
   color: var(--color-text);
   font-size: var(--size-step-1);
-  transform: rotate(-2deg) translateX(-0.5rem) translateY(0.6rem);
 }
 
 .site-footer .footer__meta {
   --gutter: var(--space-xs);
   --cluster-horizontal-alignment: flex-start;
+  transform: rotate(-2deg) translateX(-0.5rem) translateY(0.6rem);
 }
 
 /* increase tab size */
 .site-footer .footer__meta a {
   padding: var(--space-xs);
 }
-
+/*
 .site-footer svg {
-  inline-size: 1.1em;
-  block-size: 1em;
+  inline-size: 100%;
+  block-size: auto;
 }
 
-.site-footer .creator {
-  text-decoration: none;
-}
-
-.site-footer .creator:hover {
-  color: transparent;
-  background-image: var(--gradient-rainbow);
-  background-size: 100%;
-  background-repeat: repeat;
-  background-clip: text;
-}
-
-.site-footer .creator:hover svg {
-  color: var(--color-text);
-}
+@media screen(md) {
+  .site-footer svg {
+    inline-size: 65%;
+    block-size: auto;
+  }
+} */
