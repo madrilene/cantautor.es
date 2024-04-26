@@ -73,9 +73,14 @@
       <script src="/assets/scripts/easteregg.js?{{ assetHash }}" defer></script>
     {% endif %}
 
+    <!-- web components -->
     <script src="/assets/scripts/components/custom-artist-swap.js" defer></script>
     <script src="/assets/scripts/components/custom-audio.js" defer></script>
     <script src="/assets/scripts/components/click-spark.js" defer></script>
+
+    <!-- plausible -->
+    <script defer data-domain="cantautor.es" src="https://plausible.io/js/script.js"></script>
+
     <!-- everything else: meta tags, icons, open graph etc.  -->
     {% include "partials/meta-info.njk" %}
   </head>
