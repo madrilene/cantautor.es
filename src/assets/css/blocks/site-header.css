@@ -1,6 +1,7 @@
 .header {
   --wrap: nowrap;
   --gutter: 0;
+  --cluster-horizontal-alignment: center;
   position: fixed;
   inset-block-end: 0;
   flex-wrap: nowrap;
@@ -35,8 +36,20 @@
   .header {
     position: fixed;
     inset-block-start: 0;
-    inset-inline-end: 0;
     inset-block-end: auto;
-    transform: rotate(-2.4deg) translateX(-1rem) translateY(0.2rem);
+    transform: rotate(-1.4deg) translateX(20ch) translateY(-0.2ch);
+    inline-size: 100%;
+  }
+}
+
+@media screen(lg) {
+  .header {
+    transform: rotate(-1.4deg) translateX(29%) translateY(1ch);
+  }
+}
+
+@media screen(max) {
+  .header {
+    transform: rotate(-2.4deg) translateX(55ch) translateY(2ch);
   }
 }
