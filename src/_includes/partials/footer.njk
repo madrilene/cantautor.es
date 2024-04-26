@@ -3,22 +3,15 @@
 <footer class="site-footer region">
   <div class="wrapper">
     <div class="footer__meta prose flow">
-      <p>
-        This is a bit of text stating all the this and that’s that need to be included in the website but
-        don’t have else where to be. Maybe it’s a lot of text, maybe it’s just a line. This is a text box that
-        can be as short or as long as it has to be. For example:
-      </p>
-      <p>
-        This website was made with love by <a href="https://badwebsites.rip/">Lene&Dani</a> <br />
-        It aims to support spanish musicians ♥♪.
-      </p>
+      {% renderFile "./src/_includes/contents/copyright.md" %}
+      <p>Made with love by <a href="https://badwebsites.rip/">Lene&Dani</a> ♥♪.</p>
 
-      <nav class="cluster text-step-0" aria-label="{{ meta.navigation.ariaBottom }}">
+      <div class="cluster text-step-0">
         &copy; {% year %}
         <a href="/" {% if page.url == "/" %}aria-current="page"{% endif %}
           >{{ meta.siteName }} <small>{{ pkg.version }}</small>
         </a>
-      </nav>
+      </div>
     </div>
   </div>
 </footer>

@@ -9,13 +9,18 @@ export const author = {
   name: 'Lene Saile', // i.e. Lene Saile - page / blog author's name. Must be set.
   avatar: '/favicon.png',
   email: 'hola@lenesaile.com', // i.e. hola@lenesaile.com - email of the author
-  website: 'https://www.lenesaile.com' // i.e. https.://www.lenesaile.com - the personal site of the author
+  website: 'https://badwebsites.rip/#team' // i.e. https.://www.lenesaile.com - the personal site of the author
 };
 export const creator = {
   name: 'Lene Saile', // i.e. Lene Saile - creator's (developer) name.
   email: 'hola@lenesaile.com',
-  website: 'https://www.lenesaile.com',
+  website: 'https://badwebsites.rip/#team',
   social: 'https://front-end.social/@lene'
+};
+export const designer = {
+  name: 'Daniela Grau', // i.e. Lene Saile - creator's (developer) name.
+  email: 'd.grrrau@gmail.com',
+  website: 'https://www.lenesaile.com'
 };
 export const themeColor = '#e84700'; //  Manifest: defines the default theme color for the application
 export const themeBgColor = '#e84700'; // Manifest: defines a placeholder background color for the application page to display before its stylesheet is loaded

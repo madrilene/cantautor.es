@@ -1,1 +1,1 @@
-Cantautor.es is a handpicked selection of Spanish singer-songwriters, to support them and help you find the authentic and diverse sounds of talented musicians as they share their stories through music.
+Cantautor.es is a curated collection of Spanish singer-songwriters, dedicated to supporting their artistry and helping you discover the authentic and diverse voices of talented musicians as they express their unique stories through music.

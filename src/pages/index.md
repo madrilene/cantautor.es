@@ -1,6 +1,6 @@
 ---
 permalink: /index.html
 title: 'cantautor.es'
-description: 'Eleventy starter using modern CSS, fluid type, fluid spacing, flexible layout and progressive enhancement.'
+description: 'Cantautor.es is a curated collection of Spanish singer-songwriters, dedicated to supporting their artistry and helping you discover the authentic and diverse voices of talented musicians'
 layout: 'artists'
 ---

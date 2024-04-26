@@ -11,12 +11,6 @@ masonry: true
 
 <main id="main" class="wrapper">
   <custom-artist-swap>
-    <!-- <div class="header | cluster">
-      <h1>{{ meta.siteName }}</h1>
-      <p>Music from spain</p>
-      {% include 'components/theme-switch.njk' %}
-    </div> -->
-
     <!-- MAIN CONTENT AREA -->
     <section class="list">
       <a href="#stage" class="skip-link" top>Jump to featured artist</a>
@@ -30,7 +24,9 @@ masonry: true
             <!-- artist image - empty alt text? -->
             {% image artist.profileImage | replace('/assets','./src/assets'), "", null, "eager", null, "(min-width: 1220px) 640px, 30vw" %}
             <h2 slot="headline">{{ artist.name }}</h2>
-            <a class="spotify-link" slot="spotify-link" href="{{ artist.spotifyUrl }}">Follow on Spotify</a>
+            <a class="spotify-link button no-indicator" slot="spotify-link" href="{{ artist.spotifyUrl }}"
+              >Follow on Spotify</a
+            >
 
             <custom-audio slot="preview">
               <span slot="track-title">{{ artist.trackName }}</span>
@@ -69,7 +65,10 @@ masonry: true
           <!-- artist image -->
           {% image featuredArtist.profileImage | replace('/assets','./src/assets'), "", null, "eager", null, "(min-width: 1220px) 640px, 30vw" %}
           <h2 slot="headline">{{ featuredArtist.name }}</h2>
-          <a class="spotify-link" slot="spotify-link" href="{{ featuredArtist.spotifyUrl }}"
+          <a
+            class="spotify-link button no-indicator"
+            slot="spotify-link"
+            href="{{ featuredArtist.spotifyUrl }}"
             >Follow on Spotify</a
           >
 

@@ -1,14 +1,16 @@
 .button {
   color: var(--button-text, var(--color-text));
   background-color: var(--button-bg, var(--color-bg));
-  border: 2px solid var(--button-border, var(--color-text));
-  border-radius: var(--border-radius);
+  border: 1px solid var(--button-border, var(--color-text));
+  border-radius: 2rem;
   display: inline-block;
   font: inherit;
-  padding: 0.3rem var(--space-s);
+  padding: var(--space-xs) var(--space-l-xl);
   font-weight: var(--font-bold);
   text-decoration: none;
   text-align: center;
+  text-transform: uppercase;
+  font-size: var(--size-step-min-1);
 }
 
 .button:hover,
@@ -16,8 +18,8 @@
 .button[aria-pressed='true'],
 .button[data-state='active'] {
   background-size: 150% 150%;
-  --button-bg: var(--color-text);
-  --button-text: var(--color-bg);
+  --button-bg: var(--color-bg);
+  --button-text: var(--color-text);
   --button-border: var(--color-text);
 }
 
@@ -43,5 +45,5 @@
 }
 
 .button:where(:not(:has(.visually-hidden))) {
-  padding: var(--button-padding, 0.35em 1em);
+  padding: var(--button-padding, var(--space-xs) var(--space-l-xl));
 }

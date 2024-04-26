@@ -1,12 +1,8 @@
-article
-  [href^='http']:not([href*='localhost:8080']):not([href*='eleventy-excellent.netlify.app']):not(.button) {
+[href^='http']:not([href*='localhost:8080']):not([href*='cantautor.es']):not(.button) {
   padding-inline-end: 0.8em;
 }
 
-article
-  [href^='http']:not([href*='localhost:8080']):not([href*='eleventy-excellent.netlify.app']):not(
-    .no-indicator
-  )::after {
+[href^='http']:not([href*='localhost:8080']):not([href*='cantautor.es']):not(.no-indicator)::after {
   position: absolute;
   display: inline-block;
   inline-size: 1em;
