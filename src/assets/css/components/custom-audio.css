@@ -28,7 +28,7 @@ custom-audio .play-button {
 custom-audio .play-button:focus-visible {
   outline: 2px solid;
   outline-offset: 0.1ch;
-  outline-color: var(--color-bg);
+  outline-color: var(--color-primary-glare);
 }
 
 custom-audio .play-button svg {
