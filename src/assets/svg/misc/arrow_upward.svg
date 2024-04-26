@@ -1,0 +1,13 @@
+<svg
+  id="arrow_upward"
+  xmlns="http://www.w3.org/2000/svg"
+  width="1em"
+  height="1em"
+  viewBox="0 0 30 30"
+  fill="currentColor"
+>
+  <path
+    d="M173.125-770v-22.828l-10.5,10.5L160-785l15-15,15,15-2.625,2.672-10.5-10.5V-770Z"
+    transform="translate(-160 800)"
+  />
+</svg>
