@@ -1,0 +1,12 @@
+/* Base Styles */
+
+custom-info {
+  background-color: var(--color-text);
+  color: var(--color-bg);
+  padding: var(--space-xs-l);
+}
+
+custom-info *::selection {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}

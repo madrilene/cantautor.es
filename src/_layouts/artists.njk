@@ -40,6 +40,21 @@ masonry: true
               </audio>
             </custom-audio>
           </custom-artist>
+
+          {% if loop.first %}
+            <!-- Example: Place an info box every 5 artists -->
+            <custom-info> {% renderFile "./src/_includes/contents/about.md" %} </custom-info>
+          {% endif %}
+
+          {% if loop.index == 11 %}
+            <!-- Example: Place an info box every 5 artists -->
+            <custom-info> {% renderFile "./src/_includes/contents/intouch.md" %} </custom-info>
+          {% endif %}
+
+          {% if loop.index == loop.length - 1 %}
+            <!-- Example: Place an info box every 5 artists -->
+            <custom-info> {% renderFile "./src/_includes/contents/howitworks.md" %} </custom-info>
+          {% endif %}
         {% endfor %}
       </div>
     </section>

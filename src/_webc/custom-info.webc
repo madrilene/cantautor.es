@@ -1,0 +1,1 @@
+<custom-info webc:root class="prose flow"> <slot>fallback </slot> </custom-info>
