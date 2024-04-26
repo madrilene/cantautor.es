@@ -9,15 +9,6 @@
     "spotifyUrl": "https://open.spotify.com/artist/76cl8WncFJMLHHsekATDDC"
   },
   {
-    "name": "César Pop",
-    "trackName": "Paredes Desnudas",
-    "profileImage": "/assets/artists/cesar-pop/profile.jpg",
-    "albumImage": "/assets/artists/cesar-pop/album.jpg",
-    "albumName": "Te Llames Como Te Llames",
-    "preview": "/assets/artists/cesar-pop/preview.mp3",
-    "spotifyUrl": "https://open.spotify.com/artist/6TAzFezgf7QX4mWCEqGLEb"
-  },
-  {
     "name": "Alicia Ramos",
     "trackName": "Eso Es Lo Que Esperan Que Hagamos",
     "profileImage": "/assets/artists/alicia-ramos/profile.jpg",

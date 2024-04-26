@@ -9,18 +9,9 @@
     "spotifyUrl": "https://open.spotify.com/artist/76cl8WncFJMLHHsekATDDC"
   },
   {
-    "name": "César Pop",
-    "trackName": "Paredes Desnudas",
-    "profileImage": "/assets/artists-custom/cesar-pop/profile.jpg",
-    "albumImage": "/assets/artists/cesar-pop/album.jpg",
-    "albumName": "Te Llames Como Te Llames",
-    "preview": "/assets/artists/cesar-pop/preview.mp3",
-    "spotifyUrl": "https://open.spotify.com/artist/6TAzFezgf7QX4mWCEqGLEb"
-  },
-  {
     "name": "Alicia Ramos",
     "trackName": "Eso Es Lo Que Esperan Que Hagamos",
-    "profileImage": "/assets/artists-custom/alicia-ramos/profile.jpg",
+    "profileImage": "/assets/artists/alicia-ramos/profile.jpg",
     "albumImage": "/assets/artists/alicia-ramos/album.jpg",
     "albumName": "Lumpenprekariät",
     "preview": "/assets/artists/alicia-ramos/preview.mp3",
@@ -47,7 +38,7 @@
   {
     "name": "Manu Clavijo",
     "trackName": "Un corazón de carne y hueso",
-    "profileImage": "/assets/artists/manu-clavijo/profile.jpg",
+    "profileImage": "/assets/artists-custom/manu-clavijo/profile.jpg",
     "albumImage": "/assets/artists/manu-clavijo/album.jpg",
     "albumName": "Un corazón de carne y hueso",
     "preview": "/assets/artists/manu-clavijo/preview.mp3",
@@ -83,7 +74,7 @@
   {
     "name": "Gatoperro",
     "trackName": "Hecho a medida",
-    "profileImage": "/assets/artists-custom/gatoperro/profile.jpg",
+    "profileImage": "/assets/artists/gatoperro/profile.jpg",
     "albumImage": "/assets/artists/gatoperro/album.jpg",
     "albumName": "Ríen los dioses",
     "preview": "/assets/artists/gatoperro/preview.mp3",
