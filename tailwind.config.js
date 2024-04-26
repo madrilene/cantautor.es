@@ -32,7 +32,8 @@ export default {
       ltsm: {max: `${viewportTokens.sm}px`},
       sm: `${viewportTokens.sm}px`,
       md: `${viewportTokens.md}px`,
-      lg: `${viewportTokens.lg}px`
+      lg: `${viewportTokens.lg}px`,
+      max: `${viewportTokens.max}px`
     },
     colors,
     spacing,
