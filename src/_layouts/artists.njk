@@ -22,10 +22,15 @@ masonry: true
       <div id="artistlist" class="artistlist | grid" data-rows="masonry">
         {% set modifiers = ['img-square', 'img-5-4', 'img-4-5', 'img-keep'] %}
         {% for artist in artists | shuffle %}
+          {% if loop.index <= 6 %}
+            {% set loading_type = 'eager' %}
+          {% else %}
+            {% set loading_type = 'lazy' %}
+          {% endif %}
           {% set randomModifier = modifiers | random %}
           <custom-artist data-artist="{{ artist.name | slugify }}" {{ randomModifier }} class="flow">
             <!-- artist image - empty alt text? -->
-            {% image artist.profileImage | replace('/assets','./src/assets'), "", null, "eager", null, "(min-width: 1220px) 640px, 30vw" %}
+            {% image artist.profileImage | replace('/assets','./src/assets'), "", null, loading_type, null, "(min-width: 1220px) 640px, 30vw" %}
             <h3 slot="headline">{{ artist.name }}</h3>
             <a class="spotify-link button no-indicator" slot="spotify-link" href="{{ artist.spotifyUrl }}"
               >Follow on Spotify</a
@@ -34,7 +39,14 @@ masonry: true
             <custom-audio slot="preview">
               <p slot="track-title">{{ artist.trackName }}</p>
               <p slot="album-name">{{ artist.albumName }}</p>
-              <audio tabindex="-1" class="visually-hidden" slot="audio" controls src="{{ artist.preview }}">
+              <audio
+                tabindex="-1"
+                class="visually-hidden"
+                slot="audio"
+                controls="false"
+                src="{{ artist.preview }}"
+                preload="none"
+              >
                 <a href="{{ artist.preview }}">Download audio</a>
               </audio>
             </custom-audio>
@@ -82,8 +94,9 @@ masonry: true
               tabindex="-1"
               class="visually-hidden"
               slot="audio"
-              controls
+              controls="false"
               src="{{ featuredArtist.preview }}"
+              preload="none"
             >
               <a href="{{ featuredArtist.preview }}">Download audio</a>
             </audio>
