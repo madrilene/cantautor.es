@@ -75,8 +75,8 @@
       --color-bg-accent: color-mix(in oklab, var(--color-bg) 92%, var(--color-text));
       --color-bg-accent-2: color-mix(in oklab, var(--color-bg) 80%, var(--color-text));
       /* add opacity with color-mix */
-      --color-primary: color-mix(in oklab, var(--color-primary-highlight), transparent 20%);
-      --color-primary-glare: color-mix(in oklab, var(--color-primary), transparent 20%);
+      --color-primary: color-mix(in oklab, var(--color-primary-highlight) 80%, var(--color-bg));
+      --color-primary-glare: color-mix(in oklab, var(--color-primary) 70%, var(--color-text));
     }
   }
 
@@ -85,7 +85,7 @@
     --color-bg-accent: color-mix(in oklab, var(--color-bg) 92%, var(--color-text));
     --color-bg-accent-2: color-mix(in oklab, var(--color-bg) 80%, var(--color-text));
     /* add opacity with color-mix */
-    --color-primary: color-mix(in oklab, var(--color-primary-highlight), transparent 20%);
-    --color-primary-glare: color-mix(in oklab, var(--color-primary), transparent 20%);
+    --color-primary: color-mix(in oklab, var(--color-primary-highlight) 70%, var(--color-bg));
+    --color-primary-glare: color-mix(in oklab, var(--color-primary) 70%, var(--color-text));
   }
 }

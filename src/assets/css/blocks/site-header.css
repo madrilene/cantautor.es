@@ -28,6 +28,10 @@
   font-size: var(--size-step-3);
 }
 
+.header h1 a {
+  text-decoration: none;
+}
+
 .header p {
   line-height: var(--leading-flat);
 }

@@ -4,7 +4,10 @@ masonry: true
 ---
 
 <header class="header | cluster">
-  <h1>{{ meta.siteName }}</h1>
+  <h1>
+    <a href="/" {% if page.url == "/" %}aria-current="page"{% endif %}>{{ meta.siteName }} </a>
+  </h1>
+
   <p>Music from spain</p>
   {% include 'components/theme-switch.njk' %}
 </header>
@@ -23,7 +26,7 @@ masonry: true
           <custom-artist data-artist="{{ artist.name | slugify }}" {{ randomModifier }} class="flow">
             <!-- artist image - empty alt text? -->
             {% image artist.profileImage | replace('/assets','./src/assets'), "", null, "eager", null, "(min-width: 1220px) 640px, 30vw" %}
-            <h2 slot="headline">{{ artist.name }}</h2>
+            <h3 slot="headline">{{ artist.name }}</h3>
             <a class="spotify-link button no-indicator" slot="spotify-link" href="{{ artist.spotifyUrl }}"
               >Follow on Spotify</a
             >
@@ -64,7 +67,7 @@ masonry: true
         <custom-artist artist-of-the-day data-artist="{{ featuredArtist.name | slugify }}" class="flow">
           <!-- artist image -->
           {% image featuredArtist.profileImage | replace('/assets','./src/assets'), "", null, "eager", null, "(min-width: 1220px) 640px, 30vw" %}
-          <h2 slot="headline">{{ featuredArtist.name }}</h2>
+          <h3 slot="headline">{{ featuredArtist.name }}</h3>
           <a
             class="spotify-link button no-indicator"
             slot="spotify-link"

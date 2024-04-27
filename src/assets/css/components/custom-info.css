@@ -6,7 +6,7 @@ custom-info {
   padding: var(--space-xs-l);
 }
 
-custom-info *::selection {
+:is(custom-info, .header) *::selection {
   background-color: var(--color-bg);
   color: var(--color-text);
 }

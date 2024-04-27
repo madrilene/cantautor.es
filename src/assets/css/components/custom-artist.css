@@ -63,23 +63,23 @@ custom-artist .info {
   padding-block-end: var(--space-m-l);
 }
 
-custom-artist h2 {
+custom-artist :is(h2, h3) {
   --flow-space: 1rem;
   grid-row: 1;
   font-size: var(--size-step-1);
   text-transform: uppercase;
 }
 
-custom-artist h2 a {
+custom-artist :is(h2, h3) a {
   text-decoration: none;
 }
 
-.stage custom-artist h2 {
+.stage custom-artist :is(h2, h3) {
   font-size: var(--size-step-2);
   padding-inline: var(--space-s);
 }
 
-.artistlist custom-artist h2 {
+.artistlist custom-artist :is(h2, h3) {
   max-inline-size: 80%;
 }
 
@@ -135,8 +135,8 @@ custom-artist .arrow {
   transform: translateX(0) translateY(-1ch);
 }
 
-.artistlist custom-artist[artist-staged] h2,
-.artistlist custom-artist:hover h2 {
+.artistlist custom-artist[artist-staged] :is(h2, h3),
+.artistlist custom-artist:hover :is(h2, h3) {
   color: var(--color-primary);
 }
 
