@@ -14,52 +14,73 @@ document.addEventListener('DOMContentLoaded', function () {
       const playIcon = this.querySelector('.play-icon');
       const pauseIcon = this.querySelector('.pause-icon');
       const fadeDuration = 2; // seconds
+      let isUserInteracting = false; // Flag to detect user interaction
 
       audioElement.addEventListener('loadedmetadata', () => {
         totalTimeDisplay.textContent = this.formatTime(audioElement.duration);
-        progressSlider.max = 100; // Set maximum as 100 for percentage calculation
-        progressSlider.value = 0; // Initialize slider
+        progressSlider.max = 100; // Full scale is 100 for percentage
+        progressSlider.value = 0;
       });
 
       playButton.addEventListener('click', () => {
         if (audioElement.paused) {
-          audioElement.currentTime = 0;
           audioElement.play();
-          this.fadeAudioIn(audioElement, fadeDuration);
+          if (
+            audioElement.currentTime === 0 ||
+            audioElement.currentTime >= audioElement.duration - fadeDuration
+          ) {
+            this.fadeAudioIn(audioElement, fadeDuration);
+          }
           playIcon.style.display = 'none';
           pauseIcon.style.display = '';
           playButton.setAttribute('aria-pressed', 'true');
         } else {
-          this.fadeAudioOut(audioElement, fadeDuration);
-          setTimeout(() => {
-            audioElement.pause();
-            playIcon.style.display = '';
-            pauseIcon.style.display = 'none';
-            playButton.setAttribute('aria-pressed', 'false');
-          }, fadeDuration * 1000);
+          audioElement.pause();
+          playIcon.style.display = '';
+          pauseIcon.style.display = 'none';
+          playButton.setAttribute('aria-pressed', 'false');
         }
       });
 
       audioElement.addEventListener('timeupdate', () => {
-        const progressPercent = (audioElement.currentTime / audioElement.duration) * 100;
-        progressSlider.value = progressPercent;
-        currentTimeDisplay.textContent = this.formatTime(audioElement.currentTime);
+        if (!isUserInteracting) {
+          // Update progress only if user is not interacting
+          const progressPercent = (audioElement.currentTime / audioElement.duration) * 100;
+          progressSlider.value = progressPercent;
+          currentTimeDisplay.textContent = this.formatTime(audioElement.currentTime);
+        }
 
-        if (audioElement.duration - audioElement.currentTime <= fadeDuration && !audioElement.paused) {
+        if (
+          audioElement.duration - audioElement.currentTime <= fadeDuration &&
+          audioElement.currentTime > 0 &&
+          !audioElement.paused
+        ) {
           this.fadeAudioOut(audioElement, fadeDuration);
         }
       });
 
+      progressSlider.addEventListener('mousedown', () => {
+        isUserInteracting = true; // User starts interacting
+      });
+
+      progressSlider.addEventListener('mouseup', () => {
+        isUserInteracting = false; // User stops interacting
+        audioElement.currentTime = (progressSlider.value / 100) * audioElement.duration;
+      });
+
       progressSlider.addEventListener('input', () => {
         const seekTime = (progressSlider.value / 100) * audioElement.duration;
-        audioElement.currentTime = seekTime;
+        currentTimeDisplay.textContent = this.formatTime(seekTime);
+        if (!audioElement.paused) {
+          audioElement.currentTime = seekTime;
+        }
       });
     }
 
     fadeAudioIn(audio, duration) {
       let volume = 0;
       audio.volume = volume;
-      const fadeStep = 1 / (duration * 10); // Adjust steps for smoother fade
+      const fadeStep = 1 / (duration * 10); // Smooth fade
 
       const fadeAudioInterval = setInterval(() => {
         if (volume < 1) {
@@ -73,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     fadeAudioOut(audio, duration) {
       let volume = audio.volume;
-      const fadeStep = 1 / (duration * 10); // Adjust steps for smoother fade
+      const fadeStep = 1 / (duration * 10); // Smooth fade
 
       const fadeAudioInterval = setInterval(() => {
         if (volume > 0) {
@@ -81,6 +102,8 @@ document.addEventListener('DOMContentLoaded', function () {
           audio.volume = volume;
         } else {
           clearInterval(fadeAudioInterval);
+          audio.pause();
+          audio.volume = 1; // Reset volume after fade-out completes
         }
       }, 100);
     }
