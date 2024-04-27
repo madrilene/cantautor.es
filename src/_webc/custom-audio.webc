@@ -1,6 +1,6 @@
 <is-land on:interaction>
   <custom-audio webc:root webc:keep>
-    <button id="player" class="play-button">
+    <button class="play-button">
       <span class="visually-hidden aria-name">Audio is paused</span>
       <!-- Play icon -->
       <svg class="play-icon" viewBox="0 0 24 24" width="24" height="24">
@@ -17,7 +17,8 @@
     </div>
     <div class="progress-bar">
       <span class="current-time">0:00</span>
-      <input type="range" value="0" min="0" max="100" step="1" />
+      <label for="audio-progress" class="visually-hidden">Audio progress</label>
+      <input id="audio-progress" id="audio-progress" type="range" value="0" min="0" max="100" step="1" />
       <span class="total-time">0:00</span>
     </div>
 
