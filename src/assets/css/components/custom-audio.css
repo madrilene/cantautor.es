@@ -45,6 +45,13 @@ custom-audio .track-info {
   font-size: var(--size-step-1);
   line-height: var(--leading-fine);
 }
+custom-audio .track-info p {
+  /* avoid line breaks */
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
 custom-audio .track-title {
   font-weight: bold;
@@ -73,6 +80,7 @@ custom-audio input[type='range'] {
   cursor: pointer;
   background-color: var(--color-primary-glare);
   block-size: 0.5rem;
+  inline-size: 100%;
 }
 
 custom-audio input[type='range']::-webkit-slider-thumb {

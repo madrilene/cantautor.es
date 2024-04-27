@@ -12,8 +12,8 @@
       </svg>
     </button>
     <div class="track-info">
-      <p class="track-title"><slot name="track-title"></slot></p>
-      <p class="album-name"><slot name="album-name"></slot></p>
+      <div class="track-title"><slot name="track-title"></slot></div>
+      <div class="album-name"><slot name="album-name"></slot></div>
     </div>
     <div class="progress-bar">
       <span class="current-time">0:00</span>

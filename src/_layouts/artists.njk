@@ -29,8 +29,8 @@ masonry: true
             >
 
             <custom-audio slot="preview">
-              <span slot="track-title">{{ artist.trackName }}</span>
-              <span slot="album-name">{{ artist.albumName }}</span>
+              <p slot="track-title">{{ artist.trackName }}</p>
+              <p slot="album-name">{{ artist.albumName }}</p>
               <audio tabindex="-1" class="visually-hidden" slot="audio" controls src="{{ artist.preview }}">
                 <a href="{{ artist.preview }}">Download audio</a>
               </audio>
@@ -73,8 +73,8 @@ masonry: true
           >
 
           <custom-audio slot="preview">
-            <span slot="track-title">{{ featuredArtist.trackName }}</span>
-            <span slot="album-name">{{ featuredArtist.albumName }}</span>
+            <p slot="track-title">{{ featuredArtist.trackName }}</p>
+            <p slot="album-name">{{ featuredArtist.albumName }}</p>
             <audio
               tabindex="-1"
               class="visually-hidden"
