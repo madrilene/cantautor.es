@@ -40,7 +40,7 @@ custom-artist img {
 
 .stage custom-artist img {
   aspect-ratio: 3 / 4;
-  max-block-size: 60vh;
+  max-block-size: 50vh;
 }
 
 .stage custom-artist picture::after {
