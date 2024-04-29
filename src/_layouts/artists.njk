@@ -20,7 +20,7 @@ masonry: true
       <a href="#stage" class="skip-link" top>Jump to featured artist</a>
 
       <div id="artistlist" class="artistlist | grid" data-rows="masonry">
-        {% set modifiers = ['img-square', 'img-5-4', 'img-4-5', 'img-keep'] %}
+        {% set modifiers = ['img-square', 'img-5-4', 'img-4-5'] %}
         {% for artist in artists | shuffle %}
           {% if loop.index <= 6 %}
             {% set loading_type = 'eager' %}

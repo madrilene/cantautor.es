@@ -193,20 +193,16 @@ custom-artist[artist-of-the-day] .aotd::after {
   font-weight: var(--font-bold);
 }
 
-.artistlist custom-artist[img-square] img {
+.artistlist custom-artist[img-square] :is(img, picture) {
   aspect-ratio: 1;
 }
 
-.artistlist custom-artist[img-5-4] img {
+.artistlist custom-artist[img-5-4] :is(img, picture) {
   aspect-ratio: 5 / 4;
 }
 
-.artistlist custom-artist[img-4-5] img {
+.artistlist custom-artist[img-4-5] :is(img, picture) {
   aspect-ratio: 4 / 5;
-}
-
-.artistlist custom-artist[img-keep] img {
-  aspect-ratio: auto;
 }
 
 /* media breakpoint sm */
