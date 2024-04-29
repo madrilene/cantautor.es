@@ -1,0 +1,13 @@
+.fourofour {
+  --region-space-bottom: var(--space-xl-3xl);
+  --region-space-start: var(--space-xl);
+  color: var(--color-text);
+  font-size: var(--size-step-2);
+  padding-inline: var(--space-l);
+  display: grid;
+  align-content: center;
+}
+
+.fourofour h1 {
+  font-size: var(--size-step-icon);
+}

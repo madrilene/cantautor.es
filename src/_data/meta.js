@@ -6,12 +6,12 @@ export const locale = 'en_EN';
 export const lang = 'en';
 export const skipContent = 'Skip to content';
 export const author = {
-  name: 'Lene Saile', // i.e. Lene Saile - page / blog author's name. Must be set.
+  name: 'Lene Saile and Dani Grau', // i.e. Lene Saile - page / blog author's name. Must be set.
   avatar: '/favicon.png',
-  email: 'hola@lenesaile.com', // i.e. hola@lenesaile.com - email of the author
+  email: 'hello@badwebsites.rip', // i.e. hola@lenesaile.com - email of the author
   website: 'https://badwebsites.rip/#team' // i.e. https.://www.lenesaile.com - the personal site of the author
 };
-export const creator = {
+export const developer = {
   name: 'Lene Saile', // i.e. Lene Saile - creator's (developer) name.
   email: 'hola@lenesaile.com',
   website: 'https://badwebsites.rip/#team',

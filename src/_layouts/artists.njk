@@ -1,112 +1,94 @@
 ---
-layout: base
+layout: page
 masonry: true
 ---
 
-<header class="header | cluster">
-  <h1>
-    <a href="/" {% if page.url == "/" %}aria-current="page"{% endif %}>{{ meta.siteName }} </a>
-  </h1>
+<custom-artist-swap>
+  <!-- MAIN CONTENT AREA -->
+  <section class="list">
+    <h2 class="visually-hidden">Artists</h2>
+    <a href="#stage" class="skip-link" top>Jump to featured artist</a>
 
-  <p>Music from spain</p>
-  {% include 'components/theme-switch.njk' %}
-</header>
-
-<main id="main" class="wrapper">
-  <custom-artist-swap>
-    <!-- MAIN CONTENT AREA -->
-    <section class="list">
-      <h2 class="visually-hidden">Artists</h2>
-      <a href="#stage" class="skip-link" top>Jump to featured artist</a>
-
-      <div id="artistlist" class="artistlist | grid" data-rows="masonry">
-        {% set modifiers = ['img-square', 'img-5-4', 'img-4-5'] %}
-        {% for artist in artists | shuffle %}
-          {% if loop.index <= 6 %}
-            {% set loading_type = 'eager' %}
-          {% else %}
-            {% set loading_type = 'lazy' %}
-          {% endif %}
-          {% set randomModifier = modifiers | random %}
-          <custom-artist data-artist="{{ artist.name | slugify }}" {{ randomModifier }} class="flow">
-            <!-- artist image - empty alt text? -->
-            {% image artist.profileImage | replace('/assets','./src/assets'), "", null, loading_type, null, "(min-width: 1220px) 640px, 30vw" %}
-            <h3 slot="headline">{{ artist.name }}</h3>
-            <a class="spotify-link button no-indicator" slot="spotify-link" href="{{ artist.spotifyUrl }}"
-              >Follow on Spotify</a
-            >
-
-            <custom-audio slot="preview">
-              <p slot="track-title">{{ artist.trackName }}</p>
-              <p slot="album-name">{{ artist.albumName }}</p>
-              <audio
-                tabindex="-1"
-                class="visually-hidden"
-                slot="audio"
-                controls="false"
-                src="{{ artist.preview }}"
-                preload="none"
-              >
-                <a href="{{ artist.preview }}">Download audio</a>
-              </audio>
-            </custom-audio>
-          </custom-artist>
-
-          {% if loop.first %}
-            <!-- Example: Place an info box every 5 artists -->
-            <custom-info> {% renderFile "./src/_includes/contents/about.md" %} </custom-info>
-          {% endif %}
-
-          {% if loop.index == 11 %}
-            <!-- Example: Place an info box every 5 artists -->
-            <custom-info> {% renderFile "./src/_includes/contents/intouch.md" %} </custom-info>
-          {% endif %}
-
-          {% if loop.index == loop.length - 1 %}
-            <!-- Example: Place an info box every 5 artists -->
-            <custom-info> {% renderFile "./src/_includes/contents/howitworks.md" %} </custom-info>
-          {% endif %}
-        {% endfor %}
-      </div>
-    </section>
-
-    <!-- FEATURED ARTIST -->
-    <section id="stage" class="stage ontop" tabindex="-1">
-      <h2 class="visually-hidden">Featured</h2>
-      <div data-swap>
-        {% set featuredArtist = artists | random %}
-
-        <custom-artist artist-of-the-day data-artist="{{ featuredArtist.name | slugify }}" class="flow">
-          <!-- artist image -->
-          {% image featuredArtist.profileImage | replace('/assets','./src/assets'), "", null, "eager", null, "(min-width: 1220px) 640px, 30vw" %}
-          <h3 slot="headline">{{ featuredArtist.name }}</h3>
-          <a
-            class="spotify-link button no-indicator"
-            slot="spotify-link"
-            href="{{ featuredArtist.spotifyUrl }}"
+    <div id="artistlist" class="artistlist | grid" data-rows="masonry">
+      {% set modifiers = ['img-square', 'img-5-4', 'img-4-5'] %}
+      {% for artist in artists | shuffle %}
+        {% if loop.index <= 6 %}
+          {% set loading_type = 'eager' %}
+        {% else %}
+          {% set loading_type = 'lazy' %}
+        {% endif %}
+        {% set randomModifier = modifiers | random %}
+        <custom-artist data-artist="{{ artist.name | slugify }}" {{ randomModifier }} class="flow">
+          <!-- artist image - empty alt text? -->
+          {% image artist.profileImage | replace('/assets','./src/assets'), "", null, loading_type, null, "(min-width: 1220px) 640px, 30vw" %}
+          <h3 slot="headline">{{ artist.name }}</h3>
+          <a class="spotify-link button no-indicator" slot="spotify-link" href="{{ artist.spotifyUrl }}"
             >Follow on Spotify</a
           >
 
           <custom-audio slot="preview">
-            <p slot="track-title">{{ featuredArtist.trackName }}</p>
-            <p slot="album-name">{{ featuredArtist.albumName }}</p>
+            <p slot="track-title">{{ artist.trackName }}</p>
+            <p slot="album-name">{{ artist.albumName }}</p>
             <audio
               tabindex="-1"
               class="visually-hidden"
               slot="audio"
               controls="false"
-              src="{{ featuredArtist.preview }}"
+              src="{{ artist.preview }}"
               preload="none"
             >
-              <a href="{{ featuredArtist.preview }}">Download audio</a>
+              <a href="{{ artist.preview }}">Download audio</a>
             </audio>
           </custom-audio>
         </custom-artist>
-      </div>
-    </section>
-  </custom-artist-swap>
-</main>
 
-{% include "partials/footer.njk" %}
+        {% if loop.first %}
+          <!-- Example: Place an info box every 5 artists -->
+          <custom-info> {% renderFile "./src/_includes/contents/about.md" %} </custom-info>
+        {% endif %}
 
-<click-spark style="--click-spark-color: var(--color-primary)"></click-spark>
+        {% if loop.index == 11 %}
+          <!-- Example: Place an info box every 5 artists -->
+          <custom-info> {% renderFile "./src/_includes/contents/intouch.md" %} </custom-info>
+        {% endif %}
+
+        {% if loop.index == loop.length - 1 %}
+          <!-- Example: Place an info box every 5 artists -->
+          <custom-info> {% renderFile "./src/_includes/contents/howitworks.md" %} </custom-info>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- FEATURED ARTIST -->
+  <section id="stage" class="stage ontop" tabindex="-1">
+    <h2 class="visually-hidden">Featured</h2>
+    <div data-swap>
+      {% set featuredArtist = artists | random %}
+
+      <custom-artist artist-of-the-day data-artist="{{ featuredArtist.name | slugify }}" class="flow">
+        <!-- artist image -->
+        {% image featuredArtist.profileImage | replace('/assets','./src/assets'), "", null, "eager", null, "(min-width: 1220px) 640px, 30vw" %}
+        <h3 slot="headline">{{ featuredArtist.name }}</h3>
+        <a class="spotify-link button no-indicator" slot="spotify-link" href="{{ featuredArtist.spotifyUrl }}"
+          >Follow on Spotify</a
+        >
+
+        <custom-audio slot="preview">
+          <p slot="track-title">{{ featuredArtist.trackName }}</p>
+          <p slot="album-name">{{ featuredArtist.albumName }}</p>
+          <audio
+            tabindex="-1"
+            class="visually-hidden"
+            slot="audio"
+            controls="false"
+            src="{{ featuredArtist.preview }}"
+            preload="none"
+          >
+            <a href="{{ featuredArtist.preview }}">Download audio</a>
+          </audio>
+        </custom-audio>
+      </custom-artist>
+    </div>
+  </section>
+</custom-artist-swap>

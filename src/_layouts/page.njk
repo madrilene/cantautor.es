@@ -2,7 +2,17 @@
 layout: base
 ---
 
-<article class="region wrapper flow prose" style="--region-space-top: var(--space-xl-2xl)">
-  <h1 class="gradient-text">{{ title }}</h1>
-  {{ content | safe }}
-</article>
+<header class="header | cluster">
+  <h1>
+    <a href="/" {% if page.url == "/" %}aria-current="page"{% endif %}>{{ meta.siteName }} </a>
+  </h1>
+
+  <p>Music from spain</p>
+  {% include 'components/theme-switch.njk' %}
+</header>
+
+<main id="main" class="wrapper">{{ content | safe }}</main>
+
+{% include "partials/footer.njk" %}
+
+<click-spark style="--click-spark-color: var(--color-primary)"></click-spark>
