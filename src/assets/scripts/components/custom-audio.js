@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
   class CustomAudio extends HTMLElement {
     constructor() {
       super();
@@ -6,73 +6,77 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     attachAudioEvents() {
-      const playButton = this.querySelector('.play-button');
-      const audioElement = this.querySelector('audio');
-      const progressSlider = this.querySelector('input[type=range]');
-      const currentTimeDisplay = this.querySelector('.current-time');
-      const totalTimeDisplay = this.querySelector('.total-time');
-      const playIcon = this.querySelector('.play-icon');
-      const pauseIcon = this.querySelector('.pause-icon');
+      const elements = {
+        playButton: this.querySelector('.play-button'),
+        audioElement: this.querySelector('audio'),
+        progressSlider: this.querySelector('input[type=range]'),
+        currentTimeDisplay: this.querySelector('.current-time'),
+        totalTimeDisplay: this.querySelector('.total-time'),
+        playIcon: this.querySelector('.play-icon'),
+        pauseIcon: this.querySelector('.pause-icon')
+      };
+
       const fadeDuration = 2; // seconds
       let isUserInteracting = false; // Flag to detect user interaction
 
-      audioElement.addEventListener('loadedmetadata', () => {
-        totalTimeDisplay.textContent = this.formatTime(audioElement.duration);
-        progressSlider.max = 100; // Full scale is 100 for percentage
-        progressSlider.value = 0;
+      elements.audioElement.addEventListener('loadedmetadata', () => {
+        elements.totalTimeDisplay.textContent = this.formatTime(elements.audioElement.duration);
+        elements.progressSlider.max = 100; // Full scale is 100 for percentage
+        elements.progressSlider.value = 0;
       });
 
-      playButton.addEventListener('click', () => {
-        if (audioElement.paused) {
-          audioElement.play();
+      elements.playButton.addEventListener('click', () => {
+        if (elements.audioElement.paused) {
+          elements.audioElement.play();
           if (
-            audioElement.currentTime === 0 ||
-            audioElement.currentTime >= audioElement.duration - fadeDuration
+            elements.audioElement.currentTime === 0 ||
+            elements.audioElement.currentTime >= elements.audioElement.duration - fadeDuration
           ) {
-            this.fadeAudioIn(audioElement, fadeDuration);
+            this.fadeAudioIn(elements.audioElement, fadeDuration);
           }
-          playIcon.style.display = 'none';
-          pauseIcon.style.display = '';
-          playButton.setAttribute('aria-pressed', 'true');
+          elements.playIcon.style.display = 'none';
+          elements.pauseIcon.style.display = '';
+          elements.playButton.setAttribute('aria-pressed', 'true');
         } else {
-          audioElement.pause();
-          playIcon.style.display = '';
-          pauseIcon.style.display = 'none';
-          playButton.setAttribute('aria-pressed', 'false');
+          elements.audioElement.pause();
+          elements.playIcon.style.display = '';
+          elements.pauseIcon.style.display = 'none';
+          elements.playButton.setAttribute('aria-pressed', 'false');
         }
       });
 
-      audioElement.addEventListener('timeupdate', () => {
+      elements.audioElement.addEventListener('timeupdate', () => {
         if (!isUserInteracting) {
           // Update progress only if user is not interacting
-          const progressPercent = (audioElement.currentTime / audioElement.duration) * 100;
-          progressSlider.value = progressPercent;
-          currentTimeDisplay.textContent = this.formatTime(audioElement.currentTime);
+          const progressPercent = (elements.audioElement.currentTime / elements.audioElement.duration) * 100;
+          elements.progressSlider.value = progressPercent;
+          elements.currentTimeDisplay.textContent = this.formatTime(elements.audioElement.currentTime);
         }
 
         if (
-          audioElement.duration - audioElement.currentTime <= fadeDuration &&
-          audioElement.currentTime > 0 &&
-          !audioElement.paused
+          elements.audioElement.duration - elements.audioElement.currentTime <= fadeDuration &&
+          elements.audioElement.currentTime > 0 &&
+          !elements.audioElement.paused
         ) {
-          this.fadeAudioOut(audioElement, fadeDuration);
+          this.fadeAudioOut(elements.audioElement, fadeDuration);
         }
       });
 
-      progressSlider.addEventListener('mousedown', () => {
+      elements.progressSlider.addEventListener('mousedown', () => {
         isUserInteracting = true; // User starts interacting
       });
 
-      progressSlider.addEventListener('mouseup', () => {
+      elements.progressSlider.addEventListener('mouseup', () => {
         isUserInteracting = false; // User stops interacting
-        audioElement.currentTime = (progressSlider.value / 100) * audioElement.duration;
+        elements.audioElement.currentTime =
+          (elements.progressSlider.value / 100) * elements.audioElement.duration;
       });
 
-      progressSlider.addEventListener('input', () => {
-        const seekTime = (progressSlider.value / 100) * audioElement.duration;
-        currentTimeDisplay.textContent = this.formatTime(seekTime);
-        if (!audioElement.paused) {
-          audioElement.currentTime = seekTime;
+      elements.progressSlider.addEventListener('input', () => {
+        const seekTime = (elements.progressSlider.value / 100) * elements.audioElement.duration;
+        elements.currentTimeDisplay.textContent = this.formatTime(seekTime);
+        if (!elements.audioElement.paused) {
+          elements.audioElement.currentTime = seekTime;
         }
       });
     }

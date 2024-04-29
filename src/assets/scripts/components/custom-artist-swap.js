@@ -8,9 +8,9 @@ class CustomArtistSwap extends HTMLElement {
   }
 
   connectedCallback() {
-    const initialArtist = this.querySelector('[data-swap] > custom-artist[artist-of-the-day]');
-    if (initialArtist) {
-      this.artistOfTheDay = initialArtist.getAttribute('data-artist');
+    const initialArtistElement = this.querySelector('[data-swap] > custom-artist[artist-of-the-day]');
+    if (initialArtistElement) {
+      this.artistOfTheDay = initialArtistElement.getAttribute('data-artist');
       this.featuredArtistSlug = this.artistOfTheDay;
     }
   }
@@ -44,22 +44,25 @@ class CustomArtistSwap extends HTMLElement {
   swapFeaturedArtist(artist) {
     const stage = this.querySelector('[data-swap]');
     if (stage) {
-      const displayNewArtist = () => {
+      const showNewArtistOnStage = () => {
         this.directSwap(stage, artist);
         this.liveRegion.textContent = `${this.formatArtistName(artist.getAttribute('data-artist'))} is now featured on stage.`;
       };
 
       if (!document.startViewTransition) {
-        displayNewArtist();
+        showNewArtistOnStage();
         return;
       }
 
-      const transition = document.startViewTransition(() => displayNewArtist());
+      const transition = document.startViewTransition(() => showNewArtistOnStage());
       transition.finished
-        .then(() => console.log('Transition completed'))
+        .then(() => {
+          console.log('Transition completed');
+        })
         .catch(error => {
           console.error('Transition failed', error);
-          displayNewArtist(); // Fallback to direct swap if transition fails
+          // Additional error handling logic can be added here
+          showNewArtistOnStage(); // Fallback to direct swap if transition fails
         });
     }
   }
