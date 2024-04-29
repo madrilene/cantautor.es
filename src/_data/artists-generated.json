@@ -36,15 +36,6 @@
     "spotifyUrl": "https://open.spotify.com/artist/5soMpG6E6oApEiCZgrWeVz"
   },
   {
-    "name": "Manu Clavijo",
-    "trackName": "Un corazón de carne y hueso",
-    "profileImage": "/assets/artists/manu-clavijo/profile.jpg",
-    "albumImage": "/assets/artists/manu-clavijo/album.jpg",
-    "albumName": "Un corazón de carne y hueso",
-    "preview": "/assets/artists/manu-clavijo/preview.mp3",
-    "spotifyUrl": "https://open.spotify.com/artist/5LTt7p19p4ydeQZtrGihWE"
-  },
-  {
     "name": "Nico Roig",
     "trackName": "Què Hi Fas Aquí Tan Sola",
     "profileImage": "/assets/artists/nico-roig/profile.jpg",
@@ -196,5 +187,14 @@
     "albumName": "Mariposas",
     "preview": "/assets/artists/lidia-aguilar/preview.mp3",
     "spotifyUrl": "https://open.spotify.com/artist/4zWfGH4eqhacFoocR1BAm6"
+  },
+  {
+    "name": "Manu Clavijo",
+    "trackName": "El sospechador",
+    "profileImage": "/assets/artists/manu-clavijo/profile.jpg",
+    "albumImage": "/assets/artists/manu-clavijo/album.jpg",
+    "albumName": "No nos conocemos de nada",
+    "preview": "/assets/artists/manu-clavijo/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/5LTt7p19p4ydeQZtrGihWE"
   }
 ]
