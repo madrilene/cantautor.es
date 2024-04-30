@@ -4,6 +4,7 @@ custom-info {
   background-color: var(--color-text);
   color: var(--color-bg);
   padding: var(--space-xs-l);
+  border: 3px solid var(--color-bg);
 }
 
 :is(custom-info, .header) *::selection {
