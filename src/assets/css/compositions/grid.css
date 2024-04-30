@@ -21,6 +21,7 @@ to change how empty grid tracks are handled */
     minmax(var(--grid-min-item-size, 16rem), 1fr)
   );
   gap: var(--gutter, var(--space-s-m));
+  grid-auto-rows: 10px;
 }
 
 .grid[data-rows='masonry'] {
