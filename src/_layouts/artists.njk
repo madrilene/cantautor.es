@@ -18,7 +18,7 @@ masonry: true
           {% set loading_type = 'lazy' %}
         {% endif %}
         {% set randomModifier = modifiers | random %}
-        <custom-artist data-artist="{{ artist.name | slugify }}" {{ randomModifier }} class="flow">
+        <custom-artist data-artist="{{ artist.name | slugify }}" {{ randomModifier }} class="item | flow">
           <!-- artist image - empty alt text? -->
           {% image artist.profileImage | replace('/assets','./src/assets'), "", null, loading_type, null, "(min-width: 1220px) 640px, 30vw" %}
           <h3 slot="headline">{{ artist.name }}</h3>
@@ -44,17 +44,17 @@ masonry: true
 
         {% if loop.first %}
           <!-- Example: Place an info box every 5 artists -->
-          <custom-info> {% renderFile "./src/_includes/contents/about.md" %} </custom-info>
+          <custom-info class="item"> {% renderFile "./src/_includes/contents/about.md" %} </custom-info>
         {% endif %}
 
         {% if loop.index == 11 %}
           <!-- Example: Place an info box every 5 artists -->
-          <custom-info> {% renderFile "./src/_includes/contents/intouch.md" %} </custom-info>
+          <custom-info class="item"> {% renderFile "./src/_includes/contents/intouch.md" %} </custom-info>
         {% endif %}
 
         {% if loop.index == loop.length - 1 %}
           <!-- Example: Place an info box every 5 artists -->
-          <custom-info> {% renderFile "./src/_includes/contents/howitworks.md" %} </custom-info>
+          <custom-info class="item"> {% renderFile "./src/_includes/contents/howitworks.md" %} </custom-info>
         {% endif %}
       {% endfor %}
     </div>
