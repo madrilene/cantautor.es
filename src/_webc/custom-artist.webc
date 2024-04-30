@@ -5,7 +5,9 @@
     <button class="arrow" aria-label="Move to stage" aria-pressed="false">
       <custom-svg aria-hidden="true" src="./src/assets/svg/misc/arrow_upward.svg"></custom-svg>
     </button>
-    <div class="aotd" aria-hidden="true"><custom-svg src="./src/assets/svg/misc/SOTD.svg"></custom-svg></div>
+    <div class="aotd" aria-hidden="true">
+      <custom-svg src="./src/assets/svg/misc/SOTD.svg"></custom-svg>
+    </div>
 
     <slot name="preview"></slot>
     <slot name="spotify-link"></slot>
