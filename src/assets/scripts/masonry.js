@@ -1,27 +1,48 @@
+/**
+ * Initializes the masonry layout for grids that do not support CSS grid masonry.
+ * Inspired by:
+ * Ana Tudor: https://codepen.io/thebabydino/pen/yLYppjK and
+ * Andy Barefoot: https://codepen.io/andybarefoot/pen/QMeZda
+ */
 document.addEventListener('DOMContentLoaded', function () {
-  const supportMasonry = CSS.supports('grid-template-rows', 'masonry');
+  const isMasonrySupported = CSS.supports('grid-template-rows', 'masonry');
 
-  if (!supportMasonry) {
-    const grid = document.querySelector('.grid[data-rows="masonry"]');
-    const allItems = grid.querySelectorAll('.item');
+  if (!isMasonrySupported) {
+    const masonryGrids = [...document.querySelectorAll('.grid[data-rows="masonry"]')];
 
-    function resizeGridItem(item) {
-      const rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'), 10);
-      const rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'), 10);
-      const itemHeight = item.getBoundingClientRect().height;
-      const rowSpan = Math.ceil((itemHeight + rowGap) / (rowHeight + rowGap));
+    function layoutMasonry() {
+      masonryGrids.forEach(grid => {
+        const items = [...grid.children].filter(child => child.nodeType === 1);
 
-      item.style.gridRowEnd = 'span ' + rowSpan;
+        const columnCount = getComputedStyle(grid).gridTemplateColumns.split(' ').length;
+
+        items.forEach((item, index) => {
+          item.style.removeProperty('margin-top'); // Clear previous adjustments
+
+          // Only adjust items that are not in the first row
+          if (index >= columnCount) {
+            const previousIndex = index - columnCount;
+            const previousItem = items[previousIndex];
+
+            const previousItemBottom =
+              previousItem.getBoundingClientRect().bottom + parseFloat(getComputedStyle(grid).rowGap);
+
+            const currentItemTop = item.getBoundingClientRect().top;
+
+            item.style.marginTop = `${previousItemBottom - currentItemTop}px`;
+          }
+        });
+      });
     }
 
-    function resizeAllGridItems() {
-      allItems.forEach(item => resizeGridItem(item));
-    }
+    // Initial layout setup
+    layoutMasonry();
 
-    // Trigger initial resize
-    resizeAllGridItems();
-
-    // Attach resize event listener to window
-    window.addEventListener('resize', resizeAllGridItems);
+    // Resize handling with debounce to optimize performance
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(layoutMasonry, 100);
+    });
   }
 });
