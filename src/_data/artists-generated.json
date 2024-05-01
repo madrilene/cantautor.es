@@ -117,24 +117,6 @@
     "spotifyUrl": "https://open.spotify.com/artist/2vbaKLj26Zd13c8EhfjsrI"
   },
   {
-    "name": "Joaco Amor",
-    "trackName": "Lo que daría",
-    "profileImage": "/assets/artists/joaco-amor/profile.jpg",
-    "albumImage": "/assets/artists/joaco-amor/album.jpg",
-    "albumName": "Lo que daría",
-    "preview": "/assets/artists/joaco-amor/preview.mp3",
-    "spotifyUrl": "https://open.spotify.com/artist/79w92FKVUoPVPxj6W4u9Ln"
-  },
-  {
-    "name": "Nadia Alvarez",
-    "trackName": "Lo que daría",
-    "profileImage": "/assets/artists/nadia-alvarez/profile.jpg",
-    "albumImage": "/assets/artists/nadia-alvarez/album.jpg",
-    "albumName": "Lo que daría",
-    "preview": "/assets/artists/nadia-alvarez/preview.mp3",
-    "spotifyUrl": "https://open.spotify.com/artist/0MG7du0o7X8TMdyWm0wAku"
-  },
-  {
     "name": "Daniel Hare",
     "trackName": "Crisálidas",
     "profileImage": "/assets/artists/daniel-hare/profile.jpg",
@@ -196,5 +178,23 @@
     "albumName": "No nos conocemos de nada",
     "preview": "/assets/artists/manu-clavijo/preview.mp3",
     "spotifyUrl": "https://open.spotify.com/artist/5LTt7p19p4ydeQZtrGihWE"
+  },
+  {
+    "name": "Joaco Amor",
+    "trackName": "Despacio",
+    "profileImage": "/assets/artists/joaco-amor/profile.jpg",
+    "albumImage": "/assets/artists/joaco-amor/album.jpg",
+    "albumName": "Andaluz",
+    "preview": "/assets/artists/joaco-amor/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/79w92FKVUoPVPxj6W4u9Ln"
+  },
+  {
+    "name": "Nadia Alvarez",
+    "trackName": "Puente de Plata",
+    "profileImage": "/assets/artists/nadia-alvarez/profile.jpg",
+    "albumImage": "/assets/artists/nadia-alvarez/album.jpg",
+    "albumName": "Puente de Plata",
+    "preview": "/assets/artists/nadia-alvarez/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/0MG7du0o7X8TMdyWm0wAku"
   }
 ]
