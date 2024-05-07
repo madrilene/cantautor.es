@@ -82,7 +82,7 @@ hr {
   width: 10%;
   margin-block: var(--space-m-l);
   margin-inline-start: 0;
-  background-color: var(--color-bg-accent-2);
+  background-color: var(--color-bg-accent);
 }
 
 [role='list'] {

@@ -13,7 +13,7 @@ custom-artist {
   grid-template-rows: [image info] auto;
   gap: var(--space-s);
   background-color: var(--color-primary);
-  color: var(--color-base-light);
+  color: var(--color-light);
 }
 
 /* Hide elements  */
@@ -85,8 +85,8 @@ custom-artist :is(h2, h3) a {
 
 custom-artist .spotify-link {
   --flow-space: var(--space-xs-l);
-  --button-text: var(--color-base-light);
-  --button-border: var(--color-base-light);
+  --button-text: var(--color-light);
+  --button-border: var(--color-light);
   --button-bg: transparent;
   place-self: center;
 }
@@ -172,7 +172,7 @@ custom-artist[artist-of-the-day] .aotd {
   inline-size: 4ex;
   font-size: var(--size-step-icon);
   color: var(--color-primary);
-  background-color: var(--color-base-light);
+  background-color: var(--color-light);
   border-radius: 50%;
   border: 1px solid var(--color-primary-glare);
 }

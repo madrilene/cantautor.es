@@ -7,7 +7,7 @@ custom-audio {
   grid-template-columns: auto repeat(11, 1fr);
   align-items: center;
   gap: var(--space-s);
-  color: var(--color-base-light);
+  color: var(--color-light);
 }
 
 custom-audio > * {
@@ -87,7 +87,7 @@ custom-audio input[type='range'] {
 custom-audio input[type='range']::-webkit-slider-thumb {
   -webkit-appearance: none; /* Override default look */
   appearance: none;
-  background-color: var(--color-base-light);
+  background-color: var(--color-light);
   block-size: 0.5rem;
   inline-size: 0.55rem;
 }
@@ -96,7 +96,7 @@ custom-audio input[type='range']::-webkit-slider-thumb {
 input[type='range']::-moz-range-thumb {
   border: none; /*Removes extra border that FF applies*/
   border-radius: 0; /*Removes default border-radius that FF applies*/
-  background-color: var(--color-base-light);
+  background-color: var(--color-light);
   height: 0.5rem;
   inline-size: 0.5rem;
 }
