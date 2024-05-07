@@ -1,9 +1,6 @@
 /**
- * Credits:
+ *  * Credits:
  * - © Andy Bell - https://buildexcellentwebsit.es/
- */
-
-/**
  * Converts human readable tokens into tailwind config friendly ones
  *
  * @param {array} tokens {name: string, value: any}
@@ -12,7 +9,6 @@
 
 import slugify from 'slugify';
 
-// Your existing universal token transformation function
 export const tokensToTailwind = tokens => {
   const nameSlug = text => slugify(text, {lower: true});
   let response = {};
@@ -24,12 +20,18 @@ export const tokensToTailwind = tokens => {
   return response;
 };
 
-// Function to preprocess tokens, specifically handling random selection for "Primary Highlight"
+/**
+ * Preprocesses tokens, selecting a random color from the array for the special case of 'Primary Highlight' token
+ *
+ * @param {array} tokens - An array of tokens with properties `name` (string) and `value` (any)
+ * @return {array} - An array of tokens with the 'Primary Highlight' token value randomly selected from the array
+ */
+
 export const preprocessTokens = tokens => {
   return tokens.map(token => {
     if (token.name === 'Primary Highlight' && Array.isArray(token.value)) {
       const randomIndex = Math.floor(Math.random() * token.value.length);
-      return {...token, value: token.value[randomIndex]}; // Replace the array with a single randomly selected color
+      return {...token, value: token.value[randomIndex]};
     }
     return token;
   });
