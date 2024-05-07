@@ -12,7 +12,7 @@
     },
     {
       "name": "Primary Highlight",
-      "value": "#c83d00"
+      "value": ["#c83d00", "#187d00", "#007c45", "#0072a5", "#5e5dd0", "#a634cb", "#c92760"]
     }
   ]
 }
