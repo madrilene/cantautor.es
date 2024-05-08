@@ -43,6 +43,15 @@ const colorShades = {
         .to('srgb')
         .toString()
     ),
+  shade:
+    '#' +
+    rgbHex(
+      colorObject
+        .clone()
+        .set({l: l => l * 0.8, c: c => c * 0.9})
+        .to('srgb')
+        .toString()
+    ),
   glare:
     '#' +
     rgbHex(
@@ -57,7 +66,7 @@ const colorShades = {
     rgbHex(
       colorObject
         .clone()
-        .set({c: c => c * 0.8})
+        .set({l: l => l * 0.8, c: c => c * 0.8})
         .to('srgb')
         .toString()
     )
@@ -72,6 +81,7 @@ const colorTokens = {
     {name: 'Primary Dark', value: colorShades.dark},
     {name: 'Primary Light', value: colorShades.light},
     {name: 'Primary Glare', value: colorShades.glare},
+    {name: 'Primary Shade', value: colorShades.shade},
     {name: 'Primary Desaturated', value: colorShades.desaturate}
   ]
 };

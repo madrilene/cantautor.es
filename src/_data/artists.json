@@ -196,5 +196,41 @@
     "albumName": "Puente de Plata",
     "preview": "/assets/artists/nadia-alvarez/preview.mp3",
     "spotifyUrl": "https://open.spotify.com/artist/0MG7du0o7X8TMdyWm0wAku"
+  },
+  {
+    "name": "Hector Tuya",
+    "trackName": "Frío en el Cielo",
+    "profileImage": "/assets/artists/hector-tuya/profile.jpg",
+    "albumImage": "/assets/artists/hector-tuya/album.jpg",
+    "albumName": "La Caja Negra",
+    "preview": "/assets/artists/hector-tuya/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/1cWLLpYsYvip9h7Bxzshys"
+  },
+  {
+    "name": "César Pop",
+    "trackName": "Frío en el Cielo",
+    "profileImage": "/assets/artists/cesar-pop/profile.jpg",
+    "albumImage": "/assets/artists/cesar-pop/album.jpg",
+    "albumName": "La Caja Negra",
+    "preview": "/assets/artists/cesar-pop/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/6TAzFezgf7QX4mWCEqGLEb"
+  },
+  {
+    "name": "Nistal",
+    "trackName": "Frío en el Cielo",
+    "profileImage": "/assets/artists/nistal/profile.jpg",
+    "albumImage": "/assets/artists/nistal/album.jpg",
+    "albumName": "La Caja Negra",
+    "preview": "/assets/artists/nistal/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/4zyEE5D5d2S3hf4g7dFXX8"
+  },
+  {
+    "name": "Santi Bernal",
+    "trackName": "Rescisión",
+    "profileImage": "/assets/artists/santi-bernal/profile.jpg",
+    "albumImage": "/assets/artists/santi-bernal/album.jpg",
+    "albumName": "Rescisión",
+    "preview": "/assets/artists/santi-bernal/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/2cWE1SR4sE8f99V3xUMYPD"
   }
 ]
