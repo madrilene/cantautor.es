@@ -6,6 +6,7 @@ dist
 src/_includes/css
 src/_includes/scripts
 src/_data/designTokens/colors.js
+src/assets/images/favicons
 
 # cache
 .cache

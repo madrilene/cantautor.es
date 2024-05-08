@@ -6,7 +6,9 @@ import colorTokens from '../../_data/designTokens/colors.js';
 const primaryColor = colorTokens.items[0].value;
 
 export const createFavicons = async function () {
-  const outputDir = 'dist/';
+  const outputDir = 'src/assets/images/favicons';
+  // Ensure the directory exists
+  fs.mkdirSync(outputDir, {recursive: true});
 
   // ------------------ define base SVG
   const svgContent = `

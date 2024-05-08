@@ -70,9 +70,10 @@ export default async function (eleventyConfig) {
 
   // --------------------- Events ---------------------
 
+  eleventyConfig.on('eleventy.before', events.createFavicons);
+
   if (process.env.ELEVENTY_RUN_MODE === 'serve') {
     eleventyConfig.on('eleventy.after', events.svgToJpeg);
-    eleventyConfig.on('eleventy.after', events.createFavicons);
   }
 
   // --------------------- Passthrough File Copy
@@ -82,8 +83,11 @@ export default async function (eleventyConfig) {
     path => eleventyConfig.addPassthroughCopy(path)
   );
 
-  // -- node_modules
   eleventyConfig.addPassthroughCopy({
+    // -- to root
+    'src/assets/images/favicons/*': '/',
+
+    // -- node_modules
     'node_modules/lite-youtube-embed/src/lite-yt-embed.{css,js}': `assets/scripts/components/`
   });
 
