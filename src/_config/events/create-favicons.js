@@ -1,11 +1,9 @@
 import fs from 'fs';
 import sharp from 'sharp';
 import Jimp from 'jimp';
-import colorTokens from '../../_data/designTokens/colors.json';
+import colorTokens from '../../_data/designTokens/colors.js';
 
-console.log(colorTokens);
-
-// const selectedColor = designTokens.colors.items[0].value;
+const primaryColor = colorTokens.items[0].value;
 
 export const createFavicons = async function () {
   const outputDir = 'dist/';
@@ -15,8 +13,8 @@ export const createFavicons = async function () {
 		<svg xmlns="http://www.w3.org/2000/svg" width="33.51" height="33.508" viewBox="0 0 33.51 33.508">
 		<g transform="translate(1.307 1.315)">
 			<path
-				fill="var(--color-primary)"
-				stroke="var(--color-primary)"
+				fill="${primaryColor}"
+				stroke="${primaryColor}"
 				stroke-width="2px"
 				d="M15.448,0l2.265,1.935L20.481.843,22,3.411l2.972-.131.6,2.923,2.853.844-.375,2.961,2.425,1.728-1.313,2.678L30.9,16.838l-2.108,2.105.856,2.858-2.675,1.3-.115,2.982L23.9,26.45l-1.074,2.783-2.91-.62L18,30.9l-2.551-1.534L12.9,30.9,10.98,28.614l-2.91.62L7,26.45l-2.952-.362-.115-2.982L1.253,21.8l.856-2.858L0,16.838l1.734-2.425L.421,11.736l2.425-1.728L2.471,7.047,5.324,6.2l.6-2.923L8.9,3.411,10.415.843l2.768,1.092Z"
 			/>
@@ -36,9 +34,7 @@ export const createFavicons = async function () {
 
   // ------------------ Generate PNGs
   await sharp(svgBuffer).resize(192, 192).toFile(`${outputDir}/icon-192x192.png`);
-
   await sharp(svgBuffer).resize(512, 512).toFile(`${outputDir}/icon-512x512.png`);
-
   await sharp(svgBuffer).resize(180, 180).toFile(`${outputDir}/icon-180x180.png`);
 
   // Generate maskable icon with padding

@@ -23,41 +23,63 @@ const selectedColor = colorVariations[Math.floor(Math.random() * colorVariations
 const colorObject = new Color(selectedColor);
 
 // ------------------  create shades and highlights
-const selectedBase = colorObject.to('srgb').toString();
-const selectedDark = colorObject
-  .clone()
-  .set({l: l => l * 0.1, c: c => c * 0.05})
-  .to('srgb')
-  .toString();
-const selectedLight = colorObject
-  .clone()
-  .set({l: l => l * 3.2, c: c => c * 0.15})
-  .to('srgb')
-  .toString();
-const selectedGlare = colorObject
-  .clone()
-  .set({l: l => l * 1.5, c: c => c * 0.5})
-  .to('srgb')
-  .toString();
-const selectedDesaturate = colorObject
-  .clone()
-  .set({c: c => c * 0.8})
-  .to('srgb')
-  .toString();
-
-// ------------------ Simulate the structure of the other token files for uniform processing
-const colorTokens = [
-  {name: 'Primary Highlight', value: '#' + rgbHex(selectedBase)},
-  {name: 'Primary Dark', value: '#' + rgbHex(selectedDark)},
-  {name: 'Primary Light', value: '#' + rgbHex(selectedLight)},
-  {name: 'Primary Glare', value: '#' + rgbHex(selectedGlare)},
-  {name: 'Primary Desaturated', value: '#' + rgbHex(selectedDesaturate)}
-];
-
-// ------------------ get a json file with the color tokens
-const jsonContent = {
-  title: 'Colors',
-  items: colorTokens
+const colorShades = {
+  base: '#' + rgbHex(colorObject.to('srgb').toString()),
+  dark:
+    '#' +
+    rgbHex(
+      colorObject
+        .clone()
+        .set({l: l => l * 0.1, c: c => c * 0.05})
+        .to('srgb')
+        .toString()
+    ),
+  light:
+    '#' +
+    rgbHex(
+      colorObject
+        .clone()
+        .set({l: l => l * 3.2, c: c => c * 0.15})
+        .to('srgb')
+        .toString()
+    ),
+  glare:
+    '#' +
+    rgbHex(
+      colorObject
+        .clone()
+        .set({l: l => l * 1.5, c: c => c * 0.5})
+        .to('srgb')
+        .toString()
+    ),
+  desaturate:
+    '#' +
+    rgbHex(
+      colorObject
+        .clone()
+        .set({c: c => c * 0.8})
+        .to('srgb')
+        .toString()
+    )
 };
 
-fs.writeFileSync('./src/_data/designTokens/colors.json', JSON.stringify(jsonContent, null, 2));
+// ------------------ Simulate the structure of the other token files for uniform processing
+const colorTokens = {
+  title: 'Colors',
+  description: "Don't edit directly, this file is recreated on every build.",
+  items: [
+    {name: 'Primary Highlight', value: colorShades.base},
+    {name: 'Primary Dark', value: colorShades.dark},
+    {name: 'Primary Light', value: colorShades.light},
+    {name: 'Primary Glare', value: colorShades.glare},
+    {name: 'Primary Desaturated', value: colorShades.desaturate}
+  ]
+};
+
+fs.writeFileSync(
+  './src/_data/designTokens/colors.js',
+  `export default ${JSON.stringify(colorTokens, null, 2)}`
+);
+
+// Export colorTokens as a module for Tailwind CSS
+export default colorTokens;
