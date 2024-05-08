@@ -1,5 +1,6 @@
 import colorTokens from '../_data/designTokens/colors.js';
 const primaryColor = colorTokens.items[0].value;
+const primaryShade = colorTokens.items[4].value;
 
 export const url = process.env.URL || 'http://localhost:8080';
 export const siteName = 'cantautor.es';
@@ -25,7 +26,7 @@ export const designer = {
   email: 'd.grrrau@gmail.com',
   website: 'https://www.lenesaile.com'
 };
-export const themeColor = primaryColor; //  Manifest: defines the default theme color for the application
+export const themeColor = primaryShade; //  Manifest: defines the default theme color for the application
 export const themeBgColor = primaryColor; // Manifest: defines a placeholder background color for the application page to display before its stylesheet is loaded
 export const opengraph_default = '/assets/og-images/opengraph-default.jpg'; // fallback/default meta image
 export const opengraph_default_alt = 'cantautores logo'; // alt text for default meta image

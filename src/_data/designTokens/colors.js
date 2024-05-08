@@ -4,11 +4,11 @@ export default {
   "items": [
     {
       "name": "Primary Highlight",
-      "value": "#8d4cd8"
+      "value": "#097f00"
     },
     {
       "name": "Primary Dark",
-      "value": "#120e14"
+      "value": "#0d1109"
     },
     {
       "name": "Primary Light",
@@ -16,15 +16,15 @@ export default {
     },
     {
       "name": "Primary Glare",
-      "value": "#bf9ae2"
+      "value": "#8ab46e"
     },
     {
       "name": "Primary Shade",
-      "value": "#7139b3"
+      "value": "#006600"
     },
     {
       "name": "Primary Desaturated",
-      "value": "#703ea9"
+      "value": "#146500"
     }
   ]
 }
