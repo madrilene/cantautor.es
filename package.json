@@ -13,6 +13,7 @@
     "dev:11ty": "eleventy --serve --watch",
     "build:colors": "node ./src/_config/utils/create-colors.js",
     "build:11ty": "eleventy",
+    "build:icons": "node ./src/_config/utils/create-favicons.js",
     "start": "run-p dev:*",
     "build": "run-s clean build:*",
     "spotify:generate": "node ./src/_config/spotify/fetch-spotify-data.js",
