@@ -71,8 +71,9 @@ export default async function (eleventyConfig) {
   // --------------------- Events ---------------------
   if (process.env.ELEVENTY_RUN_MODE === 'serve') {
     eleventyConfig.on('eleventy.after', events.svgToJpeg);
-    eleventyConfig.on('eleventy.after', events.createFavicons);
   }
+
+  eleventyConfig.on('eleventy.after', events.createFavicons);
 
   // --------------------- Passthrough File Copy
 
