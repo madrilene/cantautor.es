@@ -60,7 +60,7 @@ custom-artist .info {
 }
 
 .stage custom-artist .info {
-  padding-block-end: var(--space-m-l);
+  padding-block-end: var(--space-xs);
 }
 
 custom-artist :is(h2, h3) {
@@ -214,6 +214,10 @@ custom-artist[artist-of-the-day] .aotd::after {
 
   .stage custom-artist img {
     aspect-ratio: 4 / 5;
+  }
+
+  .stage custom-artist .info {
+    padding-block-end: var(--space-m-l);
   }
 }
 

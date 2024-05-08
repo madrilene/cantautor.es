@@ -24,7 +24,7 @@ export const designer = {
 };
 export const themeColor = '#e84700'; //  Manifest: defines the default theme color for the application
 export const themeBgColor = '#e84700'; // Manifest: defines a placeholder background color for the application page to display before its stylesheet is loaded
-export const opengraph_default = '/assets/images/og-images/opengraph-default.jpg'; // fallback/default meta image
+export const opengraph_default = '/assets/og-images/opengraph-default.jpg'; // fallback/default meta image
 export const opengraph_default_alt = 'cantautores logo'; // alt text for default meta image
 export const blog = {
   // RSS feed
