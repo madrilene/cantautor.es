@@ -1,3 +1,5 @@
+import {selectedRgb} from '../_data/designTokens/colors.js';
+
 export const url = process.env.URL || 'http://localhost:8080';
 export const siteName = 'cantautor.es';
 export const siteDescription = 'Supporting spanish musicians';
@@ -7,7 +9,7 @@ export const lang = 'en';
 export const skipContent = 'Skip to content';
 export const author = {
   name: 'Lene Saile and Dani Grau', // i.e. Lene Saile - page / blog author's name. Must be set.
-  avatar: '/favicon.png',
+  avatar: '/icon-512x512.png',
   email: 'hello@badwebsites.rip', // i.e. hola@lenesaile.com - email of the author
   website: 'https://badwebsites.rip/#team' // i.e. https.://www.lenesaile.com - the personal site of the author
 };
@@ -22,8 +24,8 @@ export const designer = {
   email: 'd.grrrau@gmail.com',
   website: 'https://www.lenesaile.com'
 };
-export const themeColor = '#e84700'; //  Manifest: defines the default theme color for the application
-export const themeBgColor = '#e84700'; // Manifest: defines a placeholder background color for the application page to display before its stylesheet is loaded
+export const themeColor = selectedRgb; //  Manifest: defines the default theme color for the application
+export const themeBgColor = selectedRgb; // Manifest: defines a placeholder background color for the application page to display before its stylesheet is loaded
 export const opengraph_default = '/assets/og-images/opengraph-default.jpg'; // fallback/default meta image
 export const opengraph_default_alt = 'cantautores logo'; // alt text for default meta image
 export const blog = {

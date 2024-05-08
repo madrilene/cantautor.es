@@ -3,7 +3,7 @@
 }
 
 .section__inner {
-  background-color: var(--spot-color, var(--color-bg-accent));
+  background-color: var(--spot-color, var(--color-primary-glare));
   color: var(--color-text);
 }
 

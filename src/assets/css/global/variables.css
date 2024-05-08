@@ -1,11 +1,9 @@
 /* Global variables.  */
-/* This turned out a little too complex, and probably is overly specific. I'm still fiddling with this. Should work by itself though, once you define your design token colors.
-/* Feel free to delete the modern CSS enhancements starting on line 74. Adjust fallbacks if modern color syntax not supported for text and bg variants. */
+/* The colors are defined in src/_data/designTokens/colors.js, using the colorjs.io package. */
 
 /* Basic variable definitions for color schemes */
 :root {
   color-scheme: light dark;
-
   --gutter: var(--space-xs-l);
   --border-radius: 0.1rem;
   --transition-duration: 250ms;
@@ -20,68 +18,23 @@
 :root,
 :root[data-theme='light'] {
   --color-primary: var(--color-primary-highlight);
-  /* Fallbacks if modern color syntax not supported */
-  --color-light: #fef5f2;
-  --color-dark: #2b2827;
-  --color-bg: var(--color-light);
-  --color-text: var(--color-dark);
-  --color-text-accent: #505050;
-  --color-bg-accent: #fdfdfd;
-  --color-primary-glare: #d9d9d9;
+  --color-light: var(--color-primary-light);
+  --color-dark: var(--color-primary-dark);
+  --color-bg: var(--color-primary-light);
+  --color-text: var(--color-primary-dark);
 }
 
 /* Dark theme specific variables based on system preference */
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-primary: var(--color-primary-highlight);
-    /* Fallbacks if modern color syntax not supported */
-    --color-bg: var(--color-dark);
-    --color-text: var(--color-light);
-    --color-text-accent: #a8a8a8;
-    --color-bg-accent: #383838;
-    --color-primary-glare: #868686;
+    --color-primary: var(--color-primary-desaturated);
+    --color-bg: var(--color-primary-dark);
+    --color-text: var(--color-primary-light);
   }
 }
 
-/* Dark theme specific variables based on manual override */
 :root[data-theme='dark'] {
-  --color-primary: var(--color-primary-highlight);
-  /* Fallbacks if modern color syntax not supported */
-  --color-bg: var(--color-dark);
-  --color-text: var(--color-light);
-  --color-bg-accent: #383838;
-  --color-primary-glare: #868686;
-}
-
-/* Enhancements for browsers that support color-mix */
-@supports (background: color-mix(in srgb, red 50%, blue)) {
-  :root,
-  :root[data-theme='light'] {
-    --color-light: color-mix(in oklab, var(--color-primary-highlight) 5%, white);
-    --color-dark: color-mix(in oklab, var(--color-primary-highlight) 25%, black);
-    --color-text: var(--color-dark);
-    --color-bg: var(--color-light);
-    --color-bg-accent: color-mix(in oklab, var(--color-bg) 90%, var(--color-text));
-    --color-primary-glare: color-mix(in oklab, var(--color-primary) 70%, var(--color-bg));
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --color-text: var(--color-light);
-      --color-bg: var(--color-dark);
-      --color-bg-accent: color-mix(in oklab, var(--color-bg) 92%, var(--color-text));
-      /* add opacity with color-mix */
-      --color-primary: color-mix(in oklab, var(--color-primary-highlight) 80%, transparent);
-      --color-primary-glare: color-mix(in oklab, var(--color-primary) 70%, white);
-    }
-  }
-
-  :root[data-theme='dark'] {
-    --color-text: var(--color-light);
-    --color-bg: var(--color-dark);
-    --color-bg-accent: color-mix(in oklab, var(--color-bg) 92%, var(--color-text));
-    /* add opacity with color-mix */
-    --color-primary: color-mix(in oklab, var(--color-primary-highlight) 80%, transparent);
-    --color-primary-glare: color-mix(in oklab, var(--color-primary) 70%, white);
-  }
+  --color-primary: var(--color-primary-desaturated);
+  --color-bg: var(--color-primary-dark);
+  --color-text: var(--color-primary-light);
 }

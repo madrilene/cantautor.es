@@ -84,8 +84,9 @@
   />
 {% endfor %}
 
-<!-- Favicon: https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs -->
-<link rel="icon" href="{{ '/favicon.ico' | url }}" sizes="any" />
+<!-- Favicon: https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs. -->
+<!-- Favicons are created on every build depending on the theme size -->
+<link rel="icon" href="{{ '/favicon.ico' | url }}" sizes="32x32" />
 <link rel="icon" href="{{ '/favicon.svg' | url }}" type="image/svg+xml" />
-<link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png' | url }}" />
+<link rel="apple-touch-icon" sizes="180x180" href="{{ '/icon-180x180.png' | url }}" />
 <link rel="manifest" href="{{ '/site.webmanifest' | url }}" />

@@ -19,20 +19,3 @@ export const tokensToTailwind = tokens => {
 
   return response;
 };
-
-/**
- * Preprocesses tokens, selecting a random color from the array for the special case of 'Primary Highlight' token
- *
- * @param {array} tokens - An array of tokens with properties `name` (string) and `value` (any)
- * @return {array} - An array of tokens with the 'Primary Highlight' token value randomly selected from the array
- */
-
-export const preprocessTokens = tokens => {
-  return tokens.map(token => {
-    if (token.name === 'Primary Highlight' && Array.isArray(token.value)) {
-      const randomIndex = Math.floor(Math.random() * token.value.length);
-      return {...token, value: token.value[randomIndex]};
-    }
-    return token;
-  });
-};

@@ -71,6 +71,7 @@ export default async function (eleventyConfig) {
   // --------------------- Events ---------------------
   if (process.env.ELEVENTY_RUN_MODE === 'serve') {
     eleventyConfig.on('eleventy.after', events.svgToJpeg);
+    eleventyConfig.on('eleventy.after', events.createFavicons);
   }
 
   // --------------------- Passthrough File Copy
@@ -79,11 +80,6 @@ export default async function (eleventyConfig) {
   ['src/assets/fonts/', 'src/assets/images/template', 'src/assets/og-images', 'src/assets/**/*.mp3'].forEach(
     path => eleventyConfig.addPassthroughCopy(path)
   );
-
-  // -- to root
-  eleventyConfig.addPassthroughCopy({
-    'src/assets/images/favicon/*': '/'
-  });
 
   // -- node_modules
   eleventyConfig.addPassthroughCopy({
