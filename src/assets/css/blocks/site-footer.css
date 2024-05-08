@@ -11,7 +11,7 @@
 .site-footer .footer__meta {
   --gutter: var(--space-xs);
   --cluster-horizontal-alignment: flex-start;
-  transform: rotate(-2deg) translateX(-0.5rem) translateY(0.6rem);
+  transform: rotate(-3deg) translateX(-0.5rem) translateY(0.6rem);
 }
 
 /* increase tab size */

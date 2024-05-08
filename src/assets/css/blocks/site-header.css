@@ -6,7 +6,7 @@
   inset-block-end: 0;
   flex-wrap: nowrap;
   z-index: 2;
-  transform: rotate(-2deg) translateX(-0.5rem) translateY(0.6rem);
+  transform: rotate(-3deg) translateX(-0.2rem) translateY(0.7rem);
   overflow-x: hidden;
 }
 
