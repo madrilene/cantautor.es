@@ -47,9 +47,14 @@ masonry: true
           <custom-info class="item"> {% renderFile "./src/_includes/contents/about.md" %} </custom-info>
         {% endif %}
 
-        {% if loop.index == 11 %}
+        {% if loop.index == 8 %}
           <!-- Example: Place an info box every 5 artists -->
           <custom-info class="item"> {% renderFile "./src/_includes/contents/intouch.md" %} </custom-info>
+        {% endif %}
+
+        {% if loop.index == 18 %}
+          <!-- Example: Place an info box every 5 artists -->
+          <custom-info class="item"> {% renderFile "./src/_includes/contents/random.md" %} </custom-info>
         {% endif %}
 
         {% if loop.index == loop.length - 1 %}
