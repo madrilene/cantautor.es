@@ -5,7 +5,7 @@ node_modules
 dist
 src/_includes/css
 src/_includes/scripts
-src/_data/designTokens/*.js
+# src/_data/designTokens/*.js
 src/assets/images/favicons
 
 # cache
