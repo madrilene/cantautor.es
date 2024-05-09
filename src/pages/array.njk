@@ -1,0 +1,55 @@
+---
+permalink: /array.html
+title: 'cantautor.es'
+description: ''
+layout: 'page'
+excludeFromSitemap: true
+noindex: true
+---
+
+<style>
+  li {
+    display: grid;
+    inline-size: min(11rem, 40%);
+    aspect-ratio: 1;
+    background: var(--grey);
+    border: 1px solid gray;
+  }
+
+  li.big {
+    inline-size: min(18rem, 40%);
+  }
+
+  code {
+    font-size: var(--size-step-min-1);
+    background-color: var(--color-bg);
+    justify-self: center;
+    align-self: end;
+    margin-block-end: var(--space-xs);
+    padding-inline: var(--space-xs);
+  }
+</style>
+
+<div class="region" style="--region-space-top: var(--space-xl) ">
+  <h2>Current Primary color:</h2>
+  <ul role="list" class="cluster">
+    {%- for color in designTokens.colors.items -%}
+      <li class="big" style="background-color: var(--color-{{ color.name | slugify }}">
+        <code>
+          <strong>#{{ color.value | slugify }}</strong><br />
+          --color-{{ color.name | slugify }}</code
+        >
+      </li>
+    {%- endfor -%}
+  </ul>
+
+  <h2 class=" mt-xl">Color array:</h2>
+
+  <ul role="list" class="cluster">
+    {%- for color in designTokens.colorArray.colorVariations -%}
+      <li style="background-color: {{ color }}">
+        <code> <strong>{{ color }}</strong></code>
+      </li>
+    {%- endfor -%}
+  </ul>
+</div>
