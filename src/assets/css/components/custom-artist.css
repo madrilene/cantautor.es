@@ -96,8 +96,8 @@ custom-artist .spotify-link {
 custom-artist .arrow {
   display: grid;
   place-items: center;
-  color: var(--color-bg);
-  background-color: var(--color-text);
+  color: var(--color-light);
+  background-color: var(--color-dark);
   border: 0;
   font-size: var(--size-step-3);
   position: absolute;
@@ -105,7 +105,7 @@ custom-artist .arrow {
   inset-block-start: -2.6ch;
   inline-size: 2ch;
   block-size: 2ch;
-  border: 1px solid var(--color-bg);
+  border: 1px solid var(--color-light);
 }
 
 /* clickable */
@@ -135,9 +135,14 @@ custom-artist .arrow {
   transform: translateX(0) translateY(-1ch);
 }
 
+.artistlist custom-artist[artist-staged] .arrow {
+  background-color: var(--color-primary);
+  color: var(--color-primary-glare);
+}
+
 .artistlist custom-artist[artist-staged] :is(h2, h3),
 .artistlist custom-artist:hover :is(h2, h3) {
-  color: var(--color-primary);
+  color: var(--color-primary-glare);
 }
 
 .artistlist custom-artist a:after {
