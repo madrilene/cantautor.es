@@ -4,7 +4,7 @@ import rgbHex from 'rgb-hex';
 
 // ------------------ select a base color to generate the whole color palette
 const baseColorHex = '#c33c00';
-const baseColor = new Color(baseColorHex).to('lch');
+const baseColor = new Color(baseColorHex).to('oklch');
 
 // ------------------ create an array of primary 18 colors manipulating the hue of the base color
 const generateHueVariations = (baseColor, steps, hueIncrement) => {
