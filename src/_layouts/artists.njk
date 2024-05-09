@@ -9,7 +9,7 @@ masonry: true
     <h2 class="visually-hidden">Artists</h2>
     <a href="#stage" class="skip-link" top>Jump to featured artist</a>
 
-    <div id="artistlist" class="artistlist | grid" data-rows="masonry">
+    <custom-masonry id="artistlist" class="artistlist">
       {% set modifiers = ['img-square', 'img-5-4', 'img-4-5'] %}
       {% for artist in artists | shuffle %}
         {% if loop.index <= 6 %}
@@ -52,7 +52,7 @@ masonry: true
           <custom-info class="item"> {% renderFile "./src/_includes/contents/intouch.md" %} </custom-info>
         {% endif %}
 
-        {% if loop.index == 18 %}
+        {% if loop.index == 17 %}
           <!-- Example: Place an info box every 5 artists -->
           <custom-info class="item"> {% renderFile "./src/_includes/contents/random.md" %} </custom-info>
         {% endif %}
@@ -62,7 +62,7 @@ masonry: true
           <custom-info class="item"> {% renderFile "./src/_includes/contents/howitworks.md" %} </custom-info>
         {% endif %}
       {% endfor %}
-    </div>
+    </custom-masonry>
   </section>
 
   <!-- FEATURED ARTIST -->
@@ -70,6 +70,11 @@ masonry: true
     <h2 class="visually-hidden">Featured</h2>
     <div data-swap>
       {% set featuredArtist = artists | random %}
+      <script type="module" src="/assets/components/custom-easteregg.js"></script>
+      <custom-easteregg
+        keyword="{{ featuredArtist.name | slugify }}"
+        colors="{{ designTokens.colors.items[0].value }},{{ designTokens.colors.items[4].value }}"
+      ></custom-easteregg>
 
       <custom-artist artist-of-the-day data-artist="{{ featuredArtist.name | slugify }}" class="flow">
         <!-- artist image -->

@@ -1,0 +1,4 @@
+<custom-masonry class="grid" data-rows="masonry" webc:root>
+  <slot></slot>
+  <script src="/assets/components/custom-masonry.js" defer></script>
+</custom-masonry>
