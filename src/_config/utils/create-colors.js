@@ -18,6 +18,15 @@ const generateHueVariations = (baseColor, steps, hueIncrement) => {
 
 const colorVariations = generateHueVariations(baseColor, 18, 20);
 
+// Convert each color to a hex string for easy usage
+const colorHexVariations = colorVariations.map(color => '#' + rgbHex(color.to('srgb').toString()));
+
+// Write colorVariations to a JS module
+fs.writeFileSync(
+  './src/_data/designTokens/colorArray.js',
+  `export const colorVariations = ${JSON.stringify(colorHexVariations, null, 2)};`
+);
+
 // ------------------  randomly select the primary highlight color
 const selectedColor = colorVariations[Math.floor(Math.random() * colorVariations.length)];
 const colorObject = new Color(selectedColor);
@@ -48,7 +57,7 @@ const colorShades = {
     rgbHex(
       colorObject
         .clone()
-        .set({l: l => l * 0.8, c: c => c * 0.9})
+        .set({l: l => l * 0.7, c: c => c * 1})
         .to('srgb')
         .toString()
     ),
@@ -57,7 +66,7 @@ const colorShades = {
     rgbHex(
       colorObject
         .clone()
-        .set({l: l => l * 1.5, c: c => c * 0.5})
+        .set({l: l => l * 1.5, c: c => c * 0.4})
         .to('srgb')
         .toString()
     ),
@@ -92,4 +101,5 @@ fs.writeFileSync(
 );
 
 // Export colorTokens as a module for Tailwind CSS
+
 export default colorTokens;
