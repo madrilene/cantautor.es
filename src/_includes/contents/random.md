@@ -1,1 +1,1 @@
-Every day, a randomly selected artist is named "Artist of the Day". Also, a new color is selected from a palette of 18 colors and used throughout the app.
+Every day, the color of the app and the "**Artist Of The Day**" are chosen at random. See what happens when you type in their name!
