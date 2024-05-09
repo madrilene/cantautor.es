@@ -7,11 +7,12 @@ export const jsConfig = eleventyConfig => {
   eleventyConfig.addExtension('js', {
     outputFileExtension: 'js',
     compile: async (content, inputPath) => {
+      // Skip processing if not in the designated scripts directories
       if (!inputPath.startsWith('./src/assets/scripts/')) {
         return;
       }
 
-      // inline scripts go into the _includes folder
+      // Inline scripts processing
       if (inputPath.startsWith('./src/assets/scripts/inline/')) {
         const filename = path.basename(inputPath);
         const outputFilename = filename.replace(/\.js$/, '-inline.js');
@@ -27,20 +28,33 @@ export const jsConfig = eleventyConfig => {
         return;
       }
 
-      // Default handling for other scripts, excluding inline scripts
-      if (!inputPath.startsWith('./src/assets/scripts/inline/')) {
-        return async () => {
-          let output = await esbuild.build({
-            target: 'es2020',
-            entryPoints: [inputPath],
-            minify: true,
-            bundle: true,
-            write: false
-          });
+      // Component scripts processing
+      if (inputPath.startsWith('./src/assets/scripts/components/')) {
+        const filename = path.basename(inputPath);
+        const outputPath = `./dist/assets/components/${filename}`;
 
-          return output.outputFiles[0].text;
-        };
+        await esbuild.build({
+          target: 'es2020',
+          entryPoints: [inputPath],
+          outfile: outputPath,
+          bundle: true,
+          minify: false
+        });
+        return;
       }
+
+      // Default handling for other scripts, excluding inline scripts
+      return async () => {
+        let output = await esbuild.build({
+          target: 'es2020',
+          entryPoints: [inputPath],
+          bundle: true,
+          minify: true,
+          write: false
+        });
+
+        return output.outputFiles[0].text;
+      };
     }
   });
 };
