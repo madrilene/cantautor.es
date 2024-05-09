@@ -62,20 +62,10 @@
             {% if preloads.crossorigin %}crossorigin{% endif %} />
     {% endif %}
 
-    {% if meta.easteregg %}
-      <!-- easteregg js, if true in meta -->
-      <script src="/assets/scripts/easteregg.js?{{ assetHash }}" defer></script>
-    {% endif %}
-
     <!-- web components -->
     <script src="/assets/scripts/components/custom-artist-swap.js" defer></script>
     <script src="/assets/scripts/components/custom-audio.js" defer></script>
     <script src="/assets/scripts/components/click-spark.js" defer></script>
-
-    {% if masonry %}
-      <!-- masonry fallback, if true in frontmatter -->
-      <script src="/assets/scripts/masonry.js?{{ assetHash }}" defer></script>
-    {% endif %}
 
     <!-- plausible -->
     <script defer data-domain="cantautor.es" src="https://plausible.io/js/script.js"></script>
