@@ -10,13 +10,16 @@ const baseColor = new Color(baseColorHex).to('oklch');
 const generateHueVariations = (baseColor, steps, hueIncrement) => {
   let colors = [];
   for (let i = 0; i < steps; i++) {
+    if (i >= 3 && i <= 9) {
+      continue;
+    }
     const hueAdjustedColor = baseColor.clone().set({h: h => (h + hueIncrement * i) % 360});
     colors.push(hueAdjustedColor);
   }
   return colors;
 };
 
-const colorVariations = generateHueVariations(baseColor, 18, 20);
+const colorVariations = generateHueVariations(baseColor, 36, 10);
 
 // Convert each color to a hex string for easy usage
 const colorHexVariations = colorVariations.map(color => '#' + rgbHex(color.to('srgb').toString()));
@@ -39,7 +42,7 @@ const colorShades = {
     rgbHex(
       colorObject
         .clone()
-        .set({l: l => l * 0.1, c: c => c * 0.05})
+        .set({l: l => l * 0.28, c: c => c * 0.09})
         .to('srgb')
         .toString()
     ),
@@ -48,7 +51,7 @@ const colorShades = {
     rgbHex(
       colorObject
         .clone()
-        .set({l: l => l * 3.2, c: c => c * 0.15})
+        .set({l: l => l * 1.82, c: c => c * 0.2})
         .to('srgb')
         .toString()
     ),
@@ -57,7 +60,7 @@ const colorShades = {
     rgbHex(
       colorObject
         .clone()
-        .set({l: l => l * 0.7, c: c => c * 1})
+        .set({l: l => l * 0.6, c: c => c * 0.9})
         .to('srgb')
         .toString()
     ),

@@ -30,7 +30,7 @@ noindex: true
   }
 </style>
 
-<div class="region" style="--region-space-top: var(--space-xl) ">
+<div class="region flow" style="--region-space-top: var(--space-xl) ">
   <h2>Current Primary color:</h2>
   <ul role="list" class="cluster">
     {%- for color in designTokens.colors.items -%}
@@ -44,6 +44,10 @@ noindex: true
   </ul>
 
   <h2 class=" mt-xl">Color array:</h2>
+  <p>
+    in OKLCH, going around the hue wheel in steps of 10, skipping some rather ugly brownish values between red
+    and green
+  </p>
 
   <ul role="list" class="cluster">
     {%- for color in designTokens.colorArray.colorVariations -%}
