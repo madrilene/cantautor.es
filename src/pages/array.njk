@@ -37,7 +37,7 @@ noindex: true
       <li class="big" style="background-color: var(--color-{{ color.name | slugify }}">
         <code>
           <strong>#{{ color.value | slugify }}</strong><br />
-          --color-{{ color.name | slugify }}</code
+          {{ color.name | slugify | replace("primary-", "") }}</code
         >
       </li>
     {%- endfor -%}
@@ -45,8 +45,8 @@ noindex: true
 
   <h2 class=" mt-xl">Color array:</h2>
   <p>
-    in OKLCH, going around the hue wheel in steps of 10, skipping some rather ugly brownish values between red
-    and green
+    Generated in OKLCH and (for now) converted back to HEX, going around the hue wheel in steps of 10,
+    skipping some rather ugly brownish values between red and green
   </p>
 
   <ul role="list" class="cluster">
