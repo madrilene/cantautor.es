@@ -142,6 +142,11 @@ custom-artist .arrow {
 
 .artistlist custom-artist[artist-staged] :is(h2, h3),
 .artistlist custom-artist:hover :is(h2, h3) {
+  color: var(--color-primary);
+}
+
+[data-theme='dark'] .artistlist custom-artist[artist-staged] :is(h2, h3),
+[data-theme='dark'] .artistlist custom-artist:hover :is(h2, h3) {
   color: var(--color-primary-glare);
 }
 
