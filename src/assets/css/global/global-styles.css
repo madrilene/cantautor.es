@@ -10,7 +10,7 @@ body {
   background-color: var(--color-bg);
   font-size: var(--size-step-0);
   font-family: var(--font-base);
-  line-height: 1.4;
+  line-height: var(--leading-standard);
   letter-spacing: var(--tracking);
   display: flex;
   flex-direction: column;
