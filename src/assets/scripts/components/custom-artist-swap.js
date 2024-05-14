@@ -13,6 +13,11 @@ class CustomArtistSwap extends HTMLElement {
       this.artistOfTheDay = initialArtistElement.getAttribute('data-artist');
       this.featuredArtistSlug = this.artistOfTheDay;
     }
+
+    // Inject the artist of the day into the live region after a short delay
+    setTimeout(() => {
+      this.updateLiveRegion(`${this.formatArtistName(this.artistOfTheDay)} is the artist of the day.`);
+    }, 1000); // 1000ms delay
   }
 
   formatArtistName(name) {
@@ -24,10 +29,20 @@ class CustomArtistSwap extends HTMLElement {
   }
 
   initiateLiveRegion() {
-    this.liveRegion = document.createElement('div');
-    this.liveRegion.setAttribute('aria-live', 'polite');
-    this.liveRegion.setAttribute('class', 'visually-hidden');
-    document.body.appendChild(this.liveRegion);
+    this.newLiveRegion = document.createElement('div');
+    this.newLiveRegion.setAttribute('aria-live', 'polite');
+    this.newLiveRegion.setAttribute('id', 'live-region');
+    this.newLiveRegion.setAttribute('class', 'visually-hidden');
+    document.body.appendChild(this.newLiveRegion);
+  }
+
+  updateLiveRegion(message) {
+    const liveRegion = document.getElementById('live-region');
+    while (liveRegion.firstChild) {
+      liveRegion.removeChild(liveRegion.firstChild);
+    }
+    const newMessage = document.createTextNode(message);
+    liveRegion.appendChild(newMessage);
   }
 
   attachEventHandlers() {
@@ -46,7 +61,9 @@ class CustomArtistSwap extends HTMLElement {
     if (stage) {
       const showNewArtistOnStage = () => {
         this.directSwap(stage, artist);
-        this.liveRegion.textContent = `${this.formatArtistName(artist.getAttribute('data-artist'))} is now featured on stage.`;
+        this.updateLiveRegion(
+          `${this.formatArtistName(artist.getAttribute('data-artist'))} is now featured on stage.`
+        );
       };
 
       if (!document.startViewTransition) {
@@ -61,7 +78,6 @@ class CustomArtistSwap extends HTMLElement {
         })
         .catch(error => {
           console.error('Transition failed', error);
-          // Additional error handling logic can be added here
           showNewArtistOnStage(); // Fallback to direct swap if transition fails
         });
     }
