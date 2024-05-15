@@ -268,5 +268,14 @@
     "albumName": "Metamorfosis",
     "preview": "/assets/artists/maria-ruiz/preview.mp3",
     "spotifyUrl": "https://open.spotify.com/artist/0AFj9y8WKAlLA0s0om6NaI"
+  },
+  {
+    "name": "Marta Tchai",
+    "trackName": "Me Asusta",
+    "profileImage": "/assets/artists/marta-tchai/profile.jpg",
+    "albumImage": "/assets/artists/marta-tchai/album.jpg",
+    "albumName": "El Eclipse",
+    "preview": "/assets/artists/marta-tchai/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/3VQzBiPA8ZCfnG1s8eG9rh"
   }
 ]
