@@ -214,5 +214,59 @@
     "albumName": "La Caja Negra",
     "preview": "/assets/artists/hector-tuya/preview.mp3",
     "spotifyUrl": "https://open.spotify.com/artist/1cWLLpYsYvip9h7Bxzshys"
+  },
+  {
+    "name": "Antonio Hernando",
+    "trackName": "Meri Moon",
+    "profileImage": "/assets/artists/antonio-hernando/profile.jpg",
+    "albumImage": "/assets/artists/antonio-hernando/album.jpg",
+    "albumName": "La Liturgia Eléctrica",
+    "preview": "/assets/artists/antonio-hernando/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/4HVvY4NaDCq0rtCJhTG89N"
+  },
+  {
+    "name": "Marta Plumilla",
+    "trackName": "Una Estrella",
+    "profileImage": "/assets/artists/marta-plumilla/profile.jpg",
+    "albumImage": "/assets/artists/marta-plumilla/album.jpg",
+    "albumName": "Forastera",
+    "preview": "/assets/artists/marta-plumilla/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/4g5tlAlCsugA3fJybroQv3"
+  },
+  {
+    "name": "Pedro Pastor",
+    "trackName": "Verde Selva",
+    "profileImage": "/assets/artists/pedro-pastor/profile.jpg",
+    "albumImage": "/assets/artists/pedro-pastor/album.jpg",
+    "albumName": "La Vida Plena",
+    "preview": "/assets/artists/pedro-pastor/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/12L0n6FPcTKBtKvWcFEbmP"
+  },
+  {
+    "name": "Road Ramos",
+    "trackName": "El Desmontaje del Productor",
+    "profileImage": "/assets/artists/road-ramos/profile.jpg",
+    "albumImage": "/assets/artists/road-ramos/album.jpg",
+    "albumName": "El Desmontaje del Productor",
+    "preview": "/assets/artists/road-ramos/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/3nWRfiCwu2kIEuUrHQDfo0"
+  },
+  {
+    "name": "Eva Sierra",
+    "trackName": "Creciendo",
+    "profileImage": "/assets/artists/eva-sierra/profile.jpg",
+    "albumImage": "/assets/artists/eva-sierra/album.jpg",
+    "albumName": "Equilibrio",
+    "preview": "/assets/artists/eva-sierra/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/2wOD9A7TLRFCSxyFyv9A7V"
+  },
+  {
+    "name": "María Ruiz",
+    "trackName": "Tu Nombre",
+    "profileImage": "/assets/artists/maria-ruiz/profile.jpg",
+    "albumImage": "/assets/artists/maria-ruiz/album.jpg",
+    "albumName": "Metamorfosis",
+    "preview": "/assets/artists/maria-ruiz/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/0AFj9y8WKAlLA0s0om6NaI"
   }
 ]
