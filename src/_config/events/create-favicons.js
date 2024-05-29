@@ -1,6 +1,6 @@
 import fs from 'fs';
 import sharp from 'sharp';
-import Jimp from 'jimp';
+import {sharpsToIco} from 'sharp-ico';
 import colorTokens from '../../_data/designTokens/colors.js';
 
 const primaryColor = colorTokens.items[0].value;
@@ -39,7 +39,7 @@ export const createFavicons = async function () {
   await sharp(svgBuffer).resize(512, 512).toFile(`${outputDir}/icon-512x512.png`);
   await sharp(svgBuffer).resize(180, 180).toFile(`${outputDir}/icon-180x180.png`);
 
-  // Generate maskable icon with padding
+  // ------------------ Generate maskable icon
   const maskableSize = 512;
   const padding = Math.round(maskableSize * 0.1);
   const newSize = Math.round(maskableSize - 2 * padding); // Ensure newSize is a whole number
@@ -54,8 +54,7 @@ export const createFavicons = async function () {
     })
     .toFile(`${outputDir}/maskable-512x512.png`);
 
-  // Generate ICO
-  const pngBuffer = await sharp(Buffer.from(svgContent)).resize(32, 32).png().toBuffer();
-  const image = await Jimp.read(pngBuffer);
-  await image.writeAsync(`${outputDir}/favicon.ico`);
+  //  ------------------ Generate ICO
+  const iconSharp = sharp(svgBuffer).resize(32, 32);
+  await sharpsToIco([iconSharp], `${outputDir}/favicon.ico`, {sizes: [32]});
 };
