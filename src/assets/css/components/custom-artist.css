@@ -38,6 +38,10 @@ custom-artist img {
   filter: grayscale(100%) sepia(10%);
 }
 
+.artistlist custom-artist img {
+  mix-blend-mode: luminosity;
+}
+
 .stage custom-artist img {
   aspect-ratio: 5 / 7;
   max-block-size: 50vh;
