@@ -4,8 +4,8 @@ layout: page
 
 <custom-artist-swap>
   <!-- MAIN CONTENT AREA -->
-  <section class="list">
-    <h2 class="visually-hidden">Artists</h2>
+  <section class="list" aria-labelledby="list_name">
+    <h2 id="list_name" class="visually-hidden">All artists</h2>
     <a href="#stage" class="skip-link" top>Jump to featured artist</a>
 
     <custom-masonry id="artistlist" class="artistlist">
@@ -65,8 +65,8 @@ layout: page
   </section>
 
   <!-- FEATURED ARTIST -->
-  <section id="stage" class="stage ontop" tabindex="-1">
-    <h2 class="visually-hidden">Featured</h2>
+  <section id="stage" class="stage ontop" aria-labelledby="artist_name">
+    <h2 id="artist_name" class="visually-hidden">Featured artist</h2>
     <div data-swap>
       {% set featuredArtist = artists | random %}
       <script type="module" src="/assets/components/custom-easteregg.js"></script>
