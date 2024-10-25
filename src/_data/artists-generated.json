@@ -1,14 +1,5 @@
 [
   {
-    "name": "Alberto Ballesteros",
-    "trackName": "Artista Sin Obra",
-    "profileImage": "/assets/artists/alberto-ballesteros/profile.jpg",
-    "albumImage": "/assets/artists/alberto-ballesteros/album.jpg",
-    "albumName": "La Fiesta En Paz",
-    "preview": "/assets/artists/alberto-ballesteros/preview.mp3",
-    "spotifyUrl": "https://open.spotify.com/artist/76cl8WncFJMLHHsekATDDC"
-  },
-  {
     "name": "Alicia Ramos",
     "trackName": "Eso Es Lo Que Esperan Que Hagamos",
     "profileImage": "/assets/artists/alicia-ramos/profile.jpg",
@@ -207,13 +198,13 @@
     "spotifyUrl": "https://open.spotify.com/artist/2cWE1SR4sE8f99V3xUMYPD"
   },
   {
-    "name": "Hector Tuya",
+    "name": "Héctor Tuya",
     "trackName": "Malabares",
     "profileImage": "/assets/artists/hector-tuya/profile.jpg",
     "albumImage": "/assets/artists/hector-tuya/album.jpg",
     "albumName": "La Caja Negra",
     "preview": "/assets/artists/hector-tuya/preview.mp3",
-    "spotifyUrl": "https://open.spotify.com/artist/1cWLLpYsYvip9h7Bxzshys"
+    "spotifyUrl": "https://open.spotify.com/artist/3g8VBq1axAzuPMzFyWKrSJ"
   },
   {
     "name": "Antonio Hernando",
@@ -277,5 +268,14 @@
     "albumName": "El Eclipse",
     "preview": "/assets/artists/marta-tchai/preview.mp3",
     "spotifyUrl": "https://open.spotify.com/artist/3VQzBiPA8ZCfnG1s8eG9rh"
+  },
+  {
+    "name": "Alberto Ballesteros",
+    "trackName": "No es Normal",
+    "profileImage": "/assets/artists/alberto-ballesteros/profile.jpg",
+    "albumImage": "/assets/artists/alberto-ballesteros/album.jpg",
+    "albumName": "No es Normal",
+    "preview": "/assets/artists/alberto-ballesteros/preview.mp3",
+    "spotifyUrl": "https://open.spotify.com/artist/76cl8WncFJMLHHsekATDDC"
   }
 ]
