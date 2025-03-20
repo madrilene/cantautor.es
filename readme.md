@@ -1,5 +1,7 @@
 # cantautor.es
 
+Made y [Lene & Dani](https://badwebsites.rip/)
+
 ## Spotify Data Integration
 
 This project integrates data from Spotify to dynamically display artist information. It involves a series of scripts that automate the fetching, processing, and preparation of this data.
