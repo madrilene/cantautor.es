@@ -68,8 +68,7 @@
     <script src="/assets/components/click-spark.js" defer></script>
 
     <!-- plausible -->
-    {% if isProduction %}
-      <!-- IS production -->
+    {% if meta.isProduction %}
       <script defer data-domain="cantautor.es" src="https://plausible.io/js/script.js"></script>
     {% endif %}
 
