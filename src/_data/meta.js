@@ -3,6 +3,7 @@ const primaryColor = colorTokens.items[0].value;
 const primaryShade = colorTokens.items[4].value;
 
 export const url = process.env.URL || 'http://localhost:8080';
+export const isProduction = process.env.CONTEXT === 'production';
 export const siteName = 'cantautor.es';
 export const siteDescription = 'Supporting spanish musicians';
 export const siteType = 'Person'; // schema
