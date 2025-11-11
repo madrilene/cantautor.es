@@ -20,6 +20,12 @@ import plugins from './src/_config/plugins.js';
 import shortcodes from './src/_config/shortcodes.js';
 
 export default async function (eleventyConfig) {
+  // --------------------- Events: before build
+  eleventyConfig.on('eleventy.before', async () => {
+    await events.buildAllCss();
+    await events.buildAllJs();
+  });
+
   // 	--------------------- Custom Watch Targets -----------------------
   eleventyConfig.addWatchTarget('./src/assets');
 
@@ -35,8 +41,6 @@ export default async function (eleventyConfig) {
 
   // ---------------------  Plugins
   eleventyConfig.addPlugin(plugins.htmlConfig);
-  eleventyConfig.addPlugin(plugins.cssConfig);
-  eleventyConfig.addPlugin(plugins.jsConfig);
 
   eleventyConfig.addPlugin(plugins.EleventyRenderPlugin);
   eleventyConfig.addPlugin(plugins.rss);
