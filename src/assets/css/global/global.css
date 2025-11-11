@@ -8,7 +8,6 @@
 @import 'base/variables.css' layer(variables);
 @import 'base/global-styles.css' layer(global);
 
-@import-glob 'components/*.css' layer(components);
 @import-glob 'compositions/*.css' layer(compositions);
 @import-glob 'blocks/*.css' layer(blocks);
 @import-glob 'utilities/*.css' layer(utilities);

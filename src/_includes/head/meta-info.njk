@@ -1,17 +1,16 @@
-<meta
-  name="description"
-  content="
-  {% if discover.description %}
-    {{ discover.description }}
-  {% elif description %}
-    {{ description }}
-  {% else %}
-    {{ meta.siteDescription }}
-  {% endif %}
-  "
-/>
+{% set metaDescription %}
+  {%- if discover.description -%}
+    {{- discover.description -}}
+  {%- elif description -%}
+    {{- description -}}
+  {%- else -%}
+    {{- meta.siteDescription -}}
+  {%- endif -%}
+{% endset %}
 
-<meta name="theme-color" content="{{ meta.themeColor }}" />
+<meta name="description" content="{{ metaDescription }}" />
+<meta name="theme-color" content="{{ meta.themeDark }}" media="(prefers-color-scheme: dark)" />
+<meta name="theme-color" content="{{ meta.themeLight }}" media="(prefers-color-scheme: light)" />
 <!-- Search Engines -->
 <meta name="robots" content="index,follow" />
 <meta name="googlebot" content="index,follow" />
@@ -21,12 +20,20 @@
 <meta name="format-detection" content="telephone=no" />
 <!-- supports both dark and light color schemes, page author prefers light as default. -->
 <meta name="color-scheme" content="light dark" />
-
 <!-- Helps prevent duplicate content issues -->
 <link rel="canonical" href="{{ meta.url }}{{ page.url }}" />
-
 <!-- Links to information about the author(s) of the document -->
 <link rel="author" href="humans.txt" />
+
+{% if personal.platforms.mastodon %}
+  <!-- Mastodon verified site -->
+  <link rel="me" href="{{ personal.platforms.mastodon }}" />
+{% endif %}
+
+{% if meta.author.fediverse %}
+  <!-- fediverse creator tag -->
+  <meta name="fediverse:creator" content="{{ meta.author.fediverse }}" />
+{% endif %}
 
 <!-- Open Graph meta  -->
 <meta property="og:url" content="{{ meta.url }}{{ page.url }}" />
@@ -41,7 +48,6 @@
     {{- meta.siteName -}}
   {%- endif -%}"
 />
-
 <meta
   property="og:image"
   content="{%- if layout == 'post' -%}
@@ -60,10 +66,7 @@
 />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta
-  property="og:description"
-  content="{% if description %}{{ description }}{% else %}{{ meta.siteDescription }}{% endif %}"
-/>
+<meta property="og:description" content="{{ metaDescription }}" />
 <meta property="og:site_name" content="{{ meta.siteName }}" />
 <meta property="og:locale" content="{{ meta.locale }}" />
 <meta property="article:author" content="{{ meta.author.name }}" />
@@ -80,9 +83,8 @@
   />
 {% endfor %}
 
-<!-- Favicon: https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs. -->
-<!-- Favicons are created on every build depending on the theme size -->
-<link rel="icon" href="{{ '/favicon.ico' | url }}" sizes="32x32" />
+<!-- Favicon: https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs -->
+<link rel="icon" href="{{ '/favicon.ico' | url }}" sizes="any" />
 <link rel="icon" href="{{ '/favicon.svg' | url }}" type="image/svg+xml" />
-<link rel="apple-touch-icon" sizes="180x180" href="{{ '/icon-180x180.png' | url }}" />
+<link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png' | url }}" />
 <link rel="manifest" href="{{ '/site.webmanifest' | url }}" />

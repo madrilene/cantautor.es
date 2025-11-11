@@ -1,0 +1,11 @@
+<script src="{% getBundleFileUrl "js", "defer" %}" type="module"></script>
+
+<!-- web components -->
+<script src="/assets/scripts/components/custom-artist-swap.js" defer></script>
+<script src="/assets/scripts/components/custom-audio.js" defer></script>
+<script src="/assets/scripts/components/click-spark.js" defer></script>
+
+<!-- plausible -->
+{% if meta.isProduction %}
+  <script defer data-domain="cantautor.es" src="https://plausible.io/js/script.js"></script>
+{% endif %}

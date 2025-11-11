@@ -69,7 +69,7 @@ layout: page
     <h2 class="visually-hidden">Featured</h2>
     <div data-swap>
       {% set featuredArtist = artists | random %}
-      <script type="module" src="/assets/components/custom-easteregg.js"></script>
+      <script type="module" src="/assets/scripts/components/custom-easteregg.js"></script>
       <custom-easteregg
         keyword="{{ featuredArtist.name | slugify }}"
         colors="{{ designTokens.colors.items[0].value }},{{ designTokens.colors.items[4].value }}"
@@ -101,3 +101,10 @@ layout: page
     </div>
   </section>
 </custom-artist-swap>
+
+{%- css "local" -%}
+  {%- include 'css/custom-artist.css' -%}
+  {%- include 'css/custom-artist-swap.css' -%}
+  {%- include 'css/custom-audio.css' -%}
+  {%- include 'css/custom-info.css' -%}
+{%- endcss -%}

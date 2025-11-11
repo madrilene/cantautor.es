@@ -122,3 +122,8 @@ h4 {
 :focus {
   scroll-margin-block-end: 8vh;
 }
+
+/* View transition */
+@view-transition {
+  navigation: auto;
+}

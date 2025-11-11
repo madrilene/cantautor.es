@@ -8,7 +8,7 @@
     "node": ">=20.x.x"
   },
   "scripts": {
-    "clean": "rimraf dist",
+    "clean": "rimraf dist src/_includes/css src/_includes/scripts",
     "dev:colors": "node ./src/_config/utils/create-colors.js",
     "dev:11ty": "eleventy --serve --watch",
     "build:colors": "node ./src/_config/utils/create-colors.js",
@@ -26,13 +26,13 @@
   },
   "dependencies": {
     "@11ty/eleventy": "^3.1.2",
-    "@11ty/eleventy-fetch": "^4.0.1",
+    "@11ty/eleventy-fetch": "^5.1.0",
     "@11ty/eleventy-img": "^6.0.4",
     "@11ty/eleventy-plugin-inclusive-language": "^1.0.3",
     "@11ty/eleventy-plugin-rss": "^2.0.4",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
     "@11ty/eleventy-plugin-webc": "^0.11.2",
-    "@11ty/is-land": "^5.0.0",
+    "@11ty/is-land": "^4.0.1",
     "colorjs.io": "^0.5.2",
     "lite-youtube-embed": "^0.3.4",
     "sharp": "^0.34.5",
