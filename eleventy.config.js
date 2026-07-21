@@ -10,7 +10,8 @@
  * @returns {Object} -
  */
 
-import yaml from 'js-yaml';
+// add yaml support
+import {load as yamlLoad} from 'js-yaml';
 
 //  config import
 import {getAllPosts, onlyMarkdown, tagList} from './src/_config/collections.js';
@@ -53,7 +54,7 @@ export default async function (eleventyConfig) {
 
   // 	--------------------- Library and Data
   eleventyConfig.setLibrary('md', plugins.markdownLib);
-  eleventyConfig.addDataExtension('yaml', contents => yaml.load(contents));
+  eleventyConfig.addDataExtension('yaml', contents => yamlLoad(contents));
 
   // --------------------- Filters
   eleventyConfig.addFilter('toIsoString', filters.toISOString);
