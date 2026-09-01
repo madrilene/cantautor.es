@@ -1,15 +1,14 @@
-import markdownIt from 'markdown-it';
-import markdownItPrism from 'markdown-it-prism';
-import markdownItAnchor from 'markdown-it-anchor';
 import markdownItClass from '@toycode/markdown-it-class';
-import markdownItLinkAttributes from 'markdown-it-link-attributes';
-import {full as markdownItEmoji} from 'markdown-it-emoji';
-import markdownItEleventyImg from 'markdown-it-eleventy-img';
-import markdownItFootnote from 'markdown-it-footnote';
-import markdownitMark from 'markdown-it-mark';
+import markdownIt from 'markdown-it';
 import markdownitAbbr from 'markdown-it-abbr';
-import {slugifyString} from '../filters/slugify.js';
+import markdownItAnchor from 'markdown-it-anchor';
+import markdownItEleventyImg from 'markdown-it-eleventy-img';
+import {full as markdownItEmoji} from 'markdown-it-emoji';
+import markdownItFootnote from 'markdown-it-footnote';
+import markdownItLinkAttributes from 'markdown-it-link-attributes';
+import markdownitMark from 'markdown-it-mark';
 import path from 'node:path';
+import {slugifyString} from '../filters/slugify.js';
 
 export const markdownLib = markdownIt({
   html: true,
@@ -18,9 +17,6 @@ export const markdownLib = markdownIt({
   typographer: true
 })
   .disable('code')
-  .use(markdownItPrism, {
-    defaultLanguage: 'plaintext'
-  })
   .use(markdownItAnchor, {
     slugify: slugifyString,
     tabIndex: false,
